@@ -21,6 +21,11 @@
     <script src="foundation/js/vendor/modernizr.js"></script>
     <link href="owl-carousel/carouselSync.css" rel="stylesheet" />
 
+   <%--<script src="fancybox/lib/jquery-1.10.1.min.js"></script>--%>
+    <link href="fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <script src="fancybox/source/jquery.fancybox.pack.js"></script>
+
+
 
     <%-- <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());
 
@@ -42,7 +47,7 @@
 
     <%--<uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />--%>
 
-     <uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />
+    <uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />
 
     <% }%>
 
@@ -62,6 +67,8 @@
 
     <script>
         $(document).ready(function () {
+
+            $(".fancybox").fancybox();
 
             var sync1 = $("#sync1");
             var sync2 = $("#sync2");

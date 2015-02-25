@@ -189,12 +189,21 @@
                         <% int i = 0; foreach (enIcerikResim resim in tumUrunler)
                            {%>
 
+
                         <div class="medium-4 columns">
+                            <a class="fancybox" rel="group" href='<%= resim.Buyuk %>'>
+                                <img src="<%= resim.Orta %>" alt="" /></a>
+                        </div>
+
+                        <%--<div class="Thumb small-4 large-2 columns <%= i == tumUrunler.Count-1 ? " end" : "" %>">
+                        </div>--%>
+
+                        <%--<div class="medium-4 columns">
                             <div class="imgThumb th" style="background-image: url(<%= resim.Orta %>)">
                                 <a class="picture-gallery" href='<%= resim.Buyuk %>' title='<%= resim.Aciklama %>'></a>
                             </div>
                             <p><%= resim.Baslik %></p>
-                        </div>
+                        </div>--%>
 
                         <% i++;
                            } %>
@@ -203,5 +212,4 @@
             </div>
         </div>
     </div>
-
-    <%} %>
+<%} %>

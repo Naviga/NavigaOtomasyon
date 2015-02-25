@@ -30,3 +30,11 @@ C:\Users\ziya\Desktop\WSSimple\Common\bin\Release\Entity.pdb
 C:\Users\ziya\Desktop\WSSimple\Common\obj\Release\Common.csprojResolveAssemblyReference.cache
 C:\Users\ziya\Desktop\WSSimple\Common\obj\Release\Common.dll
 C:\Users\ziya\Desktop\WSSimple\Common\obj\Release\Common.pdb
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\Common.dll
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\Common.pdb
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\Entity.dll
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\FxHelpers.dll
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\Entity.pdb
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\obj\Release\Common.csprojResolveAssemblyReference.cache
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\obj\Release\Common.dll
+C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Common\obj\Release\Common.pdb
