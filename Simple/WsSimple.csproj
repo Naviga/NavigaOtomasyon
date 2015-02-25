@@ -1024,7 +1024,9 @@
     <Content Include="exposure_slider\right.png" />
     <Content Include="exposure_slider\texts_tr.js" />
     <Content Include="exposure_slider\veil.png" />
+    <Content Include="fancybox\lib\jquery-1.10.1.min.js" />
     <Content Include="fancybox\lib\jquery-1.8.2.min.js" />
+    <Content Include="fancybox\lib\jquery-1.9.0.min.js" />
     <Content Include="fancybox\lib\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="fancybox\source\blank.gif" />
     <Content Include="fancybox\source\fancybox_loading.gif" />

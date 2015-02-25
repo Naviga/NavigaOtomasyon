@@ -41,6 +41,10 @@
 
 <% if (sayfa.SayfaYolu || sayfa.PaylasimAlani)
    {%>
+
+<% if (!sayfa.UrunMu)
+   {%>
+
 <div class="page-breadcrumbs-share row">
     <% if (sayfa.SayfaYolu)
        {%>
@@ -55,6 +59,7 @@
 </div>
 <%} %>
 
+<% } %>
 <%---------------------------------ALT SAYFALAR--%>
 <div class="row">
 
@@ -65,6 +70,9 @@
 
     <% if ((sayfa.SayfaMenu && altSayfalar.Count > 0))
        { %>
+
+    <% if (!sayfa.UrunMu)
+       {%>
 
     <div class="large-2 column">
         <ul class="side-nav">
@@ -155,11 +163,13 @@
         </div>
     </div>
 
+    <% } %>
+
     <%if (sayfa.UrunMu)
       {%>
 
-    <div class="large-10 column">
-        <div class="large-12 column">
+    <div class="large-12 columns">
+        <div class="large-12 columns">
             <div class="page-pictures row">
                 <% if (SessionManager.Admin != null)
                    {%>
@@ -169,7 +179,7 @@
                 </div>
                 <%} %>
 
-                <div class="large-12 column">
+                <div class="large-12 columns">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
                        {%>
                     <h3 id='h1' <%= SessionManager.Admin!= null ? "class='editable-simple' op='page-pictures-title' contenteditable='true'":"" %>><%= sayfa.FotoBaslik %></h3>
@@ -179,7 +189,7 @@
                         <% int i = 0; foreach (enIcerikResim resim in tumUrunler)
                            {%>
 
-                        <div class="Thumb small-4 large-2 columns <%= i == tumUrunler.Count-1 ? " end" : "" %>">
+                        <div class="medium-4 columns">
                             <div class="imgThumb th" style="background-image: url(<%= resim.Orta %>)">
                                 <a class="picture-gallery" href='<%= resim.Buyuk %>' title='<%= resim.Aciklama %>'></a>
                             </div>
