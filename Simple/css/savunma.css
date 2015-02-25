@@ -1,0 +1,156 @@
+﻿
+#main-logo
+{
+    height: 65px;
+    z-index: 10;
+    -webkit-box-shadow: 0px 3px 5px -1px rgba(68,68,68,1);
+    -moz-box-shadow: 0px 3px 5px -1px rgba(68,68,68,1);
+    box-shadow: 0px 3px 5px -1px rgba(68,68,68,1);
+}
+
+.top-bar
+{
+    z-index: 10;
+}
+
+    .top-bar .name h1 a
+    {
+        font-family: 'Anton', sans-serif;
+    }
+
+    .top-bar .toggle-topbar a
+    {
+        font-family: 'Anton', sans-serif;
+    }
+
+
+
+
+.top-bar-section ul li > a
+{
+    /*font-family: 'Anton', sans-serif;*/
+    font-size: .8rem;
+}
+
+.top-bar.blue-bar .top-bar-section ul li > a
+{
+   font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+}
+
+/*TOP BAR MAVI*/
+
+.top-bar.blue-bar
+{
+    
+    background: #dc010d;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 0;
+    z-index: 1;
+    height: 65px;
+    -webkit-box-shadow: 0px 3px 5px -1px rgba(68,68,68,1);
+    -moz-box-shadow: 0px 3px 5px -1px rgba(68,68,68,1);
+    box-shadow: 0px 3px 5px -1px rgba(68,68,68,1);
+}
+
+    .top-bar.blue-bar .name h1 a
+    {
+        color: #efefef;
+    }
+
+    .top-bar.blue-bar .toggle-topbar a
+    {
+        color: #efefef;
+    }
+
+    .top-bar.blue-bar .toggle-topbar.menu-icon a
+    {
+        color: #efefef;
+    }
+
+.top-bar-section.blue-bar ul.left
+{
+    margin-left: 250px;
+}
+
+.top-bar-section.blue-bar ul li
+{
+    background: #efefef;
+}
+
+    .top-bar-section.blue-bar ul li > a
+    {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 300;
+        letter-spacing: .1rem;
+    }
+
+.top-bar-section.blue-bar li:not(.has-form) a:not(.button)
+{
+    background: #dc010d;
+    line-height: 65px;
+}
+
+    .top-bar-section.blue-bar li:not(.has-form) a:not(.button):hover
+    {
+        background: #cb010c;
+        color: #efefef;
+    }
+
+.top-bar-section.blue-bar li.active:not(.has-form) a:not(.button)
+{
+    color: white;
+    background: #cb010c;
+}
+
+    .top-bar-section.blue-bar li.active:not(.has-form) a:not(.button):hover
+    {
+        background: #cb010c;
+        color: white;
+    }
+
+.top-bar-section.blue-bar > ul > .divider, .top-bar-section > ul > [role="separator"]
+{
+    border-right: solid 1px #ba010c;
+    height: 65px;
+}
+
+#main-brands-carousel div.item
+{
+    min-height: 100px;
+}
+
+.top-bar-section span.slogan
+{
+    color: #efefef;
+    font-style: italic;
+    font-family: 'Anton',"Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    letter-spacing: .1rem;
+    font-size: .8rem;
+}
+
+
+.hepta
+{
+    -webkit-clip-path: polygon( 50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19% );
+    -moz-clip-path: polygon( 50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19% );
+    -ms-clip-path: polygon( 50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19% );
+    clip-path: polygon( 50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19% );
+    border: 1px solid #dc010d;
+}
+button, .button {
+    background-color: #dc010d;
+    border-color: #ba010c;
+}
+button:hover, button:focus, .button:hover, .button:focus
+    {
+        background-color: #ba010c;
+    }
+
+    .th:hover, .th:focus
+    {
+        box-shadow: 0 0 6px 1px rgba(220, 1, 13, 0.5);
+    }

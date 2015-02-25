@@ -1,0 +1,584 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Ws.masterPages.Main" %>
+
+<%@ Import Namespace="System.Web.Routing" %>
+<%@ Import Namespace="BLL" %>
+<%@ Import Namespace="Common" %>
+<%@ Import Namespace="Entity" %>
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="tr" > <![endif]-->
+<html class="no-js" lang="tr">
+
+<head id="Head1" runat="server">
+    <base href="http://localhost:61180/" />
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="../owl-carousel/owl.carousel.css">
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="../owl-carousel/owl.theme.css">
+    <link href="../font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--[if lt IE 8]>
+    <link href="/zurb/css/ie7.css" rel="stylesheet" />    
+    <![endif]-->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link href="../admin/foundation/css/normalize.css" rel="stylesheet" />
+    <link href="../admin/foundation/css/foundation.css" rel="stylesheet" />
+
+    <link href="../css/default.css" rel="stylesheet" />
+
+    <%= Settings.Tasarim.sTemplate.xBosMu() == false ? "<link href='/css/templates/"+Settings.Tasarim.sTemplate+"' rel='stylesheet' />" : "" %>
+
+    <% string arkaPlanResmi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.ArkaPlanResmi).Degeri;
+       string arkaPlanRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.ArkaPlanRengi).Degeri;
+       string menuArkaPlanRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.MenuArkaPlanRengi).Degeri;
+       string menuYuksekligi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.MenuYuksekligi).Degeri;
+       string yaziRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.YaziRengi).Degeri;
+       string baslikRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.BaslikRengi).Degeri;
+       string baglantiRengi1 = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.BaglantiRengi).Degeri;
+       string baglantiRengi2 = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.BaglantiRengi2).Degeri;
+       string footerRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.AltBolumRengi).Degeri;
+       string blokArkaPlanRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.BlokArkaPlanRengi).Degeri;
+       string blokCerceveRengi = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.BlokCerceveRengi).Degeri; %>
+    <% string strMetinFontu = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.MetinFontu).Degeri;
+       string strBaslikFontu = bllTasarimAyarlari.TasarimAyariGetir(Entity.enEnumaration.enmTasarimAyarlari.BaslikFontu).Degeri; %>
+
+    <%= strMetinFontu.xBosMu() ? "" : "<link id='lnk" + strMetinFontu + "' href='http://fonts.googleapis.com/css?family=" + strMetinFontu + "' rel='stylesheet' type='text/css'>" %>
+    <%= strBaslikFontu.xBosMu() ? "" : "<link id='lnk" + strBaslikFontu + "' href='http://fonts.googleapis.com/css?family=" + strBaslikFontu + "' rel='stylesheet' type='text/css'>" %>
+
+    <script>
+        var isAdmin = '<%= SessionManager.Admin != null %>' == 'True' ? true : false;
+    </script>
+
+    <style>
+        <% if (strMetinFontu.xBosMu() == false)
+           {%>
+         body,small,p
+         {
+            font-family: '<%= strMetinFontu %>', 'sans-serif' !important;
+         }  
+       <%} %>
+        <% if (strBaslikFontu.xBosMu() == false)
+           {%>
+         h1,h2,h3,h4,h5,h6
+         {
+            font-family: '<%= strBaslikFontu %>', 'sans-serif' !important;
+         }  
+        .top-bar-section ul li > a
+         {
+            font-family: '<%= strBaslikFontu %>', 'sans-serif' !important;
+         }  
+       <%} %>
+
+         <% if (arkaPlanResmi.xBosMu() == false)
+            {%>
+         body
+         {
+             background-image: url(<%= arkaPlanResmi %>) !important;
+             background-repeat: no-repeat !important;
+             background-position: center center !important;
+             background-size: cover !important;
+             background-attachment: fixed !important;
+         }  
+        <%} %>
+        
+        <% if (arkaPlanRengi.xBosMu() == false)
+           {%>
+         body,#container
+        {
+            background-color: <%= arkaPlanRengi %> !important;
+        }  
+        <%} %>
+        
+        <% if (yaziRengi.xBosMu() == false)
+           {%>
+         body
+        {
+            color: <%= yaziRengi %> !important;
+        }  
+        small {
+            color: <%= yaziRengi %> !important;
+        }
+        <%} %>
+
+        <% if (baslikRengi.xBosMu() == false)
+           {%>
+         h1,h2,h3,h4,h4,h5,h6
+        {
+            color: <%= baslikRengi %> !important;
+        }  
+        <%} %>
+
+        <% if (baglantiRengi1.xBosMu() == false)
+           {%>
+         a
+        {
+            color: <%= baglantiRengi1 %> !important;
+        }  
+        <%} %>
+
+        <% if (baglantiRengi2.xBosMu() == false)
+           {%>
+         a:hover
+        {
+            color: <%= baglantiRengi2 %> !important;
+        }  
+        <%} %>
+
+        <% if (menuArkaPlanRengi.xBosMu() == false)
+           {%>
+        .top-bar
+        {
+            background-color: <%= menuArkaPlanRengi %> !important;
+        }
+        .top-bar-section ul
+        {
+            background-color: <%= menuArkaPlanRengi %> !important;
+        }
+        .top-bar-section li a:not(.button)
+        {
+            background-color: <%= menuArkaPlanRengi %> !important;
+        }
+        <%} %>    
+         <% if (menuYuksekligi.xBosMu() == false)
+            {%>
+        @media only screen and (min-width: 768px) {
+        .top-bar
+        {
+            height: <%= menuYuksekligi %> !important;
+            line-height: <%= menuYuksekligi %> !important;
+        }
+        .top-bar .name
+        {
+            height: <%= menuYuksekligi %> !important;
+        }
+
+        .top-bar .name h1
+        {
+            line-height: <%= menuYuksekligi %> !important;
+        }
+
+        .top-bar .toggle-topbar a
+        {
+            height: <%= menuYuksekligi %> !important;
+            line-height: <%= menuYuksekligi %> !important;
+        }
+        .top-bar-section li a:not(.button)
+        {
+            line-height: <%= menuYuksekligi %> !important;
+        }
+        .top-bar-section .dropdown li a {
+            line-height: 35px !important;
+        }
+        .top-bar-section .has-form
+        {
+            height: <%= menuYuksekligi %> !important;
+        }
+        }
+        <%} %>
+
+        <% if (footerRengi.xBosMu() == false)
+           {%>
+         footer
+        {
+            background-color: <%= footerRengi %> !important;
+        }  
+        <%} %>
+
+        <% if (blokArkaPlanRengi.xBosMu() == false)
+           {%>
+         .panel
+        {
+            background-color: <%= blokArkaPlanRengi%>;
+        }  
+        <%} %>
+        <% if (blokCerceveRengi.xBosMu() == false)
+           {%>
+         .panel
+        {
+            border-color: <%= blokCerceveRengi%>;
+        }
+        .panel hr
+        {
+            border-color: <%= blokCerceveRengi%>;
+        }  
+        <%} %>
+        
+    </style>
+    <script src="/owl-carousel/owl.carousel.js"></script>
+    <link href="/colorbox/colorbox.css" rel="stylesheet" />
+    <% if (SessionManager.Admin != null)
+       {%>
+    <link href="../css/admin.css" rel="stylesheet" />
+    <%} %>
+    <link href="../css/classes.css" rel="stylesheet" />
+    <script src="../admin/foundation/js/vendor/modernizr.js"></script>
+    <script src="../admin/foundation/js/foundation.min.js"></script>
+    <asp:ContentPlaceHolder ID="mainhead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(Page.RouteData.Values["Id"].xToIntDefault());
+
+       if (sayfa.Id == 0)
+       {
+           sayfa = bllSiteHaritasi.SayfaGetirFiziksel("~/Default.aspx");
+       } %>
+
+    <% if (SessionManager.Admin != null)
+       {%>
+    <div id="dvLoader">
+        <div id="loader">
+            <img src="/css/img/loader.GIF" width="64px" />
+            <br />
+            <p>
+                Değişiklikleriniz kaydediliyor...
+            </p>
+        </div>
+    </div>
+    <%} %>
+    <div id="container">
+        <% if (SessionManager.Admin != null)
+           {%>
+        <div id="dvYonetici" class="fixed">
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="#!"><span class="fa fa-user"></span>&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.AdminNavigation") %></a></h1>
+                    </li>
+                    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                    <li class="toggle-topbar menu-icon"><a href="#"><span><%= bllDiziler.DiziGetir("Main.AdminMenu.Menu") %></span></a></li>
+                </ul>
+
+                <section class="top-bar-section">
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li><a href="?logout" class="button alert"><span class="fa fa-power-off"></span></a></li>
+                    </ul>
+
+                    <!-- Left Nav Section -->
+                    <ul class="left">
+                        <li class="active">
+                            <a class="iframe" href="/admin/Pages.aspx?iframe&dzid=<%= sayfa.Id %>"><span class="fa fa-edit"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.EditThisPage") %></a>
+                        </li>
+                        <li>
+                            <a class="iframe" href="/admin/Diziler.aspx?iframe"><span class="fa fa-font"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.StringResources") %></a>
+                        </li>
+                        <li>
+                            <a class="iframe" href="/admin/Ayarlar.aspx?iframe&i=1"><span class="fa fa-paint-brush"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.Design") %></a>
+                        </li>
+                        <li>
+                            <a class="iframe" href="/admin/Ayarlar.aspx?iframe&i=0"><span class="fa fa-cogs"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.GeneralSettings") %></a>
+                        </li>
+                        <li>
+                            <a class="iframe" href="/admin/Analytics.aspx?iframe"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.GoogleAnalytics") %></a>
+                        </li>
+                    </ul>
+                </section>
+            </nav>
+        </div>
+        <%} %>
+
+        <div id="header" <%= Settings.Tasarim.sHeader.xBosMu() == false ? " style='background-color:"+Settings.Tasarim.sHeader+";'" : "" %>>
+            <% if (SessionManager.Admin != null)
+               {%>
+            <div class='dvSettings'>
+                <a class="iframe has-tip" href="/admin/UploadLogo.aspx?iframe" title="Logo değiştir" data-tooltip aria-haspopup="true">
+                    <img src="/css/img/settings.png" width="32px" /></a>
+            </div>
+            <%} %>
+            <a href="/">
+                <img src='<%= Settings.Tasarim.sLogo %>' alt='<%= Page.Title %>' /></a>
+        </div>
+        <div id="navigation">
+            <% if (SessionManager.Admin != null)
+               {%>
+            <div class='dvSettings'>
+                <a class="iframe has-tip" href="/admin/Pages.aspx?iframe" title="Sayfaları düzenle" data-tooltip aria-haspopup="true">
+                    <img src="/css/img/settings.png" width="32px" /></a>
+            </div>
+            <%} %>
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <%--<h1><a href="#">My Site</a></h1>--%>
+                    </li>
+                    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                </ul>
+
+                <section class="top-bar-section">
+                    <%= GetNavigation() %>
+                </section>
+            </nav>
+
+        </div>
+
+
+        <asp:ContentPlaceHolder ID="MainPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+        <footer id="footer" class="row text-center">
+
+            <div class="large-12 columns">
+                <p id="pCopyright" <%= SessionManager.Admin!= null ? "class='editable-basic' op='string-resources' code='Main.Bottom.Text.Copyright' contenteditable='true'":"" %>><%= bllDiziler.DiziGetir("Main.Bottom.Text.Copyright") %></p>
+                <hr />
+                <asp:Literal ID="ltrFinex" runat="server" />
+            </div>
+        </footer>
+    </div>
+
+    <script src="/scripts/AjaxMethods.js"></script>
+    <script src="/scripts/Extentions.js"></script>
+    <script src="/scripts/Genel.js"></script>
+
+    <link href="/jShare/jquery.share.css" rel="stylesheet" />
+    <script src="/jShare/jquery.share.js"></script>
+    <% if (SessionManager.Admin != null)
+       { %>
+    <script src="/ckeditor/ckeditor.js"></script>
+    <% } %>
+    <script src="/colorbox/jquery.colorbox-min.js"></script>
+    <%--<script src="/admin/foundation/js/vendor/jquery.js"></script>--%>
+    <script src="../admin/foundation/js/foundation.min.js"></script>
+    <script src="/js/autolink-min.js"></script>
+    <script>
+        $(document).foundation();
+
+        $(".imgThumb").css("height", $(".imgThumb").width() / 1.5);
+
+        $("#content").css("padding-bottom", $("footer").height() * 1.05);
+
+        if (!isMobile.any() && !isAdmin) {
+
+            var navWidth = $("nav[class='top-bar']").width();
+            var ulNavWidth = $("#ulMainNavigation").width();
+
+            var marginLeft = (navWidth / 2) - (ulNavWidth / 2);
+
+            $("#ulMainNavigation").css("margin-left", marginLeft);
+        }
+
+    </script>
+    <script>
+
+        $(document).ready(function () {
+
+
+
+
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%", next: "İleri", previous: "Geri", close: "Kapat",
+                onClosed: function () {
+                    location.href = location.href;
+                }
+            });
+
+            $(".picture-gallery").colorbox({
+                rel: 'picture-gallery', width: "80%", height: "80%", scalePhotos: true, current: "Resim {current} / {total}", next: "İleri", previous: "Geri", close: "Kapat",
+                onComplete: function () {
+                    $("#cboxTitle").html($("#cboxTitle").html().autoLink({ target: "_blank" }));
+                }
+            });
+
+            <% if (SessionManager.Admin != null)
+               {%>
+
+            $(".editablePagePicturesTitle").blur(function () {
+                //alert('blur');
+            });
+
+            CKEDITOR.disableAutoInline = true;
+
+            $(".editable-full").each(function (index) {
+
+                var cfg = { toolbar: 'Full' };
+
+                var content_id = $(this).attr('id');
+
+                //var tagName = $(this).prop('tagName');
+
+                var role = $(this).attr('role');
+
+                CKEDITOR.inline(content_id, cfg);
+
+            });
+
+            $(".editable-simple").each(function (index) {
+
+                var cfg = {
+                    toolbar: [
+                        ['Save']]
+                };
+
+                var content_id = $(this).attr('id');
+
+                CKEDITOR.inline(content_id, cfg);
+            });
+
+            $(".editable-basic").each(function (index) {
+
+                var cfg = {
+                    toolbarGroups: [
+                        { "name": "document", "groups": ["mode"] },
+				        { "name": "basicstyles", "groups": ["basicstyles"] },
+                        { "name": 'colors' },
+				        { "name": "links", "groups": ["links"] },
+				        { "name": "paragraph", "groups": ["list", "blocks"] },
+                        {
+                            "name": 'clipboard', "groups": ['clipboard', 'undo']
+                        },
+                        { "name": 'styles', "groups": ['Format'] }
+                    ]
+                };
+
+                var content_id = $(this).attr('id');
+
+                CKEDITOR.inline(content_id, cfg);
+            });
+
+            <% }%>
+
+
+            $('#dvShare').share({
+                networks: ['facebook', 'twitter', 'googleplus', 'tumblr', 'linkedin', 'pinterest', 'email'],
+                theme: 'square'
+            });
+
+            $(".main-menu-a").each(function (index) { //aktif sayfa seçimi
+
+                if ($(this).attr("href") == location.pathname) {
+                    $(this).parent().addClass("active");
+                } else {
+                    $(this).parent().removeClass("active");
+                }
+
+            });
+
+
+        }); //READY
+
+        <% if (SessionManager.Admin != null)
+           {%>
+
+        function Kaydet(event) {
+            alert('click');
+        }
+
+        function OpenNewNavItem(a) {
+
+            var parent = $(a).attr("parentId");
+
+            //$("#navigation li").eq($("#navigation li").length - 2).after("<li><input type='text' placeholder='Sayfa adı...' onkeyup='SaveNewPage(event,this)' onblur='CloseNewPage(this)' /></li>");
+            $(a).parent().before("<li><input type='text' placeholder='Sayfa adı...' onkeyup='SaveNewPage(event,this," + parent + ")' onblur='CloseNewPage(this)' /></li>");
+        }
+
+
+        function CloseNewPage(i) {
+            if (!$(i).val()) {
+                $(i).parent().remove();
+            }
+        }
+
+        function SaveNewPage(e, a, p) {
+
+            if (e.keyCode == 13) {
+
+                var dataS = '{"name":"' + $(a).parent().find("input").val() + '","parent":"' + p + '"}';
+
+                var req = AjaxPost("/services/general.asmx/NewPage", dataS, "dvLoader");
+
+                req.success(function (r) {
+
+                    $(a).parent().html("<a href='" + r.d + "'>" + $(a).parent().find("input").val() + "</a>");
+
+                });
+
+
+            }
+        }
+
+        function DeletePage(a) {
+            var pageId = $(a).attr("pageid");
+
+            alert(pageId);
+
+            $(a).parent().remove();
+
+            //var dataS = '{"name":"' + $(a).parent().find("input").val() + '"}';
+
+            //var req = AjaxPost("/services/general.asmx/NewPage", dataS, "dvLoader");
+
+            //req.success(function (r) {
+
+            //    $(a).parent().remove();
+
+            //});
+
+        }
+
+        function SavePageContent(data) {
+
+            var dataS = '{"pageId":"' + _sayfaId + '","content":"' + encodeURIComponent(data) + '"}';
+
+            var req = AjaxPost("/services/general.asmx/SavePageContent", dataS, "dvLoader");
+
+            req.success(function (json) {
+                //alert('Değişiklikler kaydedildi.');
+            });
+
+        }
+
+
+        function SavePageTitle(value) {
+            var dataS = '{"pageId":"' + _sayfaId + '","title":"' + value + '"}';
+
+            var req = AjaxPost("/services/general.asmx/SavePageTitle", dataS, "dvLoader");
+
+            req.success(function (json) {
+                location.href = json.d;
+            });
+        }
+
+        function SavePagePicturesTitle(value) {
+            var dataS = '{"pageId":"' + _sayfaId + '","title":"' + value + '"}';
+
+            var req = AjaxPost("/services/general.asmx/SavePagePicturesTitle", dataS, "dvLoader");
+
+            req.success(function (json) {
+                //alert('Değişiklikler kaydedildi.');
+            });
+        }
+
+
+        function SaveStringResource(code, value) {
+            var dataS = '{"code":"' + code + '","value":"' + encodeURIComponent(value) + '"}';
+
+            var req = AjaxPost("/services/general.asmx/SaveStringResource", dataS, "dvLoader");
+
+            req.success(function (json) {
+                //alert('Değişiklikler kaydedildi.');
+            });
+        }
+
+
+        <%} %>
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="maincntScript" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:Literal ID="ltrAnalytics" runat="server" />
+</body>
+</html>

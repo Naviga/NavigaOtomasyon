@@ -1,0 +1,15 @@
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSR\Entity\bin\Debug\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSR\Entity\bin\Debug\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSR\Entity\obj\Debug\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSR\Entity\obj\Debug\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSR\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Entity\bin\Debug\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Entity\bin\Debug\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Entity\obj\Debug\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Entity\obj\Debug\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Entity\bin\Debug\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Entity\bin\Debug\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Entity\obj\Debug\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Entity\obj\Debug\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache

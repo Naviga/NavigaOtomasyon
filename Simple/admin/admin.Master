@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="Ws.admin.admin" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<%@ Register Src="../usc/uscAdminUstMenu.ascx" TagName="uscAdminUstMenu" TagPrefix="uc2" %>
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSR Admin</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
+    <link rel="stylesheet" href="foundation/css/normalize.css">
+    <link rel="stylesheet" href="foundation/css/foundation.css">
+    <link href="../font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/admin.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/owl-carousel/owl.carousel.css">
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="/owl-carousel/owl.theme.css">
+
+    <link href="/colorbox/colorbox.css" rel="stylesheet" />
+    <script src="/owl-carousel/owl.carousel.js"></script>
+    <script src="foundation/js/vendor/modernizr.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/tr_TR/sdk.js#xfbml=1&appId=473425172747348&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <form id="form1" runat="server">
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        </asp:ToolkitScriptManager>
+        <%--<uc2:uscAdminUstMenu ID="uscAdminUstMenu1" runat="server" />--%>
+        <div class="container">
+            <%-- <div class="banner">
+                <div class="bannerSol">
+                    <a href='Default.aspx'>
+                        <img src="/admin/css/img/webLogo.png" width="300px" /></a>
+                </div>
+                <div class="bannerSag" style="padding: 20px;">
+                    
+                </div>
+
+                <div class="clear">
+                </div>
+            </div>
+            --%>
+            <% if (!Request.Url.AbsoluteUri.Contains("?iframe"))
+               {%>
+            <div id="dvTopBar" class="fixed">
+                <nav class="top-bar" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1><a href="#">
+                                <img src="css/img/wsr_admin_logo.png" style="height: 30px" /></a></h1>
+                        </li>
+                        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li><a href="../Default.aspx" target="_blank" class="button success"><span class="fa fa-globe"></span>&nbsp;</a></li>
+
+                            <li>
+                                <asp:LinkButton ID="lnkCikis" runat="server" OnClick="lnkCikis_Click" ToolTip="Çıkış yapmak için tıklayın..." CssClass="button alert">
+                                    <span class="fa fa-power-off "></span>
+                                </asp:LinkButton></li>
+                            <%--<li class="has-dropdown">
+                            <a href="#">Right Button Dropdown</a>
+                            <ul class="dropdown">
+                                <li><a href="#">First link in dropdown</a></li>
+                                <li class="active"><a href="#">Active link in dropdown</a></li>
+                            </ul>
+                        </li>--%>
+                        </ul>
+
+                        <!-- Left Nav Section -->
+                        <ul class="left">
+                            <li class="divider"></li>
+                            <li><a href="Default.aspx"><span class="fa fa-home"></span>&nbsp;</a></li>
+                            <li class="divider"></li>
+                            <li><a href="Admin.aspx"><span class="fa fa-user"></span>&nbsp;Kullanıcılar</a></li>
+                            <li class="divider"></li>
+                            <li><a href="Diziler.aspx"><span class="fa fa-file-text"></span>&nbsp;Diziler</a></li>
+                            <li class="divider"></li>
+                            <li><a href="Bloklar.aspx"><span class="fa fa-cubes"></span>&nbsp;Bloklar</a></li>
+                            <li class="divider"></li>
+                            <li><a href="Pages.aspx"><span class="fa fa-file-code-o"></span>&nbsp;Sayfalar</a></li>
+                            <li class="divider"></li>
+                            <li><a href="Carousel.aspx"><span class="fa fa-image"></span>&nbsp;Slayt & Carousel</a></li>
+                            <li class="divider"></li>
+                            <li><a href="SosyalMedya.aspx"><span class="fa fa-share"></span>&nbsp;Sosyal Medya</a></li>
+                            <li class="divider"></li>
+                            <li><a href="DosyaYonetimi.aspx"><span class="fa fa-file"></span>&nbsp;Dosya Yönetimi</a></li>
+                            <li class="divider"></li>
+                            <li><a href="Ayarlar.aspx"><span class="fa fa-cogs"></span>&nbsp;Ayarlar</a></li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+            <%} %>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </form>
+
+    <script src="foundation/js/vendor/jquery.js"></script>
+    <script src="foundation/js/foundation.min.js"></script>
+
+    <script src="/scripts/Extentions.js"></script>
+    <script src="/scripts/AjaxMethods.js"></script>
+
+    <script src="/colorbox/jquery.colorbox-min.js"></script>
+    <script src="/js/autolink-min.js"></script>
+    <script>
+
+
+        $(document).foundation();
+
+
+
+        $(document).ready(function () {
+
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%", next: "İleri", previous: "Geri", close: "Kapat",
+                onClosed: function () {
+                    //location.href = location.href;
+                }
+            });
+
+            $(".picture-gallery").colorbox({
+                rel: 'picture-gallery', width: "80%", height: "80%", scalePhotos: true, current: "Resim {current} / {total}", next: "İleri", previous: "Geri", close: "Kapat",
+                onComplete: function () {
+                    $("#cboxTitle").html($("#cboxTitle").html().autoLink({ target: "_blank" }));
+                }
+            });
+
+            //$('.fancybox').fancybox();
+
+            $(".required").click(function () {
+                $(this).removeClass("required");
+            });
+
+            $(".switch").find("input[type=checkbox]").click(function () {
+                $(this).parent().find("input[type=hidden]").val($(this).is(":checked"));
+            });
+        });
+    </script>
+</body>
+</html>

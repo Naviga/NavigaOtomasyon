@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterPages/Main.Master" AutoEventWireup="true" CodeBehind="sol.master.cs" Inherits="Ws.masterPages.sol" %>
+
+<%@ Register Src="~/usc/uscPozisyonBlok.ascx" TagPrefix="uc1" TagName="uscPozisyonBlok" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="mainhead" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder1" runat="server">
+    <div id="dvOrtaBolum" class="row">
+        <div class="large-3 columns">
+            <div id="dvSol" class="row connectedSortable" poz='<%= Entity.enEnumaration.enmPozisyon.Sol %>'>
+                <uc1:uscPozisyonBlok runat="server" ID="uscPozisyonBlok1" Pozisyon="Sol" SayfaMi="True" />
+            </div>
+        </div>
+        <div class="large-9 columns">
+            <div id="dvContent" class="row">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="maincntScript" runat="server">
+    <asp:ContentPlaceHolder ID="cntScript" runat="server" />
+</asp:Content>

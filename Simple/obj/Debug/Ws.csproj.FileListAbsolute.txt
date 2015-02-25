@@ -1,0 +1,5 @@
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Ws.csprojResolveAssemblyReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Interop.ADOX.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Ws.csproj.ResolveComReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Ws.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Ws.pdb

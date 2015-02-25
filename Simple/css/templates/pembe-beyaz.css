@@ -1,0 +1,57 @@
+﻿
+
+.top-bar
+{
+    background-color: #111;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button)
+{
+    background-color: #bc0070;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button)
+{
+    background-color: #111;
+}
+
+    .top-bar-section li:not(.has-form) a:not(.button):hover
+    {
+        background-color: #ec008c;
+    }
+
+.top-bar-section li.active:not(.has-form) a:not(.button):hover
+{
+    background: #ec008c;
+    color: white;
+}
+
+a
+{
+    color: #bc0070;
+}
+
+    a:hover
+    {
+        color: #ec008c;
+    }
+
+.side-nav li a:not(.button)
+{
+    color: #bc0070;
+}
+
+    .side-nav li a:not(.button):hover
+    {
+        color: #ec008c;
+    }
+
+.side-nav li
+{
+    border-bottom: 1px solid #ccc;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: #bc0070;
+}

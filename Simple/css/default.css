@@ -1,0 +1,207 @@
+﻿html,
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 100%;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
+    color: #2c2c2c;
+    display: block;
+}
+
+body
+{
+    /*background-image: url(/yukleme/resim/Arkaplanlar/84.jpg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    background-attachment: fixed;*/
+}
+
+*,
+*:before,
+*:after
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.row
+{
+    max-width: 72.5em;
+}
+
+a
+{
+    color: #00bfff;
+}
+
+#container
+{
+    position: relative;
+    display: block;
+    max-width: 72.5em;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 6px 1px rgba(44, 44, 44, 0.5);
+}
+
+#header
+{
+    position: relative;
+}
+
+#navigation
+{
+    position: relative;
+}
+
+#content
+{
+    padding-bottom: 70px;
+}
+
+#footer
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    font-size: .8em;
+    max-width: 100%;
+    background-color: #efefef;
+    border-top: 1px solid #d1d1d1;
+}
+
+    #footer p
+    {
+        font-size: .8rem;
+    }
+
+#map-canvas
+{
+    border: 4px solid #2c2c2c;
+}
+
+.page-main-picture
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    /*width: 50%;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 0.5em;*/
+}
+
+    .page-main-picture img
+    {
+        width: 100%;
+    }
+
+.page-header
+{
+    border-bottom: 1px solid #efefef;
+}
+
+.page-content
+{
+    padding: 0.5em;
+}
+
+.page-breadcrumbs-share
+{
+    border-bottom: 1px solid #efefef;
+}
+
+.page-pictures
+{
+    position: relative;
+}
+
+.Thumb p
+{
+    font-size: 75%;
+    margin-top: -0.3em;
+}
+
+.imgThumb
+{
+    background-position: left center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 0;
+    margin-top: 1em;
+}
+
+    .imgThumb a
+    {
+        display: block;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+.breadcrumbs
+{
+    background-color: transparent;
+    border: 0;
+    padding: 0.875rem 0.875rem 0.5625rem;
+}
+
+.side-nav li
+{
+    border-bottom: 1px solid #efefef;
+}
+
+    .side-nav li.active a:not(.button)
+    {
+        background-color: #2ba6cb;
+        color: #efefef !important;
+    }
+
+        .side-nav li.active a:not(.button):hover
+        {
+            background-color: #2285a2;
+            color: #fff !important;
+        }
+
+.top-bar span.close
+{
+    font-size: .7rem !important;
+    padding: 9px 6px 9px !important;
+    line-height: 0 !important;
+    position: absolute !important;
+    top: 25% !important;
+    margin-top: -0.6875rem !important;
+    right: 0.05rem !important;
+    color: #fff !important;
+    opacity: 0.3 !important;
+    background: inherit !important;
+    width: auto !important;
+    height: auto !important;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+    border-radius: 10px;
+}
+
+    .top-bar span.close:hover
+    {
+        color: #efefef !important;
+        opacity: 1 !important;
+        background-color: red !important;
+    }
+
+.editable-full
+{
+    padding-bottom: 2em;
+}

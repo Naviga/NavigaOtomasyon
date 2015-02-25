@@ -1,0 +1,17 @@
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Ws.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Ws.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\BLL.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Common.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Entity.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Settings.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\DAL.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\BLL.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Common.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Entity.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\Settings.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\bin\DAL.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\obj\Release\Ws.csprojResolveAssemblyReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\obj\Release\Interop.ADOX.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\obj\Release\Ws.csproj.ResolveComReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\obj\Release\Ws.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\Ws\obj\Release\Ws.pdb

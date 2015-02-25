@@ -1,0 +1,8 @@
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\Simple\News\obj\Debug\News.csprojResolveAssemblyReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\bin\Debug\News.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\bin\Debug\News.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\bin\Debug\FxHelpers.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\bin\Debug\FxHelpers.pdb
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\obj\Debug\News.csprojResolveAssemblyReference.cache
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\obj\Debug\News.dll
+C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\News\obj\Debug\News.pdb

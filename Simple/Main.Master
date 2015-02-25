@@ -1,0 +1,377 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Ws.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naviga Otomasyon</title>
+
+
+    <link href="admin/foundation/css/normalize.css" rel="stylesheet" />
+    <link href="admin/foundation/css/foundation.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/naviga.css" rel="stylesheet" />
+    <link href="owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="admin/foundation/js/vendor/modernizr.js"></script>
+    <%--<link href="exposure_slider/demo1.css" rel="stylesheet" />--%>
+    <link href="exposure_slider/demo4.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="dvLoader">
+            <div id="loader">
+                <img src="img/loader.GIF" width="64px" />
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">
+                <nav class="top-bar" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1 class="hide-for-small-down"><a href="" class="bg-color-primary-blue"><span class="fa fa-home"></span></a></h1>
+                            <h1 class="show-for-small-down"><a href="">
+                                <img src="img/logoH45.png" style="height: 40px" /></a></h1>
+                        </li>
+                        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+
+                    <section class="top-bar-section">
+                        <span class="slogan left hide-for-medium-down">&nbsp;&nbsp;<span class="fa fa-quote-left"></span>&nbsp;&nbsp;Yol Gösteriyoruz...&nbsp;&nbsp;<span class="fa fa-quote-right"></span>&nbsp;&nbsp;</span>
+                        <ul class="left">
+                            <!--<li class="divider"></li>
+                            <li><a href=""><span class="fa fa-home color-primary-blue"></span></a></li>-->
+                            <li class="divider"></li>
+                            <li><a href="#">Hakkımızda</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Sektörler</a></li>
+                            <!--<li class="divider"></li>
+                            <li><a href="#">Çözümler</a></li>-->
+                            <li class="divider"></li>
+                            <li><a href="#">Referanslar</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Kariyer</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">İletişim</a></li>
+                            <li class="divider"></li>
+                        </ul>
+
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="has-form">
+                                <div class="row collapse">
+                                    <div class="large-12 small-13 columns">
+                                        <input type="text" placeholder="Arama">
+                                    </div>
+                                    <div class="large-4 small-3 columns">
+                                        <a href="#" class="button expand"><span class="fa fa-search">&nbsp;</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--<ul id="ulSocialButtonGroup" class="button-group right hide-for-medium-down">
+                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
+                                    <img src="img/facebook.png" class="circle" width="32px" /></a></li>
+                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
+                                    <img src="img/twitter2.png" class="circle" width="32px" /></a></li>
+                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
+                                    <img src="img/linkedin.png" class="circle" width="32px" /></a></li>
+                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
+                                    <img src="img/youtube.png" class="circle" width="32px" /></a></li>
+                        </ul>-->
+                        <ul class="right">
+                            <li class="has-dropdown">
+                                <a href="#">Türkçe</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Left Nav Section -->
+
+                    </section>
+                </nav>
+                <div class="row collapse width-100 bg-color-light-gray">
+                    <div class="medium-7 large-7 columns">
+                        <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
+                            <ul class="title-area">
+                                <li class="name">
+                                    <img src="img/danfoss.png" style="height: 65px" /></li>
+                                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                            </ul>
+
+                            <section class="top-bar-section blue-bar">
+                                <!-- Left Nav Section -->
+                                <ul class="right">
+                                    <li><a href="#"><span class="fa fa-cogs"></span>&nbsp;Sürücülere Genel Bakış</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="fa fa-trash"></span>&nbsp;Ürünler</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </section>
+                        </nav>
+                    </div>
+                    <div id="main-logo" class="medium-2 large-2 columns hide-for-small-down">
+                        <a href="./">
+                            <img src="img/logo2.png" /></a>
+                    </div>
+                    <div class="medium-7 large-7 columns">
+                        <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
+                            <ul class="title-area">
+                                <li class="name"></li>
+                                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                            </ul>
+
+                            <section class="top-bar-section blue-bar">
+                                <!-- Left Nav Section -->
+                                <ul class="left" style="margin-left: 0 !important;">
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="fa fa-building"></span>&nbsp;Teknik Destek</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="fa fa-fire"></span>&nbsp;Enerji Çözümleri</a></li>
+                                </ul>
+                            </section>
+                        </nav>
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="footer">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <h3 class=" color-primary-blue"><span class="fa fa-map-marker"></span>&nbsp;Adres</h3>
+                        <p>
+                            Kızılırmak Caddesi No:2
+                        <br />
+                            06640 Bakanlıklar / Ankara, Türkiye
+                        </p>
+
+                        <span class="fa fa-2x fa-share-alt-square circle color-primary-blue"></span>&nbsp;
+                    <span class="fa fa-2x fa-facebook-square circle color-secondary-gray"></span>&nbsp;
+                    <span class="fa fa-2x fa-twitter-square circle color-secondary-gray"></span>&nbsp;
+                    <span class="fa fa-2x fa-linkedin-square circle color-secondary-gray"></span>&nbsp;
+                    <span class="fa fa-2x fa-youtube-square circle color-secondary-gray"></span>&nbsp;
+                    </div>
+                    <div class="large-4 columns hide-for-small-down">
+                        <h3 class="color-primary-blue"><span class="fa fa-users"></span>&nbsp;LOREM IPSUM</h3>
+                        <ul class="no-bullet">
+                            <li>List item with a much</li>
+                            <li>List item</li>
+                            <li>List item with a much</li>
+                            <li>List item</li>
+                        </ul>
+                    </div>
+                    <div class="large-4 columns hide-for-small-down">
+                        <h3 class="color-primary-blue"><span class="fa fa-code-fork"></span>&nbsp;LOREM IPSUM</h3>
+                        <ul class="no-bullet">
+                            <li>List item with a much</li>
+                            <li>List item</li>
+                            <li>List item with a much</li>
+                            <li>List item</li>
+                        </ul>
+                    </div>
+                    <div class="large-4 columns hide-for-small-down">
+                        <h3 class="color-primary-blue"><span class="fa fa-cloud"></span>&nbsp;LOREM IPSUM</h3>
+                        <ul class="no-bullet">
+                            <li>List item with a much</li>
+                            <li>List item</li>
+                            <li>List item with a much</li>
+                            <li>List item</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row width-100">
+                    <div class="large-16 text-center">
+                        <p>
+                            <small>Copyright © 2014 | Tüm Hakları Saklıdır. Designed and Developed by Finex Media</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
+
+        <script src="admin/foundation/js/vendor/jquery.js"></script>
+        <script src="admin/foundation/js/foundation.min.js"></script>
+        <script src="owl-carousel/owl.carousel.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/jquery.center.js"></script>
+        <script src="js/general.js"></script>
+        <script src="exposure_slider/jquery.exposure.js"></script>
+        <script src="exposure_slider/texts_tr.js"></script>
+        <script>
+            $(document).foundation();
+
+            $(document).ready(function () {
+
+                $.backstretch("img/bg2.jpg");
+
+                $("#main-slider").owlCarousel({
+                    navigation: false, // Show next and prev buttons
+                    slideSpeed: 300,
+                    paginationSpeed: 400,
+                    singleItem: true,
+                    autoPlay: true
+                    // "singleItem:true" is a shortcut for:
+                    // items : 1, 
+                    // itemsDesktop : false,
+                    // itemsDesktopSmall : false,
+                    // itemsTablet: false,
+                    // itemsMobile : false
+
+                });
+                $("#main-news-text-carousel").owlCarousel({
+                    autoPlay: false, //Set AutoPlay to 3 seconds
+
+                    items: 2,
+                    itemsDesktop: [1280, 1],
+                    itemsDesktopSmall: [979, 1],
+                    autoHeight: false
+
+                });
+
+                $("#main-news-image-carousel").owlCarousel({
+                    autoPlay: false, //Set AutoPlay to 3 seconds
+
+                    items: 4,
+                    itemsDesktop: [1280, 3],
+                    itemsDesktopSmall: [979, 2],
+                    autoHeight: false
+
+                });
+
+                $("#main-brands-carousel").owlCarousel({
+                    autoPlay: true, //Set AutoPlay to 3 seconds
+
+                    items: 5,
+                    itemsDesktop: [1199, 5],
+                    itemsDesktopSmall: [979, 5],
+                    autoHeight: false
+
+                });
+
+                //$(function () {
+                //    var gallery = $('#images');
+                //    gallery.exposure({
+                //        controlsTarget: '#controls',
+                //        controls: { prevNext: true, pageNumbers: true, firstLast: false },
+                //        visiblePages: 2,
+                //        slideshowControlsTarget: '#slideshow',
+                //        onThumb: function (thumb) {
+                //            var li = thumb.parents('li');
+                //            var fadeTo = li.hasClass($.exposure.activeThumbClass) ? 1 : 0.3;
+
+                //            thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
+
+                //            thumb.hover(function () {
+                //                thumb.fadeTo('fast', 1);
+                //            }, function () {
+                //                li.not('.' + $.exposure.activeThumbClass).children('img').fadeTo('fast', 0.3);
+                //            });
+                //        },
+                //        onImage: function (image, imageData, thumb) {
+                //            // Fade out the previous image.
+                //            image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
+                //                $(this).remove();
+                //            });
+
+                //            // Fade in the current image.
+                //            image.hide().stop().fadeIn(1000);
+
+                //            // Fade in selected thumbnail (and fade out others).
+                //            if (gallery.showThumbs && thumb && thumb.length) {
+                //                thumb.parents('li').siblings().children('img.' + $.exposure.selectedImageClass).stop().fadeTo(200, 0.3, function () { $(this).removeClass($.exposure.selectedImageClass); });
+                //                thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
+                //            }
+                //        },
+                //        onPageChanged: function () {
+                //            // Fade in thumbnails on current page.
+                //            gallery.find('li.' + $.exposure.currentThumbClass).hide().stop().fadeIn('fast');
+                //        }
+                //    });
+                //});
+
+                $(function () {
+                    var gallery = $('#images');
+                    gallery.exposure({
+                        carouselControls: true,
+                        imageControls: true,
+                        pageSize: 5,
+                        slideshowControlsTarget: '#slideshow',
+                        onThumb: function (thumb) {
+                            var li = thumb.parents('li');
+                            var fadeTo = li.hasClass($.exposure.activeLinkClass) ? 1 : 0.3;
+
+                            thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
+
+                            thumb.hover(function () {
+                                thumb.fadeTo('fast', 1);
+                            }, function () {
+                                li.not('.' + $.exposure.activeLinkClass).children('img').fadeTo('fast', 0.3);
+                            });
+                        },
+                        onImage: function (image, imageData, thumb) {
+                            // Fade out the previous image.
+                            image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
+                                $(this).remove();
+                            });
+
+                            // Fade in the current image.
+                            image.hide().stop().fadeIn(1000);
+
+                            if (gallery.showThumbs && thumb && thumb.length) {
+                                thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
+                            }
+                        },
+                        onCarousel: function (firstImage, lastImage) {
+                            $('.' + $.exposure.thumbsClass + ' li').hide().children('img.' + $.exposure.selectedImageClass).stop().css('opacity', 0.3).removeClass($.exposure.selectedImageClass);
+                        },
+                        onSlideshowPlayed: function () {
+                            $('.' + $.exposure.pauseSlideshowClass).css('display', 'inline');
+                        }
+                    });
+
+                    $('#left a').click(function () {
+                        gallery.nextImage();
+                    });
+
+                    $('#right a').click(function () {
+                        gallery.prevImage();
+                    });
+                });
+
+            });
+
+            jQuery(window).load(function () {
+                $("#dvLoader img").animate({
+                    opacity: 0
+                }, 2000, function () {
+
+                });
+                $("#dvLoader").animate({
+                    opacity: 0
+                }, 2000, function () {
+                    $("#dvLoader").hide('slow');
+                });
+
+            });
+
+        </script>
+    </form>
+    <asp:ContentPlaceHolder ID="maincntScript" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:Literal ID="ltrAnalytics" runat="server" />
+</body>
+</html>
