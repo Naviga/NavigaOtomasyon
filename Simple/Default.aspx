@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Ws.Default" %>
 
+<%@ Import Namespace="BLL" %>
+<%@ Import Namespace="Common" %>
+<%@ Import Namespace="Entity" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <link href="foundation/css/normalize.css" rel="stylesheet" />
@@ -122,7 +126,29 @@
     <hr class="fancy-line" />
 
     <div class="row">
+
+        <% List<enIcerikResim> urunler = bllIcerikResimleri.Top4ResimGetir(null); %>
+
+        <%for (int i = 0; i < 2; i++)
+          {%>
+
         <div class="small-16 medium-8 large-8 columns">
+            <div class="row">
+                <div class="small-7 medium-7 large-7 columns">
+                    <a class="th [radius]" href="#">
+                        <img src="<%=urunler.ElementAt(i).Orta %>" />
+                    </a>
+                </div>
+                <div class="small-9 medium-9 large-9 columns">
+                    <h2><%=urunler.ElementAt(i).Baslik %></h2>
+                    <%=urunler.ElementAt(i).Aciklama %>
+                </div>
+            </div>
+        </div>
+
+        <% } %>
+
+        <%--<div class="small-16 medium-8 large-8 columns">
             <div class="row">
                 <div class="small-7 medium-7 large-7 columns">
                     <a class="th [radius]" href="#">
@@ -147,11 +173,33 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
+    <% if (urunler.Count > 2)
+       {%>
     <hr class="fancy-line" />
     <div class="row">
+
+        <%for (int i = 2; i < 4; i++)
+          {%>
+
         <div class="small-16 medium-8 large-8 columns">
+            <div class="row">
+                <div class="small-7 medium-7 large-7 columns">
+                    <a class="th [radius]" href="#">
+                        <img src="<%=urunler.ElementAt(i).Orta %>" />
+                    </a>
+                </div>
+                <div class="small-9 medium-9 large-9 columns">
+                    <h2><%=urunler.ElementAt(i).Baslik %></h2>
+                    <%=urunler.ElementAt(i).Aciklama %>
+                </div>
+            </div>
+        </div>
+
+        <% } %>
+
+        <%--<div class="small-16 medium-8 large-8 columns">
             <div class="row">
                 <div class="small-7 medium-7 large-7 columns">
                     <a class="th [radius]" href="#">
@@ -176,8 +224,9 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
+    <%} %>
     <hr class="fancy-line" />
     <div class="row">
         <div class="large-9 large-centered column text-center">

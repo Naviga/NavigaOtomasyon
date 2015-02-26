@@ -21,9 +21,9 @@
     <script src="foundation/js/vendor/modernizr.js"></script>
     <link href="owl-carousel/carouselSync.css" rel="stylesheet" />
 
-    <script src="fancybox/lib/jquery-1.10.1.min.js"></script>
-    <link href="fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-    <script src="fancybox/source/jquery.fancybox.pack.js"></script>
+    <script src="/fancybox/lib/jquery-1.10.1.min.js"></script>
+    <link href="/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <script src="/fancybox/source/jquery.fancybox.pack.js"></script>
 
     <%-- <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());
 

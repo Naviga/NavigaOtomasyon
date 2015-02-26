@@ -19,3 +19,10 @@ C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Common\bin\Debug\Entity.
 C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Common\obj\Debug\Common.dll
 C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Common\obj\Debug\Common.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\bin\Debug\Common.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\bin\Debug\Common.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\bin\Debug\Entity.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\bin\Debug\Entity.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\obj\Debug\Common.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\obj\Debug\Common.pdb
