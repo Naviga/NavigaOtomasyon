@@ -42,7 +42,7 @@ namespace DAL
 
             if (statu != null)
             {
-                sb.Append(@"SELECT r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND icrkRes_statu = @statu ORDER BY r.icrkRes_sira ");
+                sb.Append(@"SELECT r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_statu = @statu ORDER BY r.icrkRes_sira ");
 
                 adp.SelectCommand.Parameters.AddWithValue("@statu", statu);
             }
