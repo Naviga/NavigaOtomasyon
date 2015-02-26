@@ -68,3 +68,17 @@ C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\DAL.pdb
 C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.csprojResolveAssemblyReference.cache
 C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.dll
 C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\Settings.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\Settings.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\BLL.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\Common.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\Entity.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\FxHelpers.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\DAL.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\BLL.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\Common.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\Entity.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\DAL.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.csprojResolveAssemblyReference.cache
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.pdb

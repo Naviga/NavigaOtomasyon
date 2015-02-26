@@ -23,3 +23,8 @@ C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Entity\bin\Release\Entity.pdb
 C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.csprojResolveAssemblyReference.cache
 C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.dll
 C:\Users\ziya\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Release\Entity.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Release\Entity.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.csprojResolveAssemblyReference.cache
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.pdb
