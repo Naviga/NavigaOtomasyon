@@ -86,10 +86,7 @@
 
             <% } %>
 
-            <% if (SessionManager.Admin != null)
-               { %>
-            <li><a href='#!' class='button tiny expand' onclick='OpenNewNavItem(this)' parentid='<%= parent %>' title='<%= bllDiziler.DiziGetir("Main.AdminMenu.NewPage.ToolTip")%>'><span class='fa fa-plus-circle'></span>&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.NewPage")%></a></li>
-            <% } %>
+
         </ul>
     </div>
     <div class="large-10 column">
@@ -105,13 +102,7 @@
             <% if (sayfa.CarouselId != null || SessionManager.Admin != null)
                {%>
             <div class="page-main-picture row">
-                <% if (SessionManager.Admin != null)
-                   {%>
-                <div class='dvSettings'>
-                    <a class="iframe has-tip" href="/admin/Carousel.aspx?iframe&id=<%= sayfa.Id %>" title="Slayt / Carousel resim yükle/değiştir" data-tooltip aria-haspopup="true">
-                        <img src="/css/img/settings.png" width="32px" /></a>
-                </div>
-                <%} %>
+
                 <div class="large-12 column">
                     <%= CarouselOlustur(sayfa.CarouselId) %>
                 </div>
@@ -128,13 +119,6 @@
             <% if (resimler.Count > 0 || SessionManager.Admin != null)
                {%>
             <div class="page-pictures row">
-                <% if (SessionManager.Admin != null)
-                   {%>
-                <div class='dvSettings'>
-                    <a class="iframe has-tip" href="/admin/Pages.aspx?iframe&i=1&ai=2&dzid=<%= sayfa.Id %>" title="Resim galerisini yönetin" data-tooltip aria-haspopup="true">
-                        <img src="/css/img/settings.png" width="32px" /></a>
-                </div>
-                <%} %>
 
                 <div class="large-12 column">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
@@ -171,13 +155,6 @@
     <div class="large-10 columns">
         <div class="large-10 columns">
             <div class="page-pictures row">
-                <% if (SessionManager.Admin != null)
-                   {%>
-                <div class='dvSettings'>
-                    <a class="iframe has-tip" href="/admin/Pages.aspx?iframe&i=1&ai=2&dzid=<%= sayfa.Id %>" title="Resim galerisini yönetin" data-tooltip aria-haspopup="true">
-                        <img src="/css/img/settings.png" width="32px" /></a>
-                </div>
-                <%} %>
 
                 <div class="large-10 columns">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
@@ -194,15 +171,6 @@
                                 <img src="<%= urun.FotoOrta %>" alt="" /></a>
                         </div>
 
-                        <%--<div class="Thumb small-4 large-2 columns <%= i == tumUrunler.Count-1 ? " end" : "" %>">
-                        </div>--%>
-
-                        <%--<div class="medium-4 columns">
-                            <div class="imgThumb th" style="background-image: url(<%= resim.Orta %>)">
-                                <a class="picture-gallery" href='<%= resim.Buyuk %>' title='<%= resim.Aciklama %>'></a>
-                            </div>
-                            <p><%= resim.Baslik %></p>
-                        </div>--%>
 
                         <% i++;
                            } %>
