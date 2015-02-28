@@ -4,7 +4,13 @@
     <loc>http://localhost/sssg</loc>
   </url>
   <url>
+    <loc>http://localhost/suruculere-genel-bakis</loc>
+  </url>
+  <url>
     <loc>http://localhost/standart-web-sayfasi</loc>
+  </url>
+  <url>
+    <loc>http://localhost/urunler</loc>
   </url>
   <url>
     <loc>http://localhost/iletisim</loc>
@@ -50,8 +56,5 @@
   </url>
   <url>
     <loc>http://localhost/asd</loc>
-  </url>
-  <url>
-    <loc>http://localhost/urunler</loc>
   </url>
 </urlset>
