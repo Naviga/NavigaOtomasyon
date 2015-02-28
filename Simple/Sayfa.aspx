@@ -39,9 +39,8 @@
 
     <% if (sayfa.UrunMu)
        {
-           Session["sayfa_yolu"] = sayfa.FizikselUrl;
-           Session["ürünler_sayfaId"] = sayfa.Id;
-           Session["sayfa_adi"] = sayfa.Adi;  %>
+           uscStandartSayfa.SayfaId = sayfa.Id;
+    %>
 
     <%--<uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />--%>
 

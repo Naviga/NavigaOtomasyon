@@ -3,7 +3,7 @@
 <%@ Import Namespace="Common" %>
 <%@ Import Namespace="Entity" %>
 
-<% enSiteHaritasi sayfa = Session["ürünler_sayfaId"].xToIntDefault() == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(Session["sayfa_yolu"].ToString()) : bllSiteHaritasi.SayfaGetir(Session["ürünler_sayfaId"].xToIntDefault()); %>
+<% enSiteHaritasi sayfa = SayfaId == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(SayfaYolu) : bllSiteHaritasi.SayfaGetir(SayfaId); %>
 
 <script>
     var _sayfaId = '<%= sayfa.Id %>'; 
@@ -168,8 +168,8 @@
     <%if (sayfa.UrunMu)
       {%>
 
-    <div class="large-12 columns">
-        <div class="large-12 columns">
+    <div class="large-10 columns">
+        <div class="large-10 columns">
             <div class="page-pictures row">
                 <% if (SessionManager.Admin != null)
                    {%>
@@ -179,7 +179,7 @@
                 </div>
                 <%} %>
 
-                <div class="large-12 columns">
+                <div class="large-10 columns">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
                        {%>
                     <h3 id='h1' <%= SessionManager.Admin!= null ? "class='editable-simple' op='page-pictures-title' contenteditable='true'":"" %>><%= sayfa.FotoBaslik %></h3>

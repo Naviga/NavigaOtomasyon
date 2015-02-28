@@ -1585,5 +1585,43 @@ namespace DAL
 
             return sayfalar;
         }
+
+        public List<enIcerikResim> UrunleriGetir(int parentId)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"select ir.* from siteharitasi s1 inner join siteharitasi s2 on 
+                        s1.site_id=s2.site_parent
+                        inner join icerikresimleri ir on s2.site_id=ir.icrkRes_site_id
+                        where s1.site_id=@parent_id and s2.site_urunMu=false");
+
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
+            adp.SelectCommand.Parameters.AddWithValue("@parent_id", parentId);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            List<enIcerikResim> urunler = new List<enIcerikResim>();
+
+            foreach (DataRow rw in dt.Rows)
+            {
+                enIcerikResim urun = new enIcerikResim();
+
+                urun.Aciklama = rw["icrkRes_aciklama"].ToString();
+                urun.Buyuk = rw["icrkRes_buyuk"].ToString();
+                urun.SayfaId = rw["icrkRes_site_id"].xToIntDefault();
+                urun.Id = rw["icrkRes_id"].xToIntDefault();
+                urun.KayitTarihi = rw["icrkRes_kayitTar"].xToDateTimeDefault();
+                urun.Kucuk = rw["icrkRes_kucuk"].ToString();
+                urun.Orta = rw["icrkRes_orta"].ToString();
+                urun.Sira = rw["icrkRes_sira"].xToIntDefault();
+                urun.Statu = rw["icrkRes_statu"].xToBooleanDefault();
+                urun.Baslik = rw["icrkRes_baslik"].ToString();
+                urun.AnaResim = rw["icrkRes_anaResim"].xToBooleanDefault();
+
+                urunler.Add(urun);
+            }
+
+            return urunler;
+        }
     }
 }
