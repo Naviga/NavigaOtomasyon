@@ -9,21 +9,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link href="exposure_slider/demo4.css" rel="stylesheet" />
+   <%-- <link href="/exposure_slider/demo4.css" rel="stylesheet" />
     <%--<link href="exposure_slider/demo1.css" rel="stylesheet" />--%>
-    <link href="foundation/css/normalize.css" rel="stylesheet" />
+    <%--<link href="foundation/css/normalize.css" rel="stylesheet" />
     <link href="foundation/css/foundation.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    <link href="css/naviga.css" rel="stylesheet" />
+    <link href="css/naviga.css" rel="stylesheet" />--%>
     <%-- <link href="owl-carousel/owl.carousel.css" rel="stylesheet" />
     <link href="owl-carousel/owl.theme.css" rel="stylesheet" />--%>
-    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <%--<link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="foundation/js/vendor/modernizr.js"></script>
     <link href="owl-carousel/carouselSync.css" rel="stylesheet" />
 
     <script src="/fancybox/lib/jquery-1.10.1.min.js"></script>
     <link href="/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-    <script src="/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script src="/fancybox/source/jquery.fancybox.pack.js"></script>--%>
 
     <%-- <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());
 
@@ -39,12 +39,13 @@
 
     <% if (sayfa.UrunMu)
        {
-           uscStandartSayfa.SayfaId = sayfa.Id;
+           uscUrunSayfa.SayfaId = sayfa.Id;
+           uscUrunSayfa.SayfaAdi = sayfa.Adi;
     %>
 
-    <%--<uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />--%>
+    <uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />
 
-    <uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />
+    <%--<uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />--%>
 
     <% }%>
 
@@ -77,10 +78,10 @@
 
         $(document).ready(function () {
 
-            $(".fancybox").fancybox({
-                openEffect: 'none',
-                closeEffect: 'none'
-            });
+            //$(".fancybox").fancybox({
+            //    openEffect: 'none',
+            //    closeEffect: 'none'
+            //});
 
             var sync1 = $("#sync1");
             var sync2 = $("#sync2");

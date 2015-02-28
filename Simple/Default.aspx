@@ -148,7 +148,7 @@
         <%for (int i = 0; i < 2; i++)
           {%>
 
-        <div class="small-16 medium-8 large-8 columns">
+        <%--<div class="small-16 medium-8 large-8 columns">
             <div class="row">
                 <div class="small-7 medium-7 large-7 columns">
                     <a class="th [radius]" href="#">
@@ -160,7 +160,7 @@
                     <%=urunler.ElementAt(i).Aciklama %>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
         <% } %>
     </div>
@@ -172,7 +172,7 @@
         <%--<%for (int i = 2; i < 4; i++)
           {%>
 
-        <div class="small-16 medium-8 large-8 columns">
+        <%--<div class="small-16 medium-8 large-8 columns">
             <div class="row">
                 <div class="small-7 medium-7 large-7 columns">
                     <a class="th [radius]" href="#">
@@ -184,7 +184,7 @@
                     <%=urunler.ElementAt(i).Aciklama %>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
         <% } %>--%>
     </div>

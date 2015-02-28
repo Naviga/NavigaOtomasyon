@@ -16,5 +16,6 @@ namespace Entity
         public int Sira { get; set; }
         public string Baslik { get; set; }
         public bool AnaResim { get; set; }
+        public string SayfaUrl { get; set; }
     }
 }

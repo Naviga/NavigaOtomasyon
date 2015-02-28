@@ -25,7 +25,7 @@
     <form id="form1" runat="server">
         <div id="dvLoader">
             <div id="loader">
-                <img src="img/loader.GIF" width="64px" />
+                <img src="/img/loader.GIF" width="64px" />
             </div>
         </div>
         <div id="wrapper">
@@ -35,7 +35,7 @@
                         <li class="name">
                             <h1 class="hide-for-small-down"><a href="" class="bg-color-primary-blue"><span class="fa fa-home"></span></a></h1>
                             <h1 class="show-for-small-down"><a href="">
-                                <img src="img/logoH45.png" style="height: 40px" /></a></h1>
+                                <img src="/img/logoH45.png" style="height: 40px" /></a></h1>
                         </li>
                         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -102,7 +102,7 @@
                         <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
                             <ul class="title-area">
                                 <li class="name">
-                                    <img src="img/danfoss.png" style="height: 65px" /></li>
+                                    <img src="/img/danfoss.png" style="height: 65px" /></li>
                                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                                 <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
                             </ul>
@@ -121,7 +121,7 @@
                     </div>
                     <div id="main-logo" class="medium-2 large-2 columns hide-for-small-down">
                         <a href="./">
-                            <img src="img/logo2.png" /></a>
+                            <img src="/img/logo2.png" /></a>
                     </div>
                     <div class="medium-7 large-7 columns">
                         <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
@@ -203,14 +203,14 @@
 
         <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
 
-        <script src="admin/foundation/js/vendor/jquery.js"></script>
-        <script src="admin/foundation/js/foundation.min.js"></script>
-        <script src="owl-carousel/owl.carousel.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/jquery.center.js"></script>
-        <script src="js/general.js"></script>
-        <script src="exposure_slider/jquery.exposure.js"></script>
-        <script src="exposure_slider/texts_tr.js"></script>
+        <script src="/admin/foundation/js/vendor/jquery.js"></script>
+        <script src="/admin/foundation/js/foundation.min.js"></script>
+        <script src="/owl-carousel/owl.carousel.js"></script>
+        <script src="/js/jquery.backstretch.min.js"></script>
+        <script src="/js/jquery.center.js"></script>
+        <script src="/js/general.js"></script>
+        <script src="/exposure_slider/jquery.exposure.js"></script>
+        <script src="/exposure_slider/texts_tr.js"></script>
 
         <script>
             $(document).foundation();

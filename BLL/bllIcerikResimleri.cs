@@ -115,7 +115,7 @@ namespace BLL
             return new dalIcerikResimleri().Top4ResimGetir(statu);
         }
 
-        public static List<enIcerikResim> UrunleriGetir(int parentId)
+        public static List<enSiteHaritasi> UrunleriGetir(int parentId)
         {
             return new dalSiteHaritasi().UrunleriGetir(parentId);
         }

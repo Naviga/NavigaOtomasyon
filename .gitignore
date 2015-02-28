@@ -6,3 +6,4 @@ Simple/bin/Settings.dll
 Simple/bin/Settings.pdb
 Simple/bin/Ws.dll
 Simple/bin/Ws.pdb
+*.pdb

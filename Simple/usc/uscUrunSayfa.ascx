@@ -3,11 +3,12 @@
 <%@ Import Namespace="Common" %>
 <%@ Import Namespace="Entity" %>
 
-<% enSiteHaritasi sayfa = Session["ürünler_sayfaId"].xToIntDefault() == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(SayfaYolu) : bllSiteHaritasi.SayfaGetir(Session["ürünler_sayfaId"].xToIntDefault()); %>
+<% enSiteHaritasi sayfa = SayfaId == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(SayfaYolu) : bllSiteHaritasi.SayfaGetir(SayfaId); %>
+<% List<enIcerikResim> resimler = bllIcerikResimleri.ResimleriGetir(SayfaId, true); %>
 
 <div class="row" style="margin-top: 25px;">
     <div class="small-16 columns text-left">
-        <h2 class="inset color-dark-gray"><span class="fa fa-list"></span><% Response.Write(Session["sayfa_adi"].ToString()); %>
+        <h2 class="inset color-dark-gray"><span class="fa fa-list"></span><% Response.Write(SayfaAdi.ToString()); %>
         </h2>
     </div>
 </div>
@@ -23,19 +24,21 @@
             <div class="panel1">
                 <div id="left">
                     <a href="javascript:void(0);">
-                        <img src="../exposure_slider/left.png" alt="Previous" /></a>
+                        <img src="/exposure_slider/left.png" alt="Previous" /></a>
                 </div>
                 <ul id="images">
-                    <asp:Repeater ID="rptFotoBig" runat="server">
-                        <ItemTemplate>
-                            <li><a href='<%#Eval("Buyuk")%>'>
-                                <img src='<%#Eval("Kucuk") %>' title='<%#Eval("Aciklama") %>' /></a></li>
-                        </ItemTemplate>
-                    </asp:Repeater>
+
+                    <% for (int i = 0; i < resimler.Count; i++)
+                       {%>
+
+                    <li><a href='<%=resimler.ElementAt(i).Buyuk %>'>
+                        <img src='<%=resimler.ElementAt(i).Kucuk %>' title='<%=resimler.ElementAt(i).Aciklama %>' /></a></li>
+
+                    <%}%>
                 </ul>
                 <div id="right">
                     <a href="javascript:void(0);">
-                        <img src="../exposure_slider/right.png" alt="Next" /></a>
+                        <img src="/exposure_slider/right.png" alt="Next" /></a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -51,7 +54,6 @@
                 <%= sayfa.Icerik %>
             </div>
         </div>--%>
-
     </div>
 </div>
 
