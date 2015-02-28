@@ -339,5 +339,15 @@ namespace BLL
 
             return url.ToLowerInvariant();
         }
+
+        public static List<enSiteHaritasi> SolAltMenuGetir()
+        {
+            return new dalSiteHaritasi().SolAltMenuGetir();
+        }
+
+        public static List<enSiteHaritasi> SagAltMenuGetir()
+        {
+            return new dalSiteHaritasi().SagAltMenuGetir();
+        }
     }
 }

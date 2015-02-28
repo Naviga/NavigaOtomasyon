@@ -100,7 +100,7 @@ namespace Ws.admin
 
                     SayfaGetir();
 
-                    SayfaBloklariGetir();
+                    ////SayfaBloklariGetir();
                 }
             }
 
@@ -815,31 +815,31 @@ namespace Ws.admin
 
         }
 
-        protected void SayfaBloklariGetir()
-        {
-            List<enBlok> bloks = new List<enBlok>();
+        //protected void SayfaBloklariGetir()
+        //{
+        //    List<enBlok> bloks = new List<enBlok>();
 
-            if (treeSayfalar.SelectedValue == "M")
-            {
-                bloks = bllSiteHaritasi_Blok.MasterGetir(null);
-            }
-            else
-            {
-                int? pozId = ddlSayfaBloklariPozisyonlar.SelectedValue.xToInt();
-                int sayfaId = treeSayfalar.SelectedValue.xToIntDefault();
+        //    if (treeSayfalar.SelectedValue == "M")
+        //    {
+        //        bloks = bllSiteHaritasi_Blok.MasterGetir(null);
+        //    }
+        //    else
+        //    {
+        //        int? pozId = ddlSayfaBloklariPozisyonlar.SelectedValue.xToInt();
+        //        int sayfaId = treeSayfalar.SelectedValue.xToIntDefault();
 
-                bloks = bllSiteHaritasi_Blok.Getir(sayfaId, pozId);
-            }
+        //        bloks = bllSiteHaritasi_Blok.Getir(sayfaId, pozId);
+        //    }
 
-            rgrvSayfaBloklari.DataSource = bloks;
-            rgrvSayfaBloklari.DataBind();
-        }
+        //    rgrvSayfaBloklari.DataSource = bloks;
+        //    rgrvSayfaBloklari.DataBind();
+        //}
 
-        protected void MasterBloklariGetir()
-        {
-            rgrvSayfaBloklari.DataSource = bllSiteHaritasi_Blok.MasterGetir(null);
-            rgrvSayfaBloklari.DataBind();
-        }
+        //protected void MasterBloklariGetir()
+        //{
+        //    rgrvSayfaBloklari.DataSource = bllSiteHaritasi_Blok.MasterGetir(null);
+        //    rgrvSayfaBloklari.DataBind();
+        //}
 
         protected void lnkSayfaBlokKaldır_OnClick(object sender, EventArgs e)
         {
@@ -849,7 +849,7 @@ namespace Ws.admin
 
             bllSiteHaritasi_Blok.Kaldir(pozisyonId, blokId);
 
-            SayfaBloklariGetir();
+            //SayfaBloklariGetir();
         }
 
         protected void treeSayfalar_OnNodeClick(object sender, RadTreeNodeEventArgs e)
@@ -857,7 +857,7 @@ namespace Ws.admin
             trArrow.Visible = true;
             trInfo.Visible = true;
 
-            SayfaBloklariGetir();
+            //SayfaBloklariGetir();
             BloklariGetir();
 
             List<enBlokPozisyon> pozs = bllBlokPozisyonlari.Getir();
@@ -889,7 +889,7 @@ namespace Ws.admin
 
             bllSiteHaritasi_Blok.BaslikKullanimiGuncelle(sBlok);
 
-            SayfaBloklariGetir();
+            //SayfaBloklariGetir();
         }
 
         protected void chkBlokCerceve_OnCheckedChanged(object sender, EventArgs e)
@@ -907,7 +907,7 @@ namespace Ws.admin
 
             bllSiteHaritasi_Blok.CerceveKullanimiGuncelle(sBlok);
 
-            SayfaBloklariGetir();
+            //SayfaBloklariGetir();
         }
 
         protected void txtBlokSiraNo_OnTextChanged(object sender, EventArgs e)
@@ -953,7 +953,7 @@ namespace Ws.admin
                 }
             }
 
-            SayfaBloklariGetir();
+            //SayfaBloklariGetir();
         }
 
         protected void PozisyonlariDoldur()
@@ -1031,7 +1031,7 @@ namespace Ws.admin
 
         protected void ddlSayfaBloklariPozisyonlar_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            SayfaBloklariGetir();
+            //SayfaBloklariGetir();
         }
 
         protected void lnkMenuGorunurluk_OnClick(object sender, EventArgs e)
