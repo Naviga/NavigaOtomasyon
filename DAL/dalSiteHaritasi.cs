@@ -343,9 +343,9 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            string topStr = " TOP " + kayitSayisi + " ";
+            string topStr = " LIMIT " + kayitSayisi + " ";
 
-            sb.Append("SELECT " + topStr + " * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu ORDER BY site_sira");
+            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu ORDER BY site_sira " + topStr + "");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -632,8 +632,8 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT TOP 1 * FROM SiteHaritasi 
-                        WHERE site_sira < @sira ORDER BY site_sira DESC");
+            sb.Append(@"SELECT * FROM SiteHaritasi 
+                        WHERE site_sira < @sira ORDER BY site_sira DESC LIMIT 1");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -678,8 +678,8 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT TOP 1 * FROM SiteHaritasi 
-                        WHERE site_sira > @sira ORDER BY site_sira ");
+            sb.Append(@"SELECT * FROM SiteHaritasi 
+                        WHERE site_sira > @sira ORDER BY site_sira LIMIT 1");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -727,7 +727,7 @@ namespace DAL
 
             dict.Add("site_sira", sayfa.Sira);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public int SonSiraNoGetir(int? parent)
@@ -736,7 +736,7 @@ namespace DAL
 
             string whereStr = parent == null ? "" : " WHERE site_parent = @parent ";
 
-            sb.Append(@"SELECT TOP 1 site_sira FROM SiteHaritasi " + whereStr + " ORDER BY site_sira DESC");
+            sb.Append(@"SELECT site_sira FROM SiteHaritasi " + whereStr + " ORDER BY site_sira DESC LIMIT 1");
 
             MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -954,7 +954,7 @@ namespace DAL
 
             dict.Add("site_custom", sayfa.Custom);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public List<enSiteHaritasi> OzelSayfalariGetir()
@@ -1022,7 +1022,7 @@ namespace DAL
 
             dict.Add("site_menu", sayfa.Menu);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public void YanMenuDegistir(enSiteHaritasi sayfa)
@@ -1032,7 +1032,7 @@ namespace DAL
 
             dict.Add("site_yanMenu", sayfa.YanMenu);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public void FooterDegistir(enSiteHaritasi sayfa)
@@ -1042,7 +1042,7 @@ namespace DAL
 
             dict.Add("site_footer", sayfa.Footer);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public void SayfaMenuDegistir(enSiteHaritasi sayfa)
@@ -1052,7 +1052,7 @@ namespace DAL
 
             dict.Add("site_sayfaMenu", sayfa.SayfaMenu);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public void ListDegistir(enSiteHaritasi sayfa)
@@ -1062,7 +1062,7 @@ namespace DAL
 
             dict.Add("site_list", sayfa.List);
 
-            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfa.Id);
         }
 
         public List<enSiteHaritasi> YanUstSayfalariGetirList(bool? statu = null)

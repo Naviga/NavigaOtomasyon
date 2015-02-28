@@ -35,7 +35,7 @@ namespace BLL
         }
         public static int SonSiraNoGetir()
         {
-            return new dalSosyalMedya().SonSiraNoGetir();
+            return 0; //new dalSosyalMedya().SonSiraNoGetir();
         }
         public static enSosyalMedya Getir(int sosId)
         {

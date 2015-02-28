@@ -134,7 +134,7 @@ namespace DAL
 
         public List<enIcerikResim> ResimleriGetir(int sayfaId, int? kayitSayisi, bool? statu)
         {
-            string topStr = kayitSayisi == null ? "" : " TOP " + kayitSayisi + " ";
+            string topStr = kayitSayisi == null ? "" : " LIMIT " + kayitSayisi + " ";
 
             StringBuilder sb = new StringBuilder();
 
@@ -142,14 +142,14 @@ namespace DAL
 
             if (statu != null)
             {
-                sb.Append("SELECT " + topStr + " * FROM IcerikResimleri WHERE icrkRes_site_id = @id AND icrkRes_statu = @statu ORDER BY icrkRes_sira ");
+                sb.Append("SELECT * FROM IcerikResimleri WHERE icrkRes_site_id = @id AND icrkRes_statu = @statu ORDER BY icrkRes_sira " + topStr );
 
                 adp.SelectCommand.Parameters.AddWithValue("@id", sayfaId);
                 adp.SelectCommand.Parameters.AddWithValue("@statu", statu);
             }
             else
             {
-                sb.Append("SELECT " + topStr + " * FROM IcerikResimleri WHERE icrkRes_site_id = @id ORDER BY icrkRes_sira ");
+                sb.Append("SELECT * FROM IcerikResimleri WHERE icrkRes_site_id = @id ORDER BY icrkRes_sira " + topStr);
 
                 adp.SelectCommand.Parameters.AddWithValue("@id", sayfaId);
             }
@@ -254,8 +254,8 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT TOP 1 * FROM IcerikResimleri 
-                        WHERE icrkRes_site_id = @sayfaId AND icrkRes_sira < @sira ORDER BY icrkRes_sira DESC");
+            sb.Append(@"SELECT * FROM IcerikResimleri 
+                        WHERE icrkRes_site_id = @sayfaId AND icrkRes_sira < @sira ORDER BY icrkRes_sira DESC LIMIT 1");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -291,8 +291,8 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT TOP 1 * FROM IcerikResimleri 
-                        WHERE icrkRes_site_id = @id AND icrkRes_sira > @sira ORDER BY icrkRes_sira ");
+            sb.Append(@"SELECT * FROM IcerikResimleri 
+                        WHERE icrkRes_site_id = @id AND icrkRes_sira > @sira ORDER BY icrkRes_sira  LIMIT 1");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -329,9 +329,9 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT TOP 1 icrkRes_sira FROM IcerikResimleri 
+            sb.Append(@"SELECT icrkRes_sira FROM IcerikResimleri 
                         WHERE icrkRes_site_id = @sayfaId 
-                        ORDER BY icrkRes_sira DESC");
+                        ORDER BY icrkRes_sira DESC LIMIT 1");
 
             MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
  
@@ -397,13 +397,13 @@ namespace DAL
 
             if (statu != null)
             {
-                sb.Append(@"SELECT TOP 4 r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_statu = @statu AND r.icrkRes_anaResim=true ORDER BY r.icrkRes_sira ");
+                sb.Append(@"SELECT r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_statu = @statu AND r.icrkRes_anaResim=true ORDER BY r.icrkRes_sira  LIMIT 4");
 
                 adp.SelectCommand.Parameters.AddWithValue("@statu", statu);
             }
             else
             {
-                sb.Append(@"SELECT TOP 4 r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_anaResim=true ORDER BY r.icrkRes_sira ");
+                sb.Append(@"SELECT r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_anaResim=true ORDER BY r.icrkRes_sira  LIMIT 4");
             }
 
             adp.SelectCommand.CommandText = sb.ToString();
