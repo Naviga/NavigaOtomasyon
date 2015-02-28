@@ -13,10 +13,16 @@
     <loc>http://localhost/urunler/danfoss-surucu-cozumleri/danfoss-vlt-micro</loc>
   </url>
   <url>
+    <loc>http://localhost/teknik-destek</loc>
+  </url>
+  <url>
     <loc>http://localhost/standart-web-sayfasi</loc>
   </url>
   <url>
     <loc>http://localhost/urunler</loc>
+  </url>
+  <url>
+    <loc>http://localhost/enerji-cozumleri</loc>
   </url>
   <url>
     <loc>http://localhost/iletisim</loc>
