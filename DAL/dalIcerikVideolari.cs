@@ -15,24 +15,23 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkVid_site_id"); degerList.Add(video.SayfaId);
-            dict.Add("icrkVid_baslik"); degerList.Add(video.Baslik);
-            dict.Add("icrkVid_aciklama"); degerList.Add(video.Aciklama);
-            dict.Add("icrkVid_source"); degerList.Add(video.Kaynak);
-            dict.Add("icrkVid_kapak"); degerList.Add(video.Kapak);
-            dict.Add("icrkVid_sira"); degerList.Add(video.Sira);
-            dict.Add("icrkVid_statu"); degerList.Add(video.Statu);
-            dict.Add("icrkVid_kayitTar"); degerList.Add(video.KayitTarihi);
-            dict.Add("icrkVid_kaydeden"); degerList.Add(video.Kaydeden);
-            dict.Add("icrkVid_urlKodu"); degerList.Add(video.UrlKodu);
+            dict.Add("icrkVid_site_id",video.SayfaId);
+            dict.Add("icrkVid_baslik",video.Baslik);
+            dict.Add("icrkVid_aciklama",video.Aciklama);
+            dict.Add("icrkVid_source",video.Kaynak);
+            dict.Add("icrkVid_kapak",video.Kapak);
+            dict.Add("icrkVid_sira",video.Sira);
+            dict.Add("icrkVid_statu",video.Statu);
+            dict.Add("icrkVid_kayitTar",video.KayitTarihi);
+            dict.Add("icrkVid_kaydeden",video.Kaydeden);
+            dict.Add("icrkVid_urlKodu",video.UrlKodu);
 
-            dalManager.MakeAnDbInsert(prmList, "IcerikVideolari", degerList, "");
-
+            FxMySqlHelper.Insert("IcerikVideolari", dict);
         }
 
         public void VideoSil(int videoId)
         {
-            dalManager.MakeAnDbDelete("IcerikVideolari", "icrkVid_id", videoId);
+            FxMySqlHelper.Delete("IcerikVideolari", "icrkVid_id", videoId);
         }
 
         public List<enIcerikVideo> VideoleriGetir(int sayfaId, bool? statu)
@@ -176,9 +175,10 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkVid_statu"); degerList.Add(video.Statu);
+            dict.Add("icrkVid_statu",video.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "IcerikVideolari", "icrkVid_id", video.Id, degerList);
+            FxMySqlHelper.Update("IcerikVideolari", dict, "icrkVid_id", video.Id);
+            
         }
 
         public void VideoSiraGuncelle(enIcerikVideo video)
@@ -186,9 +186,10 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkVid_sira"); degerList.Add(video.Sira);
+            dict.Add("icrkVid_sira",video.Sira);
 
-            dalManager.MakeAnDbUpdate(prmList, "IcerikVideolari", "icrkVid_id", video.Id, degerList);
+            FxMySqlHelper.Update("IcerikVideolari", dict, "icrkVid_id", video.Id);
+            
         }
 
         public void VideoAciklamaGuncelle(enIcerikVideo video)
@@ -196,9 +197,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkVid_aciklama"); degerList.Add(video.Aciklama);
+            dict.Add("icrkVid_aciklama",video.Aciklama);
 
-            dalManager.MakeAnDbUpdate(prmList, "IcerikVideolari", "icrkVid_id", video.Id, degerList);
+            FxMySqlHelper.Update("IcerikVideolari", dict, "icrkVid_id", video.Id);
         }
 
         public enIcerikVideo BirUsttekiVideoyuGetir(enIcerikVideo gvideo)
@@ -284,7 +285,7 @@ namespace DAL
                         WHERE icrkVid_site_id = @sayfaId 
                         ORDER BY icrkVid_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sayfaId", sayfaId);
 

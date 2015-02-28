@@ -15,11 +15,11 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("sbl_adi"); degerList.Add(sablon.Adi);
-            dict.Add("sbl_aciklama"); degerList.Add(sablon.Aciklama);
-            dict.Add("sbl_ikon"); degerList.Add(sablon.Ikon);
+            dict.Add("sbl_adi",sablon.Adi);
+            dict.Add("sbl_aciklama",sablon.Aciklama);
+            dict.Add("sbl_ikon",sablon.Ikon);
 
-            dalManager.MakeAnDbInsert(prmList, "Sablonlar", degerList, "");
+            FxMySqlHelper.Insert("Sablonlar",dict);
         }
 
         public List<enSablon> SablonlariGetir()
@@ -97,7 +97,7 @@ namespace DAL
 
         public void Sil(int sablonId)
         {
-            dalManager.MakeAnDbDelete("Sablonlar", "sbl_id", sablonId);
+            FxMySqlHelper.Delete("Sablonlar", "sbl_id", sablonId);
         }
     }
 }

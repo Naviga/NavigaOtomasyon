@@ -15,24 +15,24 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkRes_site_id"); degerList.Add(resim.SayfaId);
-            dict.Add("icrkRes_aciklama"); degerList.Add(resim.Aciklama);
-            dict.Add("icrkRes_kucuk"); degerList.Add(resim.Kucuk);
-            dict.Add("icrkRes_orta"); degerList.Add(resim.Orta);
-            dict.Add("icrkRes_buyuk"); degerList.Add(resim.Buyuk);
-            dict.Add("icrkRes_sira"); degerList.Add(resim.Sira);
-            dict.Add("icrkRes_statu"); degerList.Add(resim.Statu);
-            dict.Add("icrkRes_kayitTar"); degerList.Add(resim.KayitTarihi);
-            dict.Add("icrkRes_baslik"); degerList.Add(resim.Baslik);
-            dict.Add("icrkRes_anaResim"); degerList.Add(resim.AnaResim);
+            dict.Add("icrkRes_site_id", resim.SayfaId); 
+            dict.Add("icrkRes_aciklama", resim.Aciklama); 
+            dict.Add("icrkRes_kucuk", resim.Kucuk); 
+            dict.Add("icrkRes_orta", resim.Orta); 
+            dict.Add("icrkRes_buyuk", resim.Buyuk); 
+            dict.Add("icrkRes_sira", resim.Sira); 
+            dict.Add("icrkRes_statu", resim.Statu); 
+            dict.Add("icrkRes_kayitTar", resim.KayitTarihi); 
+            dict.Add("icrkRes_baslik", resim.Baslik); 
+            dict.Add("icrkRes_anaResim", resim.AnaResim); ;
 
-            dalManager.MakeAnDbInsert(prmList, "IcerikResimleri", degerList, "");
+            FxMySqlHelper.Insert("IcerikResimleri", dict);
 
         }
 
         public void ResimSil(int resimId)
         {
-            dalManager.MakeAnDbDelete("IcerikResimleri", "icrkRes_id", resimId);
+            FxMySqlHelper.Delete("IcerikResimleri", "icrkRes_id", resimId);
         }
 
         public List<enIcerikResim> TumResimleriGetir(bool? statu)
@@ -225,9 +225,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkRes_statu"); degerList.Add(resim.Statu);
+            dict.Add("icrkRes_statu", resim.Statu);
+            FxMySqlHelper.Update("IcerikResimleri", dict, "icrkRes_id",resim.Id);
 
-            dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
         }
 
         public void ResimSiraGuncelle(enIcerikResim resim)
@@ -235,9 +235,8 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkRes_sira"); degerList.Add(resim.Sira);
-
-            dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
+            dict.Add("icrkRes_sira",resim.Sira);
+            FxMySqlHelper.Update("IcerikResimleri", dict, "icrkRes_id", resim.Id);
         }
 
         public void ResimAciklamaGuncelle(enIcerikResim resim)
@@ -245,10 +244,10 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkRes_aciklama"); degerList.Add(resim.Aciklama);
-            dict.Add("icrkRes_baslik"); degerList.Add(resim.Baslik);
+            dict.Add("icrkRes_aciklama",resim.Aciklama);
+            dict.Add("icrkRes_baslik",resim.Baslik);
 
-            dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
+            FxMySqlHelper.Update("IcerikResimleri", dict, "icrkRes_id", resim.Id);
         }
 
         public enIcerikResim BirUsttekiResmiGetir(enIcerikResim gResim)
@@ -334,8 +333,8 @@ namespace DAL
                         WHERE icrkRes_site_id = @sayfaId 
                         ORDER BY icrkRes_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
-
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
+ 
             cmd.Parameters.AddWithValue("@sayfaId", sayfaId);
 
             cmd.Connection.Open();
@@ -352,9 +351,10 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("icrkRes_anaResim"); degerList.Add(resim.AnaResim);
+            dict.Add("icrkRes_anaResim",resim.AnaResim);
 
-            dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
+            FxMySqlHelper.Update("IcerikResimleri", dict, "icrkRes_id", resim.Id);
+
         }
 
         public enIcerikResim AnaResimGetir(int? sayfaId)

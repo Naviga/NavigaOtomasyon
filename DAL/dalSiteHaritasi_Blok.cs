@@ -22,8 +22,8 @@ namespace DAL
             sb.Append("SET height = @height ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + strW);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
-
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
+  
             cmd.Parameters.AddWithValue("@height", sBlok.Height.xToIntDefault() == 0 ? "" : sBlok.Height);
             cmd.Parameters.AddWithValue("@bPoz_id", sBlok.PozisyonId);
             cmd.Parameters.AddWithValue("@blokId", sBlok.BlokId);
@@ -50,7 +50,7 @@ namespace DAL
             sb.Append("SET cerceve_rengi = @renk ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + strW);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@cerceve_rengi", sBlok.CerceveRengi);
             cmd.Parameters.AddWithValue("@bPoz_id", sBlok.PozisyonId);
@@ -78,7 +78,7 @@ namespace DAL
             sb.Append("SET metin_rengi = @renk ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + strW);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@metin_rengi", sBlok.MetinRengi);
             cmd.Parameters.AddWithValue("@bPoz_id", sBlok.PozisyonId);
@@ -106,7 +106,7 @@ namespace DAL
             sb.Append("SET arkaplan_rengi = @renk ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + strW);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@arkaplan_rengi", sBlok.ArkaplanRengi);
             cmd.Parameters.AddWithValue("@bPoz_id", sBlok.PozisyonId);
@@ -133,7 +133,7 @@ namespace DAL
             sb.Append("sira = @sira ");
             sb.Append("WHERE site_id = @siteId AND blok_id = @blokId ");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@pozId", sBlok.PozisyonId);
             cmd.Parameters.AddWithValue("@sira", sBlok.Sira);
@@ -155,7 +155,7 @@ namespace DAL
             sb.Append("sira = @sira ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId ");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sira", sBlok.Sira);
             cmd.Parameters.AddWithValue("@pozId", sBlok.PozisyonId);
@@ -301,7 +301,7 @@ namespace DAL
 
             sb.Append("select count(*) from SiteHaritasi_Blok where site_id = @sayfaId and blok_id = @blokId");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@siteId", sBlok.SayfaId);
             cmd.Parameters.AddWithValue("@blokId", sBlok.BlokId);
@@ -321,16 +321,16 @@ namespace DAL
             List<object> degerList = new List<object>();
 
 
-            dict.Add("site_id"); degerList.Add(blok.SayfaId);
-            dict.Add("blok_id"); degerList.Add(blok.BlokId);
-            dict.Add("bPoz_id"); degerList.Add(blok.PozisyonId);
-            dict.Add("statu"); degerList.Add(blok.Statu);
-            dict.Add("sira"); degerList.Add(blok.Sira);
-            dict.Add("height"); degerList.Add(blok.Height);
-            dict.Add("baslik"); degerList.Add(blok.BaslikKullanimi);
-            dict.Add("cerceve"); degerList.Add(blok.CerceveKullanimi);
+            dict.Add("site_id",blok.SayfaId);
+            dict.Add("blok_id",blok.BlokId);
+            dict.Add("bPoz_id",blok.PozisyonId);
+            dict.Add("statu",blok.Statu);
+            dict.Add("sira",blok.Sira);
+            dict.Add("height",blok.Height);
+            dict.Add("baslik",blok.BaslikKullanimi);
+            dict.Add("cerceve",blok.CerceveKullanimi);
 
-            dalManager.MakeAnDbInsert(prmList, "SiteHaritasi_Blok", degerList, "");
+            FxMySqlHelper.Insert("SiteHaritasi_Blok", dict);
         }
 
         public List<enBlok> SayfaEklenmemisleriGetir(int sayfaId, bool? statu)
@@ -403,7 +403,7 @@ namespace DAL
             sb.Append("DELETE FROM SiteHaritasi_Blok ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + wStr);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@pozId", pozisyonId);
             cmd.Parameters.AddWithValue("@blokId", blokId);
@@ -428,7 +428,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi_Blok WHERE bPoz_id = @pozId AND blok_id = @blokId" + wStr);
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@pozId", pozisyonId);
             adp.SelectCommand.Parameters.AddWithValue("@blokId", blokId);
@@ -473,7 +473,7 @@ namespace DAL
                         INNER JOIN (BlokPozisyonlari INNER JOIN SiteHaritasi_Blok ON BlokPozisyonlari.bPoz_id = SiteHaritasi_Blok.bPoz_id) ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                         WHERE SiteHaritasi_Blok.bPoz_id = @pozId AND SiteHaritasi_Blok.blok_id = @blokId ");
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@pozId", pozisyonId);
             adp.SelectCommand.Parameters.AddWithValue("@blokId", blokId);
@@ -531,7 +531,7 @@ namespace DAL
             sb.Append("SET baslik = @baslik ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + strW);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@baslik", sBlok.BaslikKullanimi);
             cmd.Parameters.AddWithValue("@pozId", sBlok.PozisyonId);
@@ -559,7 +559,7 @@ namespace DAL
             sb.Append("SET cerceve = @cerceve ");
             sb.Append("WHERE bPoz_id = @pozId AND blok_id = @blokId " + strW);
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@cerceve", sBlok.CerceveKullanimi);
             cmd.Parameters.AddWithValue("@pozId", sBlok.PozisyonId);
@@ -585,7 +585,7 @@ namespace DAL
             sb.Append("SET sira = @sira ");
             sb.Append("WHERE site_id = @siteId AND blok_id = @blokId ");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sira", sBlok.Sira);
             cmd.Parameters.AddWithValue("@siteId", sBlok.SayfaId);
@@ -606,7 +606,7 @@ namespace DAL
             sb.Append("SET bPoz_id = @pozId ");
             sb.Append("WHERE site_id = @siteId AND blok_id = @blokId ");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@pozId", sBlok.PozisyonId);
             cmd.Parameters.AddWithValue("@siteId", sBlok.SayfaId);
@@ -625,7 +625,7 @@ namespace DAL
 
             sb.Append("select count(*) from SiteHaritasi_Blok where site_id = @sayfaId and bPoz_id = @pozId and blok_id = @blokId");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sayfaId", sBlok.SayfaId);
             cmd.Parameters.AddWithValue("@pozId", sBlok.PozisyonId);

@@ -11,7 +11,6 @@ namespace DAL
     public class dalSosyalMedya
     {
 
-
         public void Insert(enSosyalMedya sosyalmedya)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
@@ -21,38 +20,39 @@ namespace DAL
             dict.Add("sos_sira", sosyalmedya.sos_sira);
             dict.Add("sos_statu", sosyalmedya.sos_statu);
             dict.Add("sos_url", sosyalmedya.sos_url);
-
-            AccessHelper.Insert("SosyalMedya", dict);
+ 
+            FxMySqlHelper.Insert("SosyalMedya", dict);
         }
 
         public DataTable SelectAll()
         {
-            return AccessHelper.Select_Dt("SosyalMedya", "*", "", "sos_sira ");
+            return FxMySqlHelper.Select_Dt("SosyalMedya", "*", "", "sos_sira ");
         }
 
         public DataTable SelectActiveTers()
         {
-            return AccessHelper.Select_Dt("SosyalMedya", "*", "sos_statu = " + true, "sos_sira DESC");
+            return FxMySqlHelper.Select_Dt("SosyalMedya", "*", "sos_statu = " + true, "sos_sira DESC");
         }
 
         public DataTable SelectActive()
         {
-            return AccessHelper.Select_Dt("SosyalMedya", "*", "sos_statu = " + true);
+            return FxMySqlHelper.Select_Dt("SosyalMedya", "*", "sos_statu = " + true);
         }
 
         public void Delete(int sos_id)
         {
-            AccessHelper.Delete("SosyalMedya", "sos_id", sos_id);
+            FxMySqlHelper.Delete("SosyalMedya", "sos_id", sos_id);
         }
 
-        public int SonSiraNoGetir()
-        {
-            return dalManager.SonSiraNoGetir("SosyalMedya", "sos_sira");
-        }
+        //public int SonSiraNoGetir()
+        //{
+            
+        //    return dalManager.SonSiraNoGetir("SosyalMedya", "sos_sira");
+        //}
 
         public enSosyalMedya Getir(int sosId)
         {
-            DataRow rw = AccessHelper.SelectRow("SosyalMedya", "*", "sos_id = " + sosId);
+            DataRow rw = FxMySqlHelper.SelectRow("SosyalMedya", "*", "sos_id = " + sosId);
 
             enSosyalMedya sos = new enSosyalMedya();
 
@@ -78,7 +78,7 @@ namespace DAL
 
             pair.Add("sos_statu", statu);
 
-            AccessHelper.Update("SosyalMedya", pair, "sos_id", sosId);
+            FxMySqlHelper.Update("SosyalMedya", pair, "sos_id", sosId);
         }
 
         public void SiraGuncelle(int sosId, int sira)
@@ -87,12 +87,12 @@ namespace DAL
 
             pair.Add("sos_sira", sira);
 
-            AccessHelper.Update("SosyalMedya", pair, "sos_id", sosId);
+            FxMySqlHelper.Update("SosyalMedya", pair, "sos_id", sosId);
         }
 
         public enSosyalMedya BirAlttaki(int sira)
         {
-            DataTable dt = AccessHelper.Select_Dt("SosyalMedya", "*", "sos_sira = " + (sira + 1));
+            DataTable dt = FxMySqlHelper.Select_Dt("SosyalMedya", "*", "sos_sira = " + (sira + 1));
 
             enSosyalMedya sos = new enSosyalMedya();
             if (dt.Rows.Count > 0)
@@ -115,7 +115,7 @@ namespace DAL
 
         public enSosyalMedya BirUstteki(int sira)
         {
-            DataTable dt = AccessHelper.Select_Dt("SosyalMedya", "*", "sos_sira = " + (sira - 1));
+            DataTable dt = FxMySqlHelper.Select_Dt("SosyalMedya", "*", "sos_sira = " + (sira - 1));
 
             enSosyalMedya sos = new enSosyalMedya();
             if (dt.Rows.Count > 0)
@@ -144,12 +144,12 @@ namespace DAL
             pair.Add("sos_ikonu", media.sos_ikonu);
             pair.Add("sos_url", media.sos_url);
 
-            AccessHelper.Update("SosyalMedya", pair, "sos_id", media.sos_id);
+            FxMySqlHelper.Update("SosyalMedya", pair, "sos_id", media.sos_id);
         }
 
         public List<enSosyalMedya> TumunuGetir()
         {
-            DataTable dt = AccessHelper.Select_Dt("SosyalMedya", "*", "", "sos_sira ");
+            DataTable dt = FxMySqlHelper.Select_Dt("SosyalMedya", "*", "", "sos_sira ");
 
             List<enSosyalMedya> medyalar = new List<enSosyalMedya>();
             foreach (DataRow rw in dt.Rows)
@@ -174,7 +174,7 @@ namespace DAL
 
         public List<enSosyalMedya> AktifleriGetir()
         {
-            DataTable dt = AccessHelper.Select_Dt("SosyalMedya", "*", "sos_statu = " + true);
+            DataTable dt = FxMySqlHelper.Select_Dt("SosyalMedya", "*", "sos_statu = " + true);
 
             List<enSosyalMedya> medyalar = new List<enSosyalMedya>();
             foreach (DataRow rw in dt.Rows)
@@ -203,7 +203,7 @@ namespace DAL
 
             pair.Add("sos_menu", sos.sos_menu);
 
-            AccessHelper.Update("SosyalMedya", pair, "sos_id", sos.sos_id);
+            FxMySqlHelper.Update("SosyalMedya", pair, "sos_id", sos.sos_id);
         }
 
         public void FooterdaGoster(enSosyalMedya sos)
@@ -212,7 +212,7 @@ namespace DAL
 
             pair.Add("sos_footer", sos.sos_menu);
 
-            AccessHelper.Update("SosyalMedya", pair, "sos_id", sos.sos_id);
+            FxMySqlHelper.Update("SosyalMedya", pair, "sos_id", sos.sos_id);
         }
 
         public void YanMenudeGoster(enSosyalMedya sos)
@@ -221,7 +221,7 @@ namespace DAL
 
             pair.Add("sos_yanMenu", sos.sos_yanMenu);
 
-            AccessHelper.Update("SosyalMedya", pair, "sos_id", sos.sos_id);
+            FxMySqlHelper.Update("SosyalMedya", pair, "sos_id", sos.sos_id);
         }
     }
 }
