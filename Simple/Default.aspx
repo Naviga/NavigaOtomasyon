@@ -6,14 +6,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link href="foundation/css/normalize.css" rel="stylesheet" />
-    <link href="foundation/css/foundation.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-    <link href="css/naviga.css" rel="stylesheet" />
+    <link href="/foundation/css/normalize.css" rel="stylesheet" />
+    <link href="/foundation/css/foundation.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/naviga.css" rel="stylesheet" />
     <%-- <link href="owl-carousel/owl.carousel.css" rel="stylesheet" />
     <link href="owl-carousel/owl.theme.css" rel="stylesheet" />--%>
-    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-    <script src="foundation/js/vendor/modernizr.js"></script>
+    <link href="/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="/foundation/js/vendor/modernizr.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
         function initialize() {
