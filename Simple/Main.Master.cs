@@ -84,7 +84,7 @@ namespace Ws
 
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("<ul id='ulMainNavigation' class='left'>");
+            sb.Append("<ul id='ulSubNavigationLeft' class='right'>");
 
             int i = 0;
             foreach (enSiteHaritasi page in pages)
@@ -144,7 +144,7 @@ namespace Ws
 
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("<ul id='ulMainNavigation' class='left'>");
+            sb.Append("<ul id='ulSubNavigationRight' class='left'>");
 
             int i = 0;
             foreach (enSiteHaritasi page in pages)

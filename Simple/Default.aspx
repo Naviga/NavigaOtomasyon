@@ -41,7 +41,7 @@
 
     <div class="row width-100">
         <div class="small-16 columns text-center">
-            <h1 class="inset color-dark-gray"><span class="fa fa-globe"></span>HABERLER
+            <h1 class="inset color-dark-gray"><span class="fa fa-globe"></span><%= bllDiziler.DiziGetir("Home.Title.News") %>
             </h1>
         </div>
     </div>
@@ -110,7 +110,7 @@
 
     <div class="row">
         <div class="small-16 columns text-center">
-            <h1 class="inset color-dark-gray"><span class="fa fa-list"></span>ÜRÜNLER
+            <h1 class="inset color-dark-gray"><span class="fa fa-list"></span><%= bllDiziler.DiziGetir("Home.Title.Products") %>
             </h1>
         </div>
     </div>
@@ -222,7 +222,7 @@
     <hr class="fancy-line" />
     <div class="row">
         <div class="large-9 large-centered column text-center">
-            <h2><span class="fa fa-quote-left"></span>&nbsp;&nbsp;50 yılı aşkın iş deneyimi&nbsp;&nbsp;<span class="fa fa-quote-right"></span></h2>
+            <h2><span class="fa fa-quote-left"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Home.Slogan.Text") %>&nbsp;&nbsp;<span class="fa fa-quote-right"></span></h2>
         </div>
     </div>
     <hr class="fancy-line" />
@@ -267,7 +267,7 @@
     <hr class="fancy-line" />
     <div class="row">
         <div class="large-9 large-centered column text-center">
-            <h1 class="inset color-dark-gray"><span class="fa fa-map-marker"></span>&nbsp;NEREDEYİZ ?</h1>
+            <h1 class="inset color-dark-gray"><span class="fa fa-map-marker"></span>&nbsp;<%= bllDiziler.DiziGetir("Home.Title.Map") %></h1>
         </div>
     </div>
 

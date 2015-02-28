@@ -35,7 +35,7 @@
 .top-bar.blue-bar .top-bar-section ul li > a
 {
     font-family: 'Anton', sans-serif;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 /*TOP BAR MAVI*/
@@ -69,10 +69,10 @@
         color: #2c2c2c;
     }
 
-.top-bar-section.blue-bar ul.left
+/*.top-bar-section.blue-bar ul.left
 {
     margin-left: 250px;
-}
+}*/
 
 .top-bar-section.blue-bar ul li
 {
