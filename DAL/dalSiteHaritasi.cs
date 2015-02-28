@@ -49,11 +49,13 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_statu = @statu ORDER BY site_sira");
+            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_statu = @statu AND (site_sol_altMenu = @sol and site_sag_altMenu = @sag) ORDER BY site_sira");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
+            adp.SelectCommand.Parameters.AddWithValue("@sol", false);
+            adp.SelectCommand.Parameters.AddWithValue("@sag", false);
 
             DataTable dt = new DataTable();
 
@@ -283,7 +285,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu AND site_urunMu=false AND (site_sag_altMenu=false AND site_sag_altMenu=false) ORDER BY site_sira");
+            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu AND site_urunMu=false  ORDER BY site_sira");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
