@@ -13,13 +13,13 @@ namespace Ws {
     public partial class Sayfa {
         
         /// <summary>
-        /// uscStandartSayfa1 control.
+        /// uscUrunSayfa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ws.usc.uscStandartSayfa uscStandartSayfa1;
+        protected global::Ws.usc.uscUrunSayfa uscUrunSayfa;
         
         /// <summary>
         /// uscStandartSayfa control.

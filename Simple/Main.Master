@@ -25,7 +25,7 @@
     <form id="form1" runat="server">
         <div id="dvLoader">
             <div id="loader">
-                <img src="img/loader.GIF" width="64px" />
+                <img src="/img/loader.GIF" width="64px" />
             </div>
         </div>
         <div id="wrapper">
@@ -203,14 +203,14 @@
 
         <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
 
-        <script src="admin/foundation/js/vendor/jquery.js"></script>
-        <script src="admin/foundation/js/foundation.min.js"></script>
-        <script src="owl-carousel/owl.carousel.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/jquery.center.js"></script>
-        <script src="js/general.js"></script>
-        <script src="exposure_slider/jquery.exposure.js"></script>
-        <script src="exposure_slider/texts_tr.js"></script>
+        <script src="/admin/foundation/js/vendor/jquery.js"></script>
+        <script src="/admin/foundation/js/foundation.min.js"></script>
+        <script src="/owl-carousel/owl.carousel.js"></script>
+        <script src="/js/jquery.backstretch.min.js"></script>
+        <script src="/js/jquery.center.js"></script>
+        <script src="/js/general.js"></script>
+        <script src="/exposure_slider/jquery.exposure.js"></script>
+        <script src="/exposure_slider/texts_tr.js"></script>
 
         <script>
             $(document).foundation();

@@ -11,12 +11,12 @@
 
 <% List<enSiteHaritasi> altSayfalar = bllSiteHaritasi.AktifAltSayfalariGetirList(sayfa.Id); %>
 <% List<enIcerikResim> resimler = bllIcerikResimleri.ResimleriGetir(sayfa.Id, true); %>
-<% List<enIcerikResim> tumUrunler = bllIcerikResimleri.TumResimleriGetir(true); %>
+<% List<enIcerikResim> tumUrunler = bllSiteHaritasi.UrunleriGetir(sayfa.Id); %>
 
-<% if (sayfa.Icerik.xBosMu() && resimler.Count == 0 && altSayfalar.Count > 0)
+<%--<% if (sayfa.Icerik.xBosMu() && resimler.Count == 0 && altSayfalar.Count > 0)
    {
        Response.Redirect(altSayfalar[0].Url);
-   } %>
+   } %>--%>
 
 <% if (!IsPostBack) SiteMapOlustur(sayfa); %>
 
@@ -165,7 +165,7 @@
 
     <% } %>
 
-    <%if (sayfa.UrunMu)
+    <%if (tumUrunler.Count!=0)
       {%>
 
     <div class="large-10 columns">
@@ -188,7 +188,6 @@
                     <div class="row">
                         <% int i = 0; foreach (enIcerikResim resim in tumUrunler)
                            {%>
-
 
                         <div class="medium-4 columns">
                             <a class="fancybox" rel="group" href='<%= resim.Buyuk %>'>

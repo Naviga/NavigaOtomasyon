@@ -1592,7 +1592,7 @@ namespace DAL
             sb.Append(@"select ir.* from siteharitasi s1 inner join siteharitasi s2 on 
                         s1.site_id=s2.site_parent
                         inner join icerikresimleri ir on s2.site_id=ir.icrkRes_site_id
-                        where s1.site_id=@parent_id and s2.site_urunMu=false");
+                        where s1.site_id=@parent_id and s2.site_urunMu=true and ir.icrkRes_anaResim=true");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
             adp.SelectCommand.Parameters.AddWithValue("@parent_id", parentId);

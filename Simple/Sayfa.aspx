@@ -42,9 +42,9 @@
            uscStandartSayfa.SayfaId = sayfa.Id;
     %>
 
-    <%--<uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />--%>
+    <uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />
 
-    <uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />
+    <%--<uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />--%>
 
     <% }%>
 
