@@ -34,12 +34,17 @@ C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Ws.dll
 C:\Users\PRO2000\Documents\Finex\Gelistirmeler\WSSimple\Simple\obj\Debug\Ws.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Ws.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Ws.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\AjaxControlToolkit.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\AjaxMin.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\BLL.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Common.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Entity.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\FxHelpers.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\HtmlAgilityPack.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\SanitizerProviders.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Settings.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\DAL.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\MySql.Data.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\BLL.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Common.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Entity.pdb
@@ -50,9 +55,3 @@ C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\obj\Debug\Interop.ADOX.dl
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\obj\Debug\WsSimple.csproj.ResolveComReference.cache
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\obj\Debug\Ws.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\obj\Debug\Ws.pdb
-C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\AjaxControlToolkit.dll
-C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\FxHelpers.dll
-C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\HtmlAgilityPack.dll
-C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\SanitizerProviders.dll
-C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\MySql.Data.dll
-C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Telerik.Web.UI.xml

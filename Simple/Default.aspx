@@ -186,9 +186,9 @@
             </div>
         </div>--%>
 
-        <% } %>--%>
+        <% } %>
     </div>
-    <%} %>
+
     <hr class="fancy-line" />
     <div class="row">
         <div class="large-9 large-centered column text-center">
@@ -244,5 +244,4 @@
     <div id="map-canvas" class="width-100"></div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="maincntScript" runat="server">
-    
 </asp:Content>

@@ -283,7 +283,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu AND site_urunMu=false ORDER BY site_sira");
+            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu AND site_urunMu=false AND (site_sag_altMenu=false AND site_sag_altMenu=false) ORDER BY site_sira");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
