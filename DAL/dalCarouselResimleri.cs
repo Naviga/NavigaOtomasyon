@@ -13,27 +13,27 @@ namespace DAL
         public void YeniResimEkle(enCarouselResim resim)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("carRes_car_id"); degerList.Add(resim.CarouselId);
-            dict.Add("carRes_kucuk"); degerList.Add(resim.Kucuk);
-            dict.Add("carRes_orta"); degerList.Add(resim.Orta);
-            dict.Add("carRes_buyuk"); degerList.Add(resim.Buyuk);
-            dict.Add("carRes_sira"); degerList.Add(resim.Sira);
-            dict.Add("carRes_statu"); degerList.Add(resim.Statu);
-            dict.Add("carRes_kayitTar"); degerList.Add(resim.KayitTarihi);
-            dict.Add("carRes_baslik"); degerList.Add(resim.Baslik);
-            dict.Add("carRes_navUrl"); degerList.Add(resim.NavUrl);
-            dict.Add("carRes_fotoLink"); degerList.Add(resim.FotoLink);
-            dict.Add("carRes_videoLink"); degerList.Add(resim.VideoLink);
 
-            dalManager.MakeAnDbInsert(prmList, "CarouselResimleri", degerList, "");
+            dict.Add("carRes_car_id", resim.CarouselId);
+            dict.Add("carRes_kucuk", resim.Kucuk);
+            dict.Add("carRes_orta", resim.Orta);
+            dict.Add("carRes_buyuk", resim.Buyuk);
+            dict.Add("carRes_sira", resim.Sira);
+            dict.Add("carRes_statu", resim.Statu);
+            dict.Add("carRes_kayitTar", resim.KayitTarihi);
+            dict.Add("carRes_baslik", resim.Baslik);
+            dict.Add("carRes_navUrl", resim.NavUrl);
+            dict.Add("carRes_fotoLink", resim.FotoLink);
+            dict.Add("carRes_videoLink", resim.VideoLink);
+
+            FxMySqlHelper.Insert("CarouselResimleri", dict);
 
         }
 
         public void ResimSil(int resimId)
         {
-            dalManager.MakeAnDbDelete("CarouselResimleri", "carRes_id", resimId);
+            FxMySqlHelper.Delete("CarouselResimleri", "carRes_id", resimId);
         }
 
         public List<enCarouselResim> ResimleriGetir(int sayfaId, bool? statu)
@@ -180,52 +180,51 @@ namespace DAL
         public void ResimStatuGuncelle(enCarouselResim resim)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("carRes_statu"); degerList.Add(resim.Statu);
+            dict.Add("carRes_statu", resim.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
+            FxMySqlHelper.Update("CarouselResimleri", dict, "carRes_id", resim.Id);
         }
 
         public void FotoVideoLinkGuncelle(enCarouselResim resim)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("carRes_fotoLink"); degerList.Add(resim.FotoLink);
-            dict.Add("carRes_videoLink"); degerList.Add(resim.VideoLink);
 
-            dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
+            dict.Add("carRes_fotoLink", resim.FotoLink);
+            dict.Add("carRes_videoLink", resim.VideoLink);
+
+            FxMySqlHelper.Update("CarouselResimleri", dict, "carRes_id", resim.Id);
         }
 
         public void ResimSiraGuncelle(enCarouselResim resim)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("carRes_sira"); degerList.Add(resim.Sira);
 
-            dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
+            dict.Add("carRes_sira", resim.Sira);
+
+            FxMySqlHelper.Update("CarouselResimleri", dict, "carRes_id", resim.Id);
         }
 
         public void ResimBaslikGuncelle(enCarouselResim resim)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("carRes_baslik"); degerList.Add(resim.Baslik);
 
-            dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
+            dict.Add("carRes_baslik", resim.Baslik);
+
+            FxMySqlHelper.Update("CarouselResimleri", dict, "carRes_id", resim.Id);
         }
 
         public void NavUrlGuncelle(enCarouselResim resim)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("carRes_navUrl"); degerList.Add(resim.NavUrl);
 
-            dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
+            dict.Add("carRes_navUrl", resim.NavUrl);
+
+            FxMySqlHelper.Update("CarouselResimleri", dict, "carRes_id", resim.Id);
         }
 
         public enCarouselResim BirUsttekiResmiGetir(enCarouselResim gResim)
@@ -307,7 +306,7 @@ namespace DAL
                         WHERE carRes_car_id = @sayfaId 
                         ORDER BY carRes_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sayfaId", sayfaId);
 

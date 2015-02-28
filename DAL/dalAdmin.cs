@@ -16,8 +16,8 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Admin");
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(),  FxMySqlHelper.Connection());
-            
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
+
             DataTable dt = new DataTable();
 
             adp.Fill(dt);
@@ -106,41 +106,37 @@ namespace DAL
         public void YeniAdminEkle(enAdmin admin)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("adm_kullAdi",admin.KullaniciAdi); 
-            dict.Add("adm_sifre"); 
-            dict.Add("adm_finex"); 
-            dict.Add("adm_statu");
+            dict.Add("adm_kullAdi", admin.KullaniciAdi);
+            dict.Add("adm_sifre", admin.Sifre);
+            dict.Add("adm_finex", admin.Finex);
+            dict.Add("adm_statu", admin.Statu);
 
-
-            FxMySqlHelper.MakeAnDbInsert(prmList, "Admin", degerList, "");
+            FxMySqlHelper.Insert("Admin",dict);
         }
 
         public void Guncelle(enAdmin admin)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("adm_kullAdi"); degerList.Add(admin.KullaniciAdi);
-            dict.Add("adm_sifre"); degerList.Add(admin.Sifre);
+            dict.Add("adm_kullAdi", admin.KullaniciAdi);
+            dict.Add("adm_sifre", admin.Sifre);
 
-            dalManager.MakeAnDbUpdate(prmList, "Admin", "adm_id", admin.Id, degerList);
+            FxMySqlHelper.Update("Admin", dict, "adm_id", admin.Id);
         }
 
         public void StatuGuncelle(enAdmin admin)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("adm_statu"); degerList.Add(admin.Statu);
+            dict.Add("adm_statu", admin.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "Admin", "adm_id", admin.Id, degerList);
+            FxMySqlHelper.Update("Admin", dict, "adm_id", admin.Id);
         }
 
         public void AdminSil(int adminId)
         {
-            dalManager.MakeAnDbDelete("Admin", "adm_id", adminId);
+            FxMySqlHelper.Delete("Admin", "adm_id", adminId);
         }
 
         public enAdmin AdminGetir(string kullaniciAdi)

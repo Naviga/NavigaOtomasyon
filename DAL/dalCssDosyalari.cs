@@ -15,10 +15,10 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("css_adi"); degerList.Add(css.Adi);
-            dict.Add("css_sbl_id"); degerList.Add(css.SablonId);
+            dict.Add("css_adi", css.Adi);
+            dict.Add("css_sbl_id", css.SablonId);
 
-            dalManager.MakeAnDbInsert(prmList, "CssDosyalari", degerList, "");
+            FxMySqlHelper.Insert("CssDosyalari", dict);
         }
 
         public List<enCssDosya> CssDosyalariGetir(int? sablonId)
@@ -29,7 +29,7 @@ namespace DAL
             if (sablonId != null)
             {
                 sb.Append("SELECT * FROM CssDosyalari WHERE css_sbl_id = @id");
-                
+
                 adp.SelectCommand.Parameters.AddWithValue("@id", sablonId);
             }
             else
@@ -90,7 +90,7 @@ namespace DAL
 
         public void Sil(int cssId)
         {
-            dalManager.MakeAnDbDelete("CssDosyalari", "css_id", cssId);
+            FxMySqlHelper.Delete("CssDosyalari", "css_id", cssId);
         }
     }
 }
