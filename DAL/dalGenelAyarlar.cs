@@ -71,12 +71,11 @@ namespace DAL
         public void AyarGuncelle(enGenelAyar ayar)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("gayr_icerik"); degerList.Add(ayar.Icerik);
-            dict.Add("gayr_statu"); degerList.Add(ayar.Statu);
+            dict.Add("gayr_icerik", ayar.Icerik);
+            dict.Add("gayr_statu", ayar.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "GenelAyarlar", "gayr_id", ayar.Id, degerList);
+            FxMySqlHelper.Update("GenelAyarlar", dict, "gayr_id", ayar.Id);
         }
     }
 }

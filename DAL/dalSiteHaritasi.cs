@@ -523,32 +523,32 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_adi"); degerList.Add(site.Adi);
-            dict.Add("site_resim"); degerList.Add(site.Resim);
-            dict.Add("site_statu"); degerList.Add(site.Statu);
-            dict.Add("site_default"); degerList.Add(site.DefaultSayfa);
-            dict.Add("site_icerik"); degerList.Add(site.Icerik);
-            dict.Add("site_title"); degerList.Add(site.Title);
-            dict.Add("site_description"); degerList.Add(site.Description);
-            dict.Add("site_keywords"); degerList.Add(site.Keywords);
-            dict.Add("site_parent"); degerList.Add(site.Parent);
-            dict.Add("site_url"); degerList.Add(site.Url.Trim().ToLowerInvariant());
-            dict.Add("site_sira"); degerList.Add(site.Sira);
-            dict.Add("site_fotoBaslik"); degerList.Add(site.FotoBaslik);
-            dict.Add("site_videoBaslik"); degerList.Add(site.VideoBaslik);
-            dict.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
-            dict.Add("site_faceComments"); degerList.Add(site.FaceComments);
-            dict.Add("site_custom"); degerList.Add(site.Custom);
-            dict.Add("site_paylasimAlani"); degerList.Add(site.PaylasimAlani);
-            dict.Add("site_baslikAlani"); degerList.Add(site.BaslikAlani);
-            dict.Add("site_sayfaYolu"); degerList.Add(site.SayfaYolu);
-            dict.Add("site_menu"); degerList.Add(site.Menu);
-            dict.Add("site_sayfaMenu"); degerList.Add(site.SayfaMenu);
-            dict.Add("site_kayitTar"); degerList.Add(DateTime.Now.Date);
-            dict.Add("site_list"); degerList.Add(site.List);
-            dict.Add("site_urunMu"); degerList.Add(site.UrunMu);
+            dict.Add("site_adi", site.Adi);
+            dict.Add("site_resim", site.Resim);
+            dict.Add("site_statu", site.Statu);
+            dict.Add("site_default", site.DefaultSayfa);
+            dict.Add("site_icerik", site.Icerik);
+            dict.Add("site_title", site.Title);
+            dict.Add("site_description", site.Description);
+            dict.Add("site_keywords", site.Keywords);
+            dict.Add("site_parent", site.Parent);
+            dict.Add("site_url", site.Url.Trim().ToLowerInvariant());
+            dict.Add("site_sira", site.Sira);
+            dict.Add("site_fotoBaslik", site.FotoBaslik);
+            dict.Add("site_videoBaslik", site.VideoBaslik);
+            dict.Add("site_fotoGaleri", site.FotoGaleriMi);
+            dict.Add("site_faceComments", site.FaceComments);
+            dict.Add("site_custom", site.Custom);
+            dict.Add("site_paylasimAlani", site.PaylasimAlani);
+            dict.Add("site_baslikAlani", site.BaslikAlani);
+            dict.Add("site_sayfaYolu", site.SayfaYolu);
+            dict.Add("site_menu", site.Menu);
+            dict.Add("site_sayfaMenu", site.SayfaMenu);
+            dict.Add("site_kayitTar", DateTime.Now.Date);
+            dict.Add("site_list", site.List);
+            dict.Add("site_urunMu", site.UrunMu);
 
-            site.Id = dalManager.MakeAnDbInsert(prmList, "SiteHaritasi", degerList, "site_id");
+            site.Id = FxMySqlHelper.Insert("SiteHaritasi", dict, true);
         }
 
         public void SayfaDuzenle(enSiteHaritasi site)
@@ -557,30 +557,30 @@ namespace DAL
             List<object> degerList = new List<object>();
 
 
-            dict.Add("site_adi"); degerList.Add(site.Adi);
+            dict.Add("site_adi", site.Adi);
 
             if (site.Resim.xBosMu() == false)
             {
-                dict.Add("site_resim"); degerList.Add(site.Resim);
+                dict.Add("site_resim", site.Resim);
             }
-            dict.Add("site_icerik"); degerList.Add(site.Icerik);
-            dict.Add("site_title"); degerList.Add(site.Title);
-            dict.Add("site_description"); degerList.Add(site.Description);
-            dict.Add("site_keywords"); degerList.Add(site.Keywords);
-            dict.Add("site_parent"); degerList.Add(site.Parent);
-            dict.Add("site_url"); degerList.Add(site.Url.Trim().ToLowerInvariant());
-            dict.Add("site_fotoBaslik"); degerList.Add(site.FotoBaslik);
-            dict.Add("site_videoBaslik"); degerList.Add(site.VideoBaslik);
-            dict.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
-            dict.Add("site_faceComments"); degerList.Add(site.FaceComments);
-            dict.Add("site_custom"); degerList.Add(site.Custom);
-            dict.Add("site_paylasimAlani"); degerList.Add(site.PaylasimAlani);
-            dict.Add("site_baslikAlani"); degerList.Add(site.BaslikAlani);
-            dict.Add("site_sayfaYolu"); degerList.Add(site.SayfaYolu);
-            dict.Add("site_sayfaMenu"); degerList.Add(site.SayfaMenu);
-            dict.Add("site_list"); degerList.Add(site.List);
+            dict.Add("site_icerik", site.Icerik);
+            dict.Add("site_title", site.Title);
+            dict.Add("site_description", site.Description);
+            dict.Add("site_keywords", site.Keywords);
+            dict.Add("site_parent", site.Parent);
+            dict.Add("site_url", site.Url.Trim().ToLowerInvariant());
+            dict.Add("site_fotoBaslik", site.FotoBaslik);
+            dict.Add("site_videoBaslik", site.VideoBaslik);
+            dict.Add("site_fotoGaleri", site.FotoGaleriMi);
+            dict.Add("site_faceComments", site.FaceComments);
+            dict.Add("site_custom", site.Custom);
+            dict.Add("site_paylasimAlani", site.PaylasimAlani);
+            dict.Add("site_baslikAlani", site.BaslikAlani);
+            dict.Add("site_sayfaYolu", site.SayfaYolu);
+            dict.Add("site_sayfaMenu", site.SayfaMenu);
+            dict.Add("site_list", site.List);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void StatuDegistir(enSiteHaritasi site)
@@ -588,9 +588,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_statu"); degerList.Add(site.Statu);
+            dict.Add("site_statu", site.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void AcilirMenuDurumDegistir(enSiteHaritasi site)
@@ -598,9 +598,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_acilirMenu"); degerList.Add(site.AcilirMenu);
+            dict.Add("site_acilirMenu", site.AcilirMenu);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void FotoGaleriDurumDegistir(enSiteHaritasi site)
@@ -608,9 +608,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
+            dict.Add("site_fotoGaleri", site.FotoGaleriMi);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void FaceCommentsDurumDegistir(enSiteHaritasi site)
@@ -618,14 +618,14 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_faceComments"); degerList.Add(site.FaceComments);
+            dict.Add("site_faceComments", site.FaceComments);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void SayfaSil(int sayfaId)
         {
-            dalManager.MakeAnDbDelete("SiteHaritasi", "site_id", sayfaId);
+            FxMySqlHelper.Delete("SiteHaritasi", "site_id", sayfaId);
         }
 
         public enSiteHaritasi BirUsttekiSayfayiGetir(enSiteHaritasi gSayfa)
@@ -725,9 +725,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_sira"); degerList.Add(sayfa.Sira);
+            dict.Add("site_sira", sayfa.Sira);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public int SonSiraNoGetir(int? parent)
@@ -738,7 +738,7 @@ namespace DAL
 
             sb.Append(@"SELECT TOP 1 site_sira FROM SiteHaritasi " + whereStr + " ORDER BY site_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             if (parent != null) cmd.Parameters.AddWithValue("@parent", parent);
 
@@ -758,7 +758,7 @@ namespace DAL
             sb.Append(@"SELECT COUNT(site_id) FROM SiteHaritasi  
                         WHERE site_parent = @id");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@id", sayfaId);
 
@@ -778,7 +778,7 @@ namespace DAL
             sb.Append(@"SELECT site_url FROM SiteHaritasi  
                         WHERE site_id = @id");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@id", sayfaId);
 
@@ -800,7 +800,7 @@ namespace DAL
 
             if (dzID != null) sb.Append(" AND site_id <> @id ");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@url", "/" + url);
 
@@ -952,9 +952,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_custom"); degerList.Add(sayfa.Custom);
+            dict.Add("site_custom", sayfa.Custom);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public List<enSiteHaritasi> OzelSayfalariGetir()
@@ -1020,9 +1020,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_menu"); degerList.Add(sayfa.Menu);
+            dict.Add("site_menu", sayfa.Menu);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void YanMenuDegistir(enSiteHaritasi sayfa)
@@ -1030,9 +1030,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_yanMenu"); degerList.Add(sayfa.YanMenu);
+            dict.Add("site_yanMenu", sayfa.YanMenu);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void FooterDegistir(enSiteHaritasi sayfa)
@@ -1040,9 +1040,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_footer"); degerList.Add(sayfa.Footer);
+            dict.Add("site_footer", sayfa.Footer);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void SayfaMenuDegistir(enSiteHaritasi sayfa)
@@ -1050,9 +1050,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_sayfaMenu"); degerList.Add(sayfa.SayfaMenu);
+            dict.Add("site_sayfaMenu", sayfa.SayfaMenu);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public void ListDegistir(enSiteHaritasi sayfa)
@@ -1060,9 +1060,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_list"); degerList.Add(sayfa.List);
+            dict.Add("site_list", sayfa.List);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
 
         public List<enSiteHaritasi> YanUstSayfalariGetirList(bool? statu = null)
@@ -1451,9 +1451,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_resim"); degerList.Add(pictureUrl);
+            dict.Add("site_resim", pictureUrl);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", pageId, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", pageId);
         }
 
         public void CarouselSec(int sayfaId, int carouseId, bool carouselSec)
@@ -1461,9 +1461,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("site_car_id"); degerList.Add(carouselSec ? carouseId : 0);
+            dict.Add("site_car_id", carouselSec ? carouseId : 0);
 
-            dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfaId, degerList);
+            FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfaId);
         }
     }
 }

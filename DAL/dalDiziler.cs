@@ -20,7 +20,7 @@ namespace DAL
             dict.Add("dil_id", dilId);
             dict.Add("degeri", dizi.Degeri);
 
-            AccessHelper.Insert("Diziler_Dil", dict);
+            FxMySqlHelper.Insert("Diziler_Dil", dict);
         }
 
         public void YeniKod(enDizi dizi)
@@ -29,7 +29,7 @@ namespace DAL
 
             dict.Add("dizi_kodu", dizi.Kodu);
 
-            AccessHelper.Insert("Diziler", dict);
+            FxMySqlHelper.Insert("Diziler", dict);
         }
 
         //        public string DilDiziGetir(string kodu, int? dilId)
@@ -38,7 +38,7 @@ namespace DAL
 
         //            StringBuilder sb = new StringBuilder();
 
-        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
+        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
         //            if (!Common.SessionManager.SeciliDil.VarsayilanMi)
         //            {
@@ -85,7 +85,7 @@ namespace DAL
         {
             string sql = @"select dizi_degeri from Diziler where dizi_kodu = @kodu";
 
-            OleDbCommand cmd = new OleDbCommand(sql, AccessHelper.Connection());
+            MySqlCommand cmd = new MySqlCommand(sql, FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@kodu", kodu);
 
@@ -103,7 +103,7 @@ namespace DAL
         {
             string sql = @"select * from Diziler where dizi_id = @id";
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sql, AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sql, FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", id);
 
@@ -129,7 +129,7 @@ namespace DAL
         {
             string sql = @"select * from Diziler where dizi_kodu = @kodu";
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sql, AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sql, FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@kodu", kodu);
 
@@ -167,7 +167,7 @@ namespace DAL
                         ORDER BY d.dizi_kodu");
             }
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (kodu.xBosMu() == false)
             {
@@ -202,55 +202,12 @@ namespace DAL
 
             dict.Add("dizi_degeri", dizi.VarsayilanDegeri);
 
-            AccessHelper.Update("Diziler", dict, "dizi_id", dizi.Id);
+            FxMySqlHelper.Update("Diziler", dict, "dizi_id", dizi.Id);
         }
 
-        //public void DiziDilDuncelle(enDizi dizi, int dilId)
-        //{
-        //    if (DiziDilVarMi(dizi.Id, dilId))
-        //    {
-        //        StringBuilder sb = new StringBuilder();
-
-        //        sb.Append(@"UPDATE Diziler_Dil SET Diziler_Dil.degeri = @deger WHERE Diziler_Dil.dil_id = @dilId AND Diziler_Dil.dizi_id = @diziId");
-
-        //        OleDbCommand cmd = new OleDbCommand(sb.ToString(), AccessHelper.Connection());
-
-        //        cmd.Parameters.AddWithValue("@deger", dizi.Degeri);
-        //        cmd.Parameters.AddWithValue("@dilId", dilId);
-        //        cmd.Parameters.AddWithValue("@diziId", dizi.Id);
-
-        //        cmd.Connection.Open();
-
-        //        cmd.ExecuteNonQuery();
-
-        //        cmd.Connection.Close();
-        //    }
-        //    else
-        //    {
-        //        Yeni(dizi, dilId);
-        //    }
-        //}
-
-        //public bool DiziDilVarMi(int diziId, int dilId)
-        //{
-        //    string sql = @"select degeri from Diziler_Dil where dizi_id = @diziId and dil_id = @dil";
-
-        //    OleDbCommand cmd = new OleDbCommand(sql, AccessHelper.Connection());
-
-        //    cmd.Parameters.AddWithValue("@diziId", diziId);
-        //    cmd.Parameters.AddWithValue("@dil", dilId);
-
-        //    cmd.Connection.Open();
-
-        //    object sonuc = cmd.ExecuteScalar();
-
-        //    cmd.Connection.Close();
-
-        //    return sonuc != null;
-        //}
         public void Sil(int diziId)
         {
-            AccessHelper.Delete("Diziler", "dizi_id", diziId);
+            FxMySqlHelper.Delete("Diziler", "dizi_id", diziId);
         }
     }
 }

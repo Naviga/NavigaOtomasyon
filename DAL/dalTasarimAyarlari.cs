@@ -69,13 +69,12 @@ namespace DAL
         public void TasarimAyariGuncelle(enTasarimAyar ayar)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
-            
-            dict.Add("tasAy_degeri"); degerList.Add(ayar.Degeri);
 
-            dalManager.MakeAnDbUpdate(prmList, "TasarimAyarlari", "tasAy_id", ayar.Id, degerList);
+            dict.Add("tasAy_degeri", ayar.Degeri);
+
+            FxMySqlHelper.Update("TasarimAyarlari", dict, "tasAy_id", ayar.Id);
         }
 
-        
+
     }
 }

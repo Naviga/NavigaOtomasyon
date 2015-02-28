@@ -50,7 +50,7 @@ namespace DAL
                 blok.PozisyonId = rw["blok_bPoz_id"].xToIntDefault();
                 blok.SayfaId = rw["blok_sayfa_id"].xToInt();
                 blok.Aciklama = rw["blok_aciklama"].ToString();
-                
+
                 blok.CarouselId = rw["blok_car_id"].xToInt();
 
                 if (SessionManager.Admin != null && SessionManager.Admin.Finex)
@@ -98,7 +98,7 @@ namespace DAL
                 blok.PozisyonId = rw["blok_bPoz_id"].xToIntDefault();
                 blok.SayfaId = rw["blok_sayfa_id"].xToInt();
                 blok.Aciklama = rw["blok_aciklama"].ToString();
-                
+
                 blok.CarouselId = rw["blok_car_id"].xToInt();
 
             }
@@ -106,144 +106,47 @@ namespace DAL
             return blok;
         }
 
-        //        public enBlok BirUsttekiBloguGetir(enBlok blok)
-        //        {
-        //            StringBuilder sb = new StringBuilder();
-
-        //            sb.Append(@"SELECT TOP 1 * FROM Bloklar 
-        //                        WHERE blok_sira < @sira ORDER BY blok_sira DESC");
-
-        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
-
-        //            adp.SelectCommand.Parameters.AddWithValue("@sira", blok.Sira);
-
-        //            DataTable dt = new DataTable();
-
-        //            adp.Fill(dt);
-
-        //            enBlok blk = new enBlok();
-
-        //            if (dt.Rows.Count > 0)
-        //            {
-        //                DataRow rw = dt.Rows[0];
-
-        //                blk.Adi = rw["blok_adi"].ToString();
-        //                blk.Icerik = rw["blok_icerik"].ToString();
-        //                blk.Id = rw["blok_id"].xToIntDefault();
-        //                blok.Sol = rw["blok_sol"].xToBooleanDefault();
-        //                blok.Sag = rw["blok_sag"].xToBooleanDefault();
-        //                blok.Ust = rw["blok_ust"].xToBooleanDefault();
-        //                blok.Alt = rw["blok_alt"].xToBooleanDefault();
-        //                blk.Sira = rw["blok_sira"].xToIntDefault();
-        //                blk.UscYolu = rw["blok_uscYol"].ToString();
-        //                blok.Icon = rw["blok_icon"].ToString();
-
-        //                if (blok.Icon.xBosMu())
-        //                {
-        //                    blok.Icon = "~/css/img/siyahBlokIcon.png";
-        //                }
-
-        //                blok.BaslikKullanimi = rw["blok_baslik"].xToBooleanDefault();
-        //                blok.Ic = rw["blok_ic"].xToBooleanDefault();
-        //                blok.Width = rw["blok_width"].ToString();
-        //                blok.Height = rw["blok_height"].ToString();
-        //            }
-
-        //            return blk;
-        //        }
-
-        //        public enBlok BirAlttakiBloguGetir(enBlok blok)
-        //        {
-        //            StringBuilder sb = new StringBuilder();
-
-        //            sb.Append(@"SELECT TOP 1 * FROM Bloklar WHERE blok_sira > @sira ORDER BY blok_sira");
-
-        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
-
-        //            adp.SelectCommand.Parameters.AddWithValue("@sira", blok.Sira);
-
-        //            DataTable dt = new DataTable();
-
-        //            adp.Fill(dt);
-
-        //            enBlok blk = new enBlok();
-
-        //            if (dt.Rows.Count > 0)
-        //            {
-        //                DataRow rw = dt.Rows[0];
-
-        //                blk.Adi = rw["blok_adi"].ToString();
-        //                blk.Icerik = rw["blok_icerik"].ToString();
-        //                blk.Id = rw["blok_id"].xToIntDefault();
-        //                blok.Sol = rw["blok_sol"].xToBooleanDefault();
-        //                blok.Sag = rw["blok_sag"].xToBooleanDefault();
-        //                blok.Ust = rw["blok_ust"].xToBooleanDefault();
-        //                blok.Alt = rw["blok_alt"].xToBooleanDefault();
-        //                blk.Sira = rw["blok_sira"].xToIntDefault();
-        //                blk.UscYolu = rw["blok_uscYol"].ToString();
-        //                blok.Icon = rw["blok_icon"].ToString();
-
-        //                if (blok.Icon.xBosMu())
-        //                {
-        //                    blok.Icon = "~/css/img/siyahBlokIcon.png";
-        //                }
-
-        //                blok.BaslikKullanimi = rw["blok_baslik"].xToBooleanDefault();
-        //                blok.Ic = rw["blok_ic"].xToBooleanDefault();
-        //                blok.Width = rw["blok_width"].ToString();
-        //                blok.Height = rw["blok_height"].ToString();
-        //            }
-
-        //            return blk;
-        //        }
-
         public void YeniBlokEkle(enBlok blok)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("blok_adi"); degerList.Add(blok.Adi);
-            dict.Add("blok_statu"); degerList.Add(blok.Statu);
-            dict.Add("blok_icerik"); degerList.Add(blok.Icerik);
-            dict.Add("blok_baslik"); degerList.Add(blok.BaslikKullanimi);
-            dict.Add("blok_sayfa_id"); degerList.Add(blok.SayfaId);
-            dict.Add("blok_aciklama"); degerList.Add(blok.Aciklama);
-            
-            dict.Add("blok_car_id"); degerList.Add(blok.CarouselId);
+            dict.Add("blok_adi", blok.Adi);
+            dict.Add("blok_statu", blok.Statu);
+            dict.Add("blok_icerik", blok.Icerik);
+            dict.Add("blok_baslik", blok.BaslikKullanimi);
+            dict.Add("blok_sayfa_id", blok.SayfaId);
+            dict.Add("blok_aciklama", blok.Aciklama);
+            dict.Add("blok_car_id", blok.CarouselId);
 
-            dalManager.MakeAnDbInsert(prmList, "Bloklar", degerList, "");
+            FxMySqlHelper.Insert("Bloklar", dict);
         }
 
         public void BlokSil(int blokId)
         {
-            dalManager.MakeAnDbDelete("Bloklar", "blok_id", blokId);
+            FxMySqlHelper.Delete("Bloklar", "blok_id", blokId);
         }
 
         public void BlokGuncelle(enBlok blok)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("blok_adi"); degerList.Add(blok.Adi);
-            dict.Add("blok_icerik"); degerList.Add(blok.Icerik);
-            dict.Add("blok_baslik"); degerList.Add(blok.BaslikKullanimi);
-            dict.Add("blok_sayfa_id"); degerList.Add(blok.SayfaId);
-            dict.Add("blok_aciklama"); degerList.Add(blok.Aciklama);
-            
-            dict.Add("blok_car_id"); degerList.Add(blok.CarouselId);
+            dict.Add("blok_adi", blok.Adi);
+            dict.Add("blok_icerik", blok.Icerik);
+            dict.Add("blok_baslik", blok.BaslikKullanimi);
+            dict.Add("blok_sayfa_id", blok.SayfaId);
+            dict.Add("blok_aciklama", blok.Aciklama);
+            dict.Add("blok_car_id", blok.CarouselId);
 
-
-            dalManager.MakeAnDbUpdate(prmList, "Bloklar", "blok_id", blok.Id, degerList);
+            FxMySqlHelper.Update("Bloklar", dict, "blok_id", blok.Id);
         }
 
         public void BlokStatuGuncelle(enBlok blok)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("blok_statu"); degerList.Add(blok.Statu);
+            dict.Add("blok_statu", blok.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "Bloklar", "blok_id", blok.Id, degerList);
-        } 
+            FxMySqlHelper.Update("Bloklar", dict, "blok_id", blok.Id);
+        }
     }
 }

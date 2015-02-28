@@ -14,17 +14,16 @@ namespace DAL
         public int YeniEkle(enCarousel carousel)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("car_site_id"); degerList.Add(carousel.SayfaId);
-            dict.Add("car_adi"); degerList.Add(carousel.Adi);
-            dict.Add("car_statu"); degerList.Add(carousel.Statu);
-            dict.Add("car_kayitTar"); degerList.Add(DateTime.Now.Date);
-            dict.Add("car_kaydeden"); degerList.Add(SessionManager.Admin.Id);
-            dict.Add("car_tekrarSayisi"); degerList.Add(carousel.TekrarSayisi);
-            dict.Add("car_gosterimSuresi"); degerList.Add(carousel.GosterimSuresi);
+            dict.Add("car_site_id", carousel.SayfaId);
+            dict.Add("car_adi", carousel.Adi);
+            dict.Add("car_statu", carousel.Statu);
+            dict.Add("car_kayitTar", DateTime.Now.Date);
+            dict.Add("car_kaydeden", SessionManager.Admin.Id);
+            dict.Add("car_tekrarSayisi", carousel.TekrarSayisi);
+            dict.Add("car_gosterimSuresi", carousel.GosterimSuresi);
 
-            return dalManager.MakeAnDbInsert(prmList, "Carousel", degerList, "car_id");
+            return FxMySqlHelper.Insert("Carousel", dict, true);
         }
 
         public void Duzenle(enCarousel carousel)
@@ -32,20 +31,20 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("car_site_id"); degerList.Add(carousel.SayfaId);
-            dict.Add("car_adi"); degerList.Add(carousel.Adi);
-            dict.Add("car_statu"); degerList.Add(carousel.Statu);
-            dict.Add("car_degisiklikTar"); degerList.Add(DateTime.Now.Date);
-            dict.Add("car_degistiren"); degerList.Add(SessionManager.Admin.Id);
-            dict.Add("car_tekrarSayisi"); degerList.Add(carousel.TekrarSayisi);
-            dict.Add("car_gosterimSuresi"); degerList.Add(carousel.GosterimSuresi);
+            dict.Add("car_site_id", carousel.SayfaId);
+            dict.Add("car_adi", carousel.Adi);
+            dict.Add("car_statu", carousel.Statu);
+            dict.Add("car_degisiklikTar", DateTime.Now.Date);
+            dict.Add("car_degistiren", SessionManager.Admin.Id);
+            dict.Add("car_tekrarSayisi", carousel.TekrarSayisi);
+            dict.Add("car_gosterimSuresi", carousel.GosterimSuresi);
 
-            dalManager.MakeAnDbUpdate(prmList, "Carousel", "car_id", carousel.Id, degerList);
+            FxMySqlHelper.Update("Carousel", dict, "car_id", carousel.Id);
         }
 
         public void Sil(int carouselId)
         {
-            dalManager.MakeAnDbDelete("Carousel", "car_id", carouselId);
+            FxMySqlHelper.Delete("Carousel", "car_id", carouselId);
         }
 
         public List<enCarousel> CarouselleriGetir()
@@ -163,9 +162,9 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("car_statu"); degerList.Add(carousel.Statu);
+            dict.Add("car_statu", carousel.Statu);
 
-            dalManager.MakeAnDbUpdate(prmList, "Carousel", "car_id", carousel.Id, degerList);
+            FxMySqlHelper.Update("Carousel", dict, "car_id", carousel.Id);
         }
     }
 }
