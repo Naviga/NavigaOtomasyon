@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Entity;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace DAL
 {
@@ -16,7 +16,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM TasarimAyarlari");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             DataTable dt = new DataTable();
 
@@ -44,7 +44,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM TasarimAyarlari WHERE tasAy_id = @id");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", id);
 
@@ -68,10 +68,10 @@ namespace DAL
 
         public void TasarimAyariGuncelle(enTasarimAyar ayar)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
             
-            prmList.Add("tasAy_degeri"); degerList.Add(ayar.Degeri);
+            dict.Add("tasAy_degeri"); degerList.Add(ayar.Degeri);
 
             dalManager.MakeAnDbUpdate(prmList, "TasarimAyarlari", "tasAy_id", ayar.Id, degerList);
         }

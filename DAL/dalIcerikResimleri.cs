@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using Entity;
 
 namespace DAL
@@ -12,19 +12,19 @@ namespace DAL
     {
         public void YeniResimEkle(enIcerikResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkRes_site_id"); degerList.Add(resim.SayfaId);
-            prmList.Add("icrkRes_aciklama"); degerList.Add(resim.Aciklama);
-            prmList.Add("icrkRes_kucuk"); degerList.Add(resim.Kucuk);
-            prmList.Add("icrkRes_orta"); degerList.Add(resim.Orta);
-            prmList.Add("icrkRes_buyuk"); degerList.Add(resim.Buyuk);
-            prmList.Add("icrkRes_sira"); degerList.Add(resim.Sira);
-            prmList.Add("icrkRes_statu"); degerList.Add(resim.Statu);
-            prmList.Add("icrkRes_kayitTar"); degerList.Add(resim.KayitTarihi);
-            prmList.Add("icrkRes_baslik"); degerList.Add(resim.Baslik);
-            prmList.Add("icrkRes_anaResim"); degerList.Add(resim.AnaResim);
+            dict.Add("icrkRes_site_id"); degerList.Add(resim.SayfaId);
+            dict.Add("icrkRes_aciklama"); degerList.Add(resim.Aciklama);
+            dict.Add("icrkRes_kucuk"); degerList.Add(resim.Kucuk);
+            dict.Add("icrkRes_orta"); degerList.Add(resim.Orta);
+            dict.Add("icrkRes_buyuk"); degerList.Add(resim.Buyuk);
+            dict.Add("icrkRes_sira"); degerList.Add(resim.Sira);
+            dict.Add("icrkRes_statu"); degerList.Add(resim.Statu);
+            dict.Add("icrkRes_kayitTar"); degerList.Add(resim.KayitTarihi);
+            dict.Add("icrkRes_baslik"); degerList.Add(resim.Baslik);
+            dict.Add("icrkRes_anaResim"); degerList.Add(resim.AnaResim);
 
             dalManager.MakeAnDbInsert(prmList, "IcerikResimleri", degerList, "");
 
@@ -38,7 +38,7 @@ namespace DAL
         public List<enIcerikResim> TumResimleriGetir(bool? statu)
         {
             StringBuilder sb = new StringBuilder();
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -86,7 +86,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -138,7 +138,7 @@ namespace DAL
 
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -190,7 +190,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM IcerikResimleri WHERE icrkRes_id = @id ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", resimId);
 
@@ -222,31 +222,31 @@ namespace DAL
 
         public void ResimStatuGuncelle(enIcerikResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkRes_statu"); degerList.Add(resim.Statu);
+            dict.Add("icrkRes_statu"); degerList.Add(resim.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
         }
 
         public void ResimSiraGuncelle(enIcerikResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkRes_sira"); degerList.Add(resim.Sira);
+            dict.Add("icrkRes_sira"); degerList.Add(resim.Sira);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
         }
 
         public void ResimAciklamaGuncelle(enIcerikResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkRes_aciklama"); degerList.Add(resim.Aciklama);
-            prmList.Add("icrkRes_baslik"); degerList.Add(resim.Baslik);
+            dict.Add("icrkRes_aciklama"); degerList.Add(resim.Aciklama);
+            dict.Add("icrkRes_baslik"); degerList.Add(resim.Baslik);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
         }
@@ -258,7 +258,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM IcerikResimleri 
                         WHERE icrkRes_site_id = @sayfaId AND icrkRes_sira < @sira ORDER BY icrkRes_sira DESC");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@sayfaId", gResim.SayfaId);
             adp.SelectCommand.Parameters.AddWithValue("@sira", gResim.Sira);
@@ -295,7 +295,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM IcerikResimleri 
                         WHERE icrkRes_site_id = @id AND icrkRes_sira > @sira ORDER BY icrkRes_sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", gResim.SayfaId);
 
@@ -334,7 +334,7 @@ namespace DAL
                         WHERE icrkRes_site_id = @sayfaId 
                         ORDER BY icrkRes_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sayfaId", sayfaId);
 
@@ -349,10 +349,10 @@ namespace DAL
 
         public void AnaResimYap(enIcerikResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkRes_anaResim"); degerList.Add(resim.AnaResim);
+            dict.Add("icrkRes_anaResim"); degerList.Add(resim.AnaResim);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikResimleri", "icrkRes_id", resim.Id, degerList);
         }
@@ -362,7 +362,7 @@ namespace DAL
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * From IcerikResimleri where icrkRes_site_id=@sayfaId and icrkRes_anaResim=true");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
             adp.SelectCommand.Parameters.AddWithValue("@sayfaId", sayfaId);
 
             DataTable dt = new DataTable();
@@ -393,7 +393,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {

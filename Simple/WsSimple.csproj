@@ -51,8 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\AjaxMin.dll</HintPath>
     </Reference>
-    <Reference Include="FxHelpers">
-      <HintPath>..\..\..\..\..\..\Visual Studio 2010\Projects\FxHelper\Helpers\bin\Release\FxHelpers.dll</HintPath>
+    <Reference Include="FxHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\FxHelpers.dll</HintPath>
     </Reference>
     <Reference Include="GMaps">
       <HintPath>..\..\..\..\..\Desktop\WSV1\Projeler\Update\WebSite_1_0\WebSite_1_0\bin\GMaps.dll</HintPath>
@@ -208,26 +209,6 @@
     <Content Include="admin\WebFonts.aspx" />
     <Content Include="admin\Yardim.aspx" />
     <Content Include="App_Data\Demo.accdb" />
-    <Content Include="bin\AjaxControlToolkit.dll" />
-    <Content Include="bin\BLL.dll" />
-    <Content Include="bin\BLL.pdb" />
-    <Content Include="bin\Common.dll" />
-    <Content Include="bin\Common.pdb" />
-    <Content Include="bin\DAL.dll" />
-    <Content Include="bin\DAL.pdb" />
-    <Content Include="bin\Entity.dll" />
-    <Content Include="bin\Entity.pdb" />
-    <Content Include="bin\FxHelpers.dll" />
-    <Content Include="bin\GMaps.dll" />
-    <Content Include="bin\HtmlAgilityPack.dll" />
-    <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\SanitizerProviders.dll" />
-    <Content Include="bin\Settings.dll" />
-    <Content Include="bin\Settings.pdb" />
-    <Content Include="bin\Telerik.Web.UI.dll" />
-    <Content Include="bin\Telerik.Web.UI.Skins.dll" />
-    <Content Include="bin\Ws.dll" />
-    <Content Include="bin\Ws.pdb" />
     <Content Include="carousel\2.jpg" />
     <Content Include="carousel\3.jpg" />
     <Content Include="carousel\7.jpg" />
@@ -1014,6 +995,8 @@
     <Content Include="Default.aspx" />
     <Content Include="DLL\AjaxControlToolkit.dll" />
     <Content Include="DLL\AjaxMin.dll" />
+    <Content Include="DLL\FxHelpers.dll" />
+    <Content Include="DLL\MySql.Data.dll" />
     <Content Include="Error.aspx" />
     <Content Include="exposure_slider\demo1.css" />
     <Content Include="exposure_slider\demo4.css" />
@@ -1917,6 +1900,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using Entity;
 
 namespace DAL
@@ -12,19 +12,19 @@ namespace DAL
     {
         public void YeniVideoEkle(enIcerikVideo video)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkVid_site_id"); degerList.Add(video.SayfaId);
-            prmList.Add("icrkVid_baslik"); degerList.Add(video.Baslik);
-            prmList.Add("icrkVid_aciklama"); degerList.Add(video.Aciklama);
-            prmList.Add("icrkVid_source"); degerList.Add(video.Kaynak);
-            prmList.Add("icrkVid_kapak"); degerList.Add(video.Kapak);
-            prmList.Add("icrkVid_sira"); degerList.Add(video.Sira);
-            prmList.Add("icrkVid_statu"); degerList.Add(video.Statu);
-            prmList.Add("icrkVid_kayitTar"); degerList.Add(video.KayitTarihi);
-            prmList.Add("icrkVid_kaydeden"); degerList.Add(video.Kaydeden);
-            prmList.Add("icrkVid_urlKodu"); degerList.Add(video.UrlKodu);
+            dict.Add("icrkVid_site_id"); degerList.Add(video.SayfaId);
+            dict.Add("icrkVid_baslik"); degerList.Add(video.Baslik);
+            dict.Add("icrkVid_aciklama"); degerList.Add(video.Aciklama);
+            dict.Add("icrkVid_source"); degerList.Add(video.Kaynak);
+            dict.Add("icrkVid_kapak"); degerList.Add(video.Kapak);
+            dict.Add("icrkVid_sira"); degerList.Add(video.Sira);
+            dict.Add("icrkVid_statu"); degerList.Add(video.Statu);
+            dict.Add("icrkVid_kayitTar"); degerList.Add(video.KayitTarihi);
+            dict.Add("icrkVid_kaydeden"); degerList.Add(video.Kaydeden);
+            dict.Add("icrkVid_urlKodu"); degerList.Add(video.UrlKodu);
 
             dalManager.MakeAnDbInsert(prmList, "IcerikVideolari", degerList, "");
 
@@ -39,7 +39,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -90,7 +90,7 @@ namespace DAL
 
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -141,7 +141,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM IcerikVideolari WHERE icrkVid_id = @id ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", videoId);
 
@@ -173,30 +173,30 @@ namespace DAL
 
         public void VideoStatuGuncelle(enIcerikVideo video)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkVid_statu"); degerList.Add(video.Statu);
+            dict.Add("icrkVid_statu"); degerList.Add(video.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikVideolari", "icrkVid_id", video.Id, degerList);
         }
 
         public void VideoSiraGuncelle(enIcerikVideo video)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkVid_sira"); degerList.Add(video.Sira);
+            dict.Add("icrkVid_sira"); degerList.Add(video.Sira);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikVideolari", "icrkVid_id", video.Id, degerList);
         }
 
         public void VideoAciklamaGuncelle(enIcerikVideo video)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("icrkVid_aciklama"); degerList.Add(video.Aciklama);
+            dict.Add("icrkVid_aciklama"); degerList.Add(video.Aciklama);
 
             dalManager.MakeAnDbUpdate(prmList, "IcerikVideolari", "icrkVid_id", video.Id, degerList);
         }
@@ -208,7 +208,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM IcerikVideolari 
                         WHERE icrkVid_site_id = @sayfaId AND icrkVid_sira < @sira ORDER BY icrkVid_sira DESC");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@sayfaId", gvideo.SayfaId);
             adp.SelectCommand.Parameters.AddWithValue("@sira", gvideo.Sira);
@@ -245,7 +245,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM IcerikVideolari 
                         WHERE icrkVid_site_id = @id AND icrkVid_sira > @sira ORDER BY icrkVid_sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", gvideo.SayfaId);
 
@@ -284,7 +284,7 @@ namespace DAL
                         WHERE icrkVid_site_id = @sayfaId 
                         ORDER BY icrkVid_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sayfaId", sayfaId);
 

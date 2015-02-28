@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -181,7 +181,7 @@ namespace DAL
                         INNER JOIN (BlokPozisyonlari INNER JOIN SiteHaritasi_Blok ON BlokPozisyonlari.bPoz_id = SiteHaritasi_Blok.bPoz_id) ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                         WHERE SiteHaritasi_Blok.site_id = @siteId " + whereStr + " ORDER BY BlokPozisyonlari.bPoz_adi, SiteHaritasi_Blok.sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@siteId", sayfaId);
 
@@ -246,7 +246,7 @@ namespace DAL
                         INNER JOIN (BlokPozisyonlari INNER JOIN SiteHaritasi_Blok ON BlokPozisyonlari.bPoz_id = SiteHaritasi_Blok.bPoz_id) ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                         WHERE BlokPozisyonlari.bPoz_master = @master " + whereStr + " ORDER BY SiteHaritasi_Blok.sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@master", true);
 
@@ -317,18 +317,18 @@ namespace DAL
 
         public void Ekle(enSiteHaritasi_Blok blok)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
 
-            prmList.Add("site_id"); degerList.Add(blok.SayfaId);
-            prmList.Add("blok_id"); degerList.Add(blok.BlokId);
-            prmList.Add("bPoz_id"); degerList.Add(blok.PozisyonId);
-            prmList.Add("statu"); degerList.Add(blok.Statu);
-            prmList.Add("sira"); degerList.Add(blok.Sira);
-            prmList.Add("height"); degerList.Add(blok.Height);
-            prmList.Add("baslik"); degerList.Add(blok.BaslikKullanimi);
-            prmList.Add("cerceve"); degerList.Add(blok.CerceveKullanimi);
+            dict.Add("site_id"); degerList.Add(blok.SayfaId);
+            dict.Add("blok_id"); degerList.Add(blok.BlokId);
+            dict.Add("bPoz_id"); degerList.Add(blok.PozisyonId);
+            dict.Add("statu"); degerList.Add(blok.Statu);
+            dict.Add("sira"); degerList.Add(blok.Sira);
+            dict.Add("height"); degerList.Add(blok.Height);
+            dict.Add("baslik"); degerList.Add(blok.BaslikKullanimi);
+            dict.Add("cerceve"); degerList.Add(blok.CerceveKullanimi);
 
             dalManager.MakeAnDbInsert(prmList, "SiteHaritasi_Blok", degerList, "");
         }
@@ -345,7 +345,7 @@ namespace DAL
                                   ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                             WHERE SiteHaritasi_Blok.blok_id IS NULL" + whereStr);
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@siteId", sayfaId);
 
@@ -428,7 +428,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi_Blok WHERE bPoz_id = @pozId AND blok_id = @blokId" + wStr);
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@pozId", pozisyonId);
             adp.SelectCommand.Parameters.AddWithValue("@blokId", blokId);
@@ -473,7 +473,7 @@ namespace DAL
                         INNER JOIN (BlokPozisyonlari INNER JOIN SiteHaritasi_Blok ON BlokPozisyonlari.bPoz_id = SiteHaritasi_Blok.bPoz_id) ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                         WHERE SiteHaritasi_Blok.bPoz_id = @pozId AND SiteHaritasi_Blok.blok_id = @blokId ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@pozId", pozisyonId);
             adp.SelectCommand.Parameters.AddWithValue("@blokId", blokId);
@@ -649,7 +649,7 @@ namespace DAL
                         INNER JOIN (BlokPozisyonlari INNER JOIN SiteHaritasi_Blok ON BlokPozisyonlari.bPoz_id = SiteHaritasi_Blok.bPoz_id) ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                         WHERE SiteHaritasi_Blok.site_id = @siteId AND SiteHaritasi_Blok.blok_id = @blokId ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@siteId", sayfaId);
             adp.SelectCommand.Parameters.AddWithValue("@blokId", blokId);
@@ -706,7 +706,7 @@ namespace DAL
                         INNER JOIN (BlokPozisyonlari INNER JOIN SiteHaritasi_Blok ON BlokPozisyonlari.bPoz_id = SiteHaritasi_Blok.bPoz_id) ON Bloklar.blok_id = SiteHaritasi_Blok.blok_id
                         WHERE SiteHaritasi_Blok.bPoz_id = @pozId " + whereStr + " ORDER BY SiteHaritasi_Blok.sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@pozId", pozId);
 

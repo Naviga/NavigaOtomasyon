@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Entity;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace DAL
@@ -12,12 +12,12 @@ namespace DAL
     {
         public void YeniEkle(enSablon sablon)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("sbl_adi"); degerList.Add(sablon.Adi);
-            prmList.Add("sbl_aciklama"); degerList.Add(sablon.Aciklama);
-            prmList.Add("sbl_ikon"); degerList.Add(sablon.Ikon);
+            dict.Add("sbl_adi"); degerList.Add(sablon.Adi);
+            dict.Add("sbl_aciklama"); degerList.Add(sablon.Aciklama);
+            dict.Add("sbl_ikon"); degerList.Add(sablon.Ikon);
 
             dalManager.MakeAnDbInsert(prmList, "Sablonlar", degerList, "");
         }
@@ -25,7 +25,7 @@ namespace DAL
         public List<enSablon> SablonlariGetir()
         {
             StringBuilder sb = new StringBuilder();
-            OleDbDataAdapter adp = new OleDbDataAdapter("", dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter("", FxMySqlHelper.Connection());
 
             sb.Append("SELECT * FROM Sablonlar");
 
@@ -65,7 +65,7 @@ namespace DAL
             sb.Append("SELECT * FROM Sablonlar WHERE sbl_id = @id");
 
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", sablonId);
 

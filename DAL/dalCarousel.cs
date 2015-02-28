@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using Common;
@@ -13,32 +13,32 @@ namespace DAL
     {
         public int YeniEkle(enCarousel carousel)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("car_site_id"); degerList.Add(carousel.SayfaId);
-            prmList.Add("car_adi"); degerList.Add(carousel.Adi);
-            prmList.Add("car_statu"); degerList.Add(carousel.Statu);
-            prmList.Add("car_kayitTar"); degerList.Add(DateTime.Now.Date);
-            prmList.Add("car_kaydeden"); degerList.Add(SessionManager.Admin.Id);
-            prmList.Add("car_tekrarSayisi"); degerList.Add(carousel.TekrarSayisi);
-            prmList.Add("car_gosterimSuresi"); degerList.Add(carousel.GosterimSuresi);
+            dict.Add("car_site_id"); degerList.Add(carousel.SayfaId);
+            dict.Add("car_adi"); degerList.Add(carousel.Adi);
+            dict.Add("car_statu"); degerList.Add(carousel.Statu);
+            dict.Add("car_kayitTar"); degerList.Add(DateTime.Now.Date);
+            dict.Add("car_kaydeden"); degerList.Add(SessionManager.Admin.Id);
+            dict.Add("car_tekrarSayisi"); degerList.Add(carousel.TekrarSayisi);
+            dict.Add("car_gosterimSuresi"); degerList.Add(carousel.GosterimSuresi);
 
             return dalManager.MakeAnDbInsert(prmList, "Carousel", degerList, "car_id");
         }
 
         public void Duzenle(enCarousel carousel)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("car_site_id"); degerList.Add(carousel.SayfaId);
-            prmList.Add("car_adi"); degerList.Add(carousel.Adi);
-            prmList.Add("car_statu"); degerList.Add(carousel.Statu);
-            prmList.Add("car_degisiklikTar"); degerList.Add(DateTime.Now.Date);
-            prmList.Add("car_degistiren"); degerList.Add(SessionManager.Admin.Id);
-            prmList.Add("car_tekrarSayisi"); degerList.Add(carousel.TekrarSayisi);
-            prmList.Add("car_gosterimSuresi"); degerList.Add(carousel.GosterimSuresi);
+            dict.Add("car_site_id"); degerList.Add(carousel.SayfaId);
+            dict.Add("car_adi"); degerList.Add(carousel.Adi);
+            dict.Add("car_statu"); degerList.Add(carousel.Statu);
+            dict.Add("car_degisiklikTar"); degerList.Add(DateTime.Now.Date);
+            dict.Add("car_degistiren"); degerList.Add(SessionManager.Admin.Id);
+            dict.Add("car_tekrarSayisi"); degerList.Add(carousel.TekrarSayisi);
+            dict.Add("car_gosterimSuresi"); degerList.Add(carousel.GosterimSuresi);
 
             dalManager.MakeAnDbUpdate(prmList, "Carousel", "car_id", carousel.Id, degerList);
         }
@@ -55,7 +55,7 @@ namespace DAL
             sb.Append(@"SELECT rg.*,(SELECT COUNT(*) FROM CarouselResimleri r WHERE r.carcarRes_car_id = rg.car_id) AS ResimSayisi
                         FROM Carousel rg ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             DataTable dt = new DataTable();
 
@@ -85,7 +85,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -133,7 +133,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM Carousel WHERE car_id = @id");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", carouselId);
 
@@ -160,10 +160,10 @@ namespace DAL
 
         public void StatuDegistir(enCarousel carousel)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("car_statu"); degerList.Add(carousel.Statu);
+            dict.Add("car_statu"); degerList.Add(carousel.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "Carousel", "car_id", carousel.Id, degerList);
         }

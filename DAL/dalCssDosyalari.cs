@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Entity;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace DAL
@@ -12,11 +12,11 @@ namespace DAL
     {
         public void YeniEkle(enCssDosya css)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("css_adi"); degerList.Add(css.Adi);
-            prmList.Add("css_sbl_id"); degerList.Add(css.SablonId);
+            dict.Add("css_adi"); degerList.Add(css.Adi);
+            dict.Add("css_sbl_id"); degerList.Add(css.SablonId);
 
             dalManager.MakeAnDbInsert(prmList, "CssDosyalari", degerList, "");
         }
@@ -24,7 +24,7 @@ namespace DAL
         public List<enCssDosya> CssDosyalariGetir(int? sablonId)
         {
             StringBuilder sb = new StringBuilder();
-            OleDbDataAdapter adp = new OleDbDataAdapter("", dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter("", FxMySqlHelper.Connection());
 
             if (sablonId != null)
             {
@@ -65,7 +65,7 @@ namespace DAL
             sb.Append("SELECT * FROM CssDosyalari WHERE css_id = @id");
 
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", cssId);
 

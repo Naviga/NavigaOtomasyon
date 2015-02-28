@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Data;
 using Entity;
 
@@ -16,7 +16,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM GenelAyarlar");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             DataTable dt = new DataTable();
 
@@ -45,7 +45,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM GenelAyarlar WHERE gayr_id = @id");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", ayarId);
 
@@ -70,11 +70,11 @@ namespace DAL
 
         public void AyarGuncelle(enGenelAyar ayar)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("gayr_icerik"); degerList.Add(ayar.Icerik);
-            prmList.Add("gayr_statu"); degerList.Add(ayar.Statu);
+            dict.Add("gayr_icerik"); degerList.Add(ayar.Icerik);
+            dict.Add("gayr_statu"); degerList.Add(ayar.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "GenelAyarlar", "gayr_id", ayar.Id, degerList);
         }

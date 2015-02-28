@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace DAL
 {
@@ -38,7 +38,7 @@ namespace DAL
 
         //            StringBuilder sb = new StringBuilder();
 
-        //            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), AccessHelper.Connection());
+        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
 
         //            if (!Common.SessionManager.SeciliDil.VarsayilanMi)
         //            {
@@ -103,7 +103,7 @@ namespace DAL
         {
             string sql = @"select * from Diziler where dizi_id = @id";
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sql, AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sql, AccessHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", id);
 
@@ -129,7 +129,7 @@ namespace DAL
         {
             string sql = @"select * from Diziler where dizi_kodu = @kodu";
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sql, AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sql, AccessHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@kodu", kodu);
 
@@ -167,7 +167,7 @@ namespace DAL
                         ORDER BY d.dizi_kodu");
             }
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), AccessHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), AccessHelper.Connection());
 
             if (kodu.xBosMu() == false)
             {

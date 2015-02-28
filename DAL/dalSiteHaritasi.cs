@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Entity;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace DAL
 {
@@ -16,7 +16,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_statu = @statu ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
 
@@ -33,7 +33,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parentId", parentId);
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
@@ -51,7 +51,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_statu = @statu ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
 
@@ -110,7 +110,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             DataTable dt = new DataTable();
 
@@ -169,7 +169,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_statu = @statu " + whereStr + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
 
@@ -228,7 +228,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             DataTable dt = new DataTable();
 
@@ -285,7 +285,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parentId", parentId);
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
@@ -347,7 +347,7 @@ namespace DAL
 
             sb.Append("SELECT " + topStr + " * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parentId", parentId);
             adp.SelectCommand.Parameters.AddWithValue("@statu", true);
@@ -407,7 +407,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parentId", parentId);
 
@@ -466,7 +466,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_id = @id");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", sayfaId);
 
@@ -520,105 +520,105 @@ namespace DAL
 
         public void YeniSayfaEkle(enSiteHaritasi site)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_adi"); degerList.Add(site.Adi);
-            prmList.Add("site_resim"); degerList.Add(site.Resim);
-            prmList.Add("site_statu"); degerList.Add(site.Statu);
-            prmList.Add("site_default"); degerList.Add(site.DefaultSayfa);
-            prmList.Add("site_icerik"); degerList.Add(site.Icerik);
-            prmList.Add("site_title"); degerList.Add(site.Title);
-            prmList.Add("site_description"); degerList.Add(site.Description);
-            prmList.Add("site_keywords"); degerList.Add(site.Keywords);
-            prmList.Add("site_parent"); degerList.Add(site.Parent);
-            prmList.Add("site_url"); degerList.Add(site.Url.Trim().ToLowerInvariant());
-            prmList.Add("site_sira"); degerList.Add(site.Sira);
-            prmList.Add("site_fotoBaslik"); degerList.Add(site.FotoBaslik);
-            prmList.Add("site_videoBaslik"); degerList.Add(site.VideoBaslik);
-            prmList.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
-            prmList.Add("site_faceComments"); degerList.Add(site.FaceComments);
-            prmList.Add("site_custom"); degerList.Add(site.Custom);
-            prmList.Add("site_paylasimAlani"); degerList.Add(site.PaylasimAlani);
-            prmList.Add("site_baslikAlani"); degerList.Add(site.BaslikAlani);
-            prmList.Add("site_sayfaYolu"); degerList.Add(site.SayfaYolu);
-            prmList.Add("site_menu"); degerList.Add(site.Menu);
-            prmList.Add("site_sayfaMenu"); degerList.Add(site.SayfaMenu);
-            prmList.Add("site_kayitTar"); degerList.Add(DateTime.Now.Date);
-            prmList.Add("site_list"); degerList.Add(site.List);
-            prmList.Add("site_urunMu"); degerList.Add(site.UrunMu);
+            dict.Add("site_adi"); degerList.Add(site.Adi);
+            dict.Add("site_resim"); degerList.Add(site.Resim);
+            dict.Add("site_statu"); degerList.Add(site.Statu);
+            dict.Add("site_default"); degerList.Add(site.DefaultSayfa);
+            dict.Add("site_icerik"); degerList.Add(site.Icerik);
+            dict.Add("site_title"); degerList.Add(site.Title);
+            dict.Add("site_description"); degerList.Add(site.Description);
+            dict.Add("site_keywords"); degerList.Add(site.Keywords);
+            dict.Add("site_parent"); degerList.Add(site.Parent);
+            dict.Add("site_url"); degerList.Add(site.Url.Trim().ToLowerInvariant());
+            dict.Add("site_sira"); degerList.Add(site.Sira);
+            dict.Add("site_fotoBaslik"); degerList.Add(site.FotoBaslik);
+            dict.Add("site_videoBaslik"); degerList.Add(site.VideoBaslik);
+            dict.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
+            dict.Add("site_faceComments"); degerList.Add(site.FaceComments);
+            dict.Add("site_custom"); degerList.Add(site.Custom);
+            dict.Add("site_paylasimAlani"); degerList.Add(site.PaylasimAlani);
+            dict.Add("site_baslikAlani"); degerList.Add(site.BaslikAlani);
+            dict.Add("site_sayfaYolu"); degerList.Add(site.SayfaYolu);
+            dict.Add("site_menu"); degerList.Add(site.Menu);
+            dict.Add("site_sayfaMenu"); degerList.Add(site.SayfaMenu);
+            dict.Add("site_kayitTar"); degerList.Add(DateTime.Now.Date);
+            dict.Add("site_list"); degerList.Add(site.List);
+            dict.Add("site_urunMu"); degerList.Add(site.UrunMu);
 
             site.Id = dalManager.MakeAnDbInsert(prmList, "SiteHaritasi", degerList, "site_id");
         }
 
         public void SayfaDuzenle(enSiteHaritasi site)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
 
-            prmList.Add("site_adi"); degerList.Add(site.Adi);
+            dict.Add("site_adi"); degerList.Add(site.Adi);
 
             if (site.Resim.xBosMu() == false)
             {
-                prmList.Add("site_resim"); degerList.Add(site.Resim);
+                dict.Add("site_resim"); degerList.Add(site.Resim);
             }
-            prmList.Add("site_icerik"); degerList.Add(site.Icerik);
-            prmList.Add("site_title"); degerList.Add(site.Title);
-            prmList.Add("site_description"); degerList.Add(site.Description);
-            prmList.Add("site_keywords"); degerList.Add(site.Keywords);
-            prmList.Add("site_parent"); degerList.Add(site.Parent);
-            prmList.Add("site_url"); degerList.Add(site.Url.Trim().ToLowerInvariant());
-            prmList.Add("site_fotoBaslik"); degerList.Add(site.FotoBaslik);
-            prmList.Add("site_videoBaslik"); degerList.Add(site.VideoBaslik);
-            prmList.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
-            prmList.Add("site_faceComments"); degerList.Add(site.FaceComments);
-            prmList.Add("site_custom"); degerList.Add(site.Custom);
-            prmList.Add("site_paylasimAlani"); degerList.Add(site.PaylasimAlani);
-            prmList.Add("site_baslikAlani"); degerList.Add(site.BaslikAlani);
-            prmList.Add("site_sayfaYolu"); degerList.Add(site.SayfaYolu);
-            prmList.Add("site_sayfaMenu"); degerList.Add(site.SayfaMenu);
-            prmList.Add("site_list"); degerList.Add(site.List);
+            dict.Add("site_icerik"); degerList.Add(site.Icerik);
+            dict.Add("site_title"); degerList.Add(site.Title);
+            dict.Add("site_description"); degerList.Add(site.Description);
+            dict.Add("site_keywords"); degerList.Add(site.Keywords);
+            dict.Add("site_parent"); degerList.Add(site.Parent);
+            dict.Add("site_url"); degerList.Add(site.Url.Trim().ToLowerInvariant());
+            dict.Add("site_fotoBaslik"); degerList.Add(site.FotoBaslik);
+            dict.Add("site_videoBaslik"); degerList.Add(site.VideoBaslik);
+            dict.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
+            dict.Add("site_faceComments"); degerList.Add(site.FaceComments);
+            dict.Add("site_custom"); degerList.Add(site.Custom);
+            dict.Add("site_paylasimAlani"); degerList.Add(site.PaylasimAlani);
+            dict.Add("site_baslikAlani"); degerList.Add(site.BaslikAlani);
+            dict.Add("site_sayfaYolu"); degerList.Add(site.SayfaYolu);
+            dict.Add("site_sayfaMenu"); degerList.Add(site.SayfaMenu);
+            dict.Add("site_list"); degerList.Add(site.List);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
         }
 
         public void StatuDegistir(enSiteHaritasi site)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_statu"); degerList.Add(site.Statu);
+            dict.Add("site_statu"); degerList.Add(site.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
         }
 
         public void AcilirMenuDurumDegistir(enSiteHaritasi site)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_acilirMenu"); degerList.Add(site.AcilirMenu);
+            dict.Add("site_acilirMenu"); degerList.Add(site.AcilirMenu);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
         }
 
         public void FotoGaleriDurumDegistir(enSiteHaritasi site)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
+            dict.Add("site_fotoGaleri"); degerList.Add(site.FotoGaleriMi);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
         }
 
         public void FaceCommentsDurumDegistir(enSiteHaritasi site)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_faceComments"); degerList.Add(site.FaceComments);
+            dict.Add("site_faceComments"); degerList.Add(site.FaceComments);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", site.Id, degerList);
         }
@@ -635,7 +635,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM SiteHaritasi 
                         WHERE site_sira < @sira ORDER BY site_sira DESC");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@sira", gSayfa.Sira);
 
@@ -681,7 +681,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM SiteHaritasi 
                         WHERE site_sira > @sira ORDER BY site_sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@sira", gSayfa.Sira);
 
@@ -722,10 +722,10 @@ namespace DAL
 
         public void SiraGuncelle(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_sira"); degerList.Add(sayfa.Sira);
+            dict.Add("site_sira"); degerList.Add(sayfa.Sira);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
@@ -738,7 +738,7 @@ namespace DAL
 
             sb.Append(@"SELECT TOP 1 site_sira FROM SiteHaritasi " + whereStr + " ORDER BY site_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             if (parent != null) cmd.Parameters.AddWithValue("@parent", parent);
 
@@ -758,7 +758,7 @@ namespace DAL
             sb.Append(@"SELECT COUNT(site_id) FROM SiteHaritasi  
                         WHERE site_parent = @id");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@id", sayfaId);
 
@@ -778,7 +778,7 @@ namespace DAL
             sb.Append(@"SELECT site_url FROM SiteHaritasi  
                         WHERE site_id = @id");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@id", sayfaId);
 
@@ -800,7 +800,7 @@ namespace DAL
 
             if (dzID != null) sb.Append(" AND site_id <> @id ");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@url", "/" + url);
 
@@ -821,7 +821,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_url = @url");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@url", url.Trim());
 
@@ -880,7 +880,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_fizikselUrl = @url");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@url", url.Trim());
 
@@ -949,10 +949,10 @@ namespace DAL
 
         public void CustomDurumDegistir(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_custom"); degerList.Add(sayfa.Custom);
+            dict.Add("site_custom"); degerList.Add(sayfa.Custom);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
@@ -963,7 +963,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_custom = @custom ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@custom", true);
 
@@ -1017,50 +1017,50 @@ namespace DAL
 
         public void MenuDegistir(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_menu"); degerList.Add(sayfa.Menu);
+            dict.Add("site_menu"); degerList.Add(sayfa.Menu);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
 
         public void YanMenuDegistir(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_yanMenu"); degerList.Add(sayfa.YanMenu);
+            dict.Add("site_yanMenu"); degerList.Add(sayfa.YanMenu);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
 
         public void FooterDegistir(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_footer"); degerList.Add(sayfa.Footer);
+            dict.Add("site_footer"); degerList.Add(sayfa.Footer);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
 
         public void SayfaMenuDegistir(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_sayfaMenu"); degerList.Add(sayfa.SayfaMenu);
+            dict.Add("site_sayfaMenu"); degerList.Add(sayfa.SayfaMenu);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
 
         public void ListDegistir(enSiteHaritasi sayfa)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_list"); degerList.Add(sayfa.List);
+            dict.Add("site_list"); degerList.Add(sayfa.List);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfa.Id, degerList);
         }
@@ -1071,7 +1071,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_yanMenu = @yanmenu " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@yanmenu", true);
 
@@ -1134,7 +1134,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parent AND site_yanMenu = @yanmenu " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parent", parentId);
             adp.SelectCommand.Parameters.AddWithValue("@yanmenu", true);
@@ -1198,7 +1198,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_footer = @footer " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@footer", true);
 
@@ -1261,7 +1261,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parent AND site_footer = @footer " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parent", parentId);
             adp.SelectCommand.Parameters.AddWithValue("@footer", true);
@@ -1325,7 +1325,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent is NULL AND site_menu = @menu " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@menu", true);
 
@@ -1388,7 +1388,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parent AND site_menu = @menu " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parent", parentId);
             adp.SelectCommand.Parameters.AddWithValue("@menu", true);
@@ -1448,20 +1448,20 @@ namespace DAL
 
         public void ResimGuncelle(int pageId, string pictureUrl)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_resim"); degerList.Add(pictureUrl);
+            dict.Add("site_resim"); degerList.Add(pictureUrl);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", pageId, degerList);
         }
 
         public void CarouselSec(int sayfaId, int carouseId, bool carouselSec)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("site_car_id"); degerList.Add(carouselSec ? carouseId : 0);
+            dict.Add("site_car_id"); degerList.Add(carouselSec ? carouseId : 0);
 
             dalManager.MakeAnDbUpdate(prmList, "SiteHaritasi", "site_id", sayfaId, degerList);
         }

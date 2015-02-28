@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FxHelpers">
+      <HintPath>..\Simple\DLL\FxHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,12 +64,6 @@
     <Compile Include="enTasarimAyar.cs" />
     <Compile Include="enTemelVeri.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\Entity.dll" />
-    <Content Include="bin\Debug\Entity.pdb" />
-    <Content Include="bin\Release\Entity.dll" />
-    <Content Include="bin\Release\Entity.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

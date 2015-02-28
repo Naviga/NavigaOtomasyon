@@ -31,8 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FxHelpers">
-      <HintPath>..\..\..\..\..\..\Visual Studio 2010\Projects\FxHelper\Helpers\bin\Release\FxHelpers.dll</HintPath>
+    <Reference Include="FxHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Simple\DLL\FxHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.5.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Simple\DLL\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -58,7 +63,6 @@
     <Compile Include="dalDiziler.cs" />
     <Compile Include="dalGenelAyarlar.cs" />
     <Compile Include="dalGmap.cs" />
-    <Compile Include="dalManager.cs" />
     <Compile Include="dalSablonlar.cs" />
     <Compile Include="dalSiteHaritasi.cs" />
     <Compile Include="dalSiteHaritasi_Blok.cs" />
@@ -76,22 +80,7 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\Common.dll" />
-    <Content Include="bin\Debug\Common.pdb" />
-    <Content Include="bin\Debug\DAL.dll" />
-    <Content Include="bin\Debug\DAL.pdb" />
-    <Content Include="bin\Debug\Entity.dll" />
-    <Content Include="bin\Debug\Entity.pdb" />
-    <Content Include="bin\Debug\FxHelpers.dll" />
-    <Content Include="bin\Release\Common.dll" />
-    <Content Include="bin\Release\Common.pdb" />
-    <Content Include="bin\Release\DAL.dll" />
-    <Content Include="bin\Release\DAL.pdb" />
-    <Content Include="bin\Release\Entity.dll" />
-    <Content Include="bin\Release\Entity.pdb" />
-    <Content Include="bin\Release\FxHelpers.dll" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

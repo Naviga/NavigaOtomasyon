@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Entity;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace DAL
@@ -16,8 +16,8 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Admin");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
-
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(),  FxMySqlHelper.Connection());
+            
             DataTable dt = new DataTable();
 
             adp.Fill(dt);
@@ -46,7 +46,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Admin WHERE adm_kullAdi = @adi AND adm_sifre = @sifre");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@adi", kullaniciAdi);
             adp.SelectCommand.Parameters.AddWithValue("@sifre", sifre);
@@ -78,7 +78,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Admin WHERE adm_id = @id ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@adi", adminId);
 
@@ -105,35 +105,35 @@ namespace DAL
 
         public void YeniAdminEkle(enAdmin admin)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("adm_kullAdi"); degerList.Add(admin.KullaniciAdi);
-            prmList.Add("adm_sifre"); degerList.Add(admin.Sifre);
-            prmList.Add("adm_finex"); degerList.Add(admin.Finex);
-            prmList.Add("adm_statu"); degerList.Add(admin.Statu);
+            dict.Add("adm_kullAdi",admin.KullaniciAdi); 
+            dict.Add("adm_sifre"); 
+            dict.Add("adm_finex"); 
+            dict.Add("adm_statu");
 
 
-            dalManager.MakeAnDbInsert(prmList, "Admin", degerList, "");
+            FxMySqlHelper.MakeAnDbInsert(prmList, "Admin", degerList, "");
         }
 
         public void Guncelle(enAdmin admin)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("adm_kullAdi"); degerList.Add(admin.KullaniciAdi);
-            prmList.Add("adm_sifre"); degerList.Add(admin.Sifre);
+            dict.Add("adm_kullAdi"); degerList.Add(admin.KullaniciAdi);
+            dict.Add("adm_sifre"); degerList.Add(admin.Sifre);
 
             dalManager.MakeAnDbUpdate(prmList, "Admin", "adm_id", admin.Id, degerList);
         }
 
         public void StatuGuncelle(enAdmin admin)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("adm_statu"); degerList.Add(admin.Statu);
+            dict.Add("adm_statu"); degerList.Add(admin.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "Admin", "adm_id", admin.Id, degerList);
         }
@@ -149,7 +149,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Admin WHERE adm_kullAdi = @adi");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@adi", kullaniciAdi);
 

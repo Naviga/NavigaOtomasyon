@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using Entity;
@@ -13,7 +13,7 @@ namespace DAL
         public List<enBlokPozisyon> Getir()
         {
             StringBuilder sb = new StringBuilder();
-            OleDbDataAdapter adp = new OleDbDataAdapter("", dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter("", FxMySqlHelper.Connection());
 
             sb.Append("SELECT * FROM BlokPozisyonlari ORDER BY bPoz_adi");
 
@@ -41,7 +41,7 @@ namespace DAL
         public enBlokPozisyon Getir(int id)
         {
             StringBuilder sb = new StringBuilder();
-            OleDbDataAdapter adp = new OleDbDataAdapter("", dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter("", FxMySqlHelper.Connection());
 
             sb.Append("SELECT * FROM BlokPozisyonlari WHERE bPoz_id = @id");
 

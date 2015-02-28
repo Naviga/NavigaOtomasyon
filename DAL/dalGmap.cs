@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Data;
 using Entity;
 
@@ -17,7 +17,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM GMap");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             DataTable dt = new DataTable();
 
@@ -43,14 +43,14 @@ namespace DAL
 
         public void GmapGuncelle(enGmap gmap)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("gmap_lat"); degerList.Add(gmap.Latitude);
-            prmList.Add("gmap_long"); degerList.Add(gmap.Longitude);
-            prmList.Add("gmap_apiKey"); degerList.Add(gmap.APIKey);
-            prmList.Add("gmap_statu"); degerList.Add(gmap.Statu);
-            prmList.Add("gmap_metin"); degerList.Add(gmap.Metin);
+            dict.Add("gmap_lat"); degerList.Add(gmap.Latitude);
+            dict.Add("gmap_long"); degerList.Add(gmap.Longitude);
+            dict.Add("gmap_apiKey"); degerList.Add(gmap.APIKey);
+            dict.Add("gmap_statu"); degerList.Add(gmap.Statu);
+            dict.Add("gmap_metin"); degerList.Add(gmap.Metin);
 
             dalManager.MakeAnDbUpdate(prmList, "GMap", "gmap_id", gmap.Id, degerList);
         }

@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FxHelpers">
-      <HintPath>..\Ws\bin\FxHelpers.dll</HintPath>
+    <Reference Include="FxHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Simple\DLL\FxHelpers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,30 +61,6 @@
       <Project>{40d979aa-a51c-447e-a77d-5d4d726a13b4}</Project>
       <Name>Entity</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\BLL.dll" />
-    <Content Include="bin\Debug\BLL.pdb" />
-    <Content Include="bin\Debug\Common.dll" />
-    <Content Include="bin\Debug\Common.pdb" />
-    <Content Include="bin\Debug\DAL.dll" />
-    <Content Include="bin\Debug\DAL.pdb" />
-    <Content Include="bin\Debug\Entity.dll" />
-    <Content Include="bin\Debug\Entity.pdb" />
-    <Content Include="bin\Debug\FxHelpers.dll" />
-    <Content Include="bin\Debug\Settings.dll" />
-    <Content Include="bin\Debug\Settings.pdb" />
-    <Content Include="bin\Release\BLL.dll" />
-    <Content Include="bin\Release\BLL.pdb" />
-    <Content Include="bin\Release\Common.dll" />
-    <Content Include="bin\Release\Common.pdb" />
-    <Content Include="bin\Release\DAL.dll" />
-    <Content Include="bin\Release\DAL.pdb" />
-    <Content Include="bin\Release\Entity.dll" />
-    <Content Include="bin\Release\Entity.pdb" />
-    <Content Include="bin\Release\FxHelpers.dll" />
-    <Content Include="bin\Release\Settings.dll" />
-    <Content Include="bin\Release\Settings.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

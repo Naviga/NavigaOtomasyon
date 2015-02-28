@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using Entity;
 
 namespace DAL
@@ -12,20 +12,20 @@ namespace DAL
     {
         public void YeniResimEkle(enCarouselResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("carRes_car_id"); degerList.Add(resim.CarouselId);
-            prmList.Add("carRes_kucuk"); degerList.Add(resim.Kucuk);
-            prmList.Add("carRes_orta"); degerList.Add(resim.Orta);
-            prmList.Add("carRes_buyuk"); degerList.Add(resim.Buyuk);
-            prmList.Add("carRes_sira"); degerList.Add(resim.Sira);
-            prmList.Add("carRes_statu"); degerList.Add(resim.Statu);
-            prmList.Add("carRes_kayitTar"); degerList.Add(resim.KayitTarihi);
-            prmList.Add("carRes_baslik"); degerList.Add(resim.Baslik);
-            prmList.Add("carRes_navUrl"); degerList.Add(resim.NavUrl);
-            prmList.Add("carRes_fotoLink"); degerList.Add(resim.FotoLink);
-            prmList.Add("carRes_videoLink"); degerList.Add(resim.VideoLink);
+            dict.Add("carRes_car_id"); degerList.Add(resim.CarouselId);
+            dict.Add("carRes_kucuk"); degerList.Add(resim.Kucuk);
+            dict.Add("carRes_orta"); degerList.Add(resim.Orta);
+            dict.Add("carRes_buyuk"); degerList.Add(resim.Buyuk);
+            dict.Add("carRes_sira"); degerList.Add(resim.Sira);
+            dict.Add("carRes_statu"); degerList.Add(resim.Statu);
+            dict.Add("carRes_kayitTar"); degerList.Add(resim.KayitTarihi);
+            dict.Add("carRes_baslik"); degerList.Add(resim.Baslik);
+            dict.Add("carRes_navUrl"); degerList.Add(resim.NavUrl);
+            dict.Add("carRes_fotoLink"); degerList.Add(resim.FotoLink);
+            dict.Add("carRes_videoLink"); degerList.Add(resim.VideoLink);
 
             dalManager.MakeAnDbInsert(prmList, "CarouselResimleri", degerList, "");
 
@@ -40,7 +40,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -93,7 +93,7 @@ namespace DAL
 
             StringBuilder sb = new StringBuilder();
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -146,7 +146,7 @@ namespace DAL
 
             sb.Append("SELECT * FROM CarouselResimleri WHERE carRes_id = @id ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", resimId);
 
@@ -179,51 +179,51 @@ namespace DAL
 
         public void ResimStatuGuncelle(enCarouselResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("carRes_statu"); degerList.Add(resim.Statu);
+            dict.Add("carRes_statu"); degerList.Add(resim.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
         }
 
         public void FotoVideoLinkGuncelle(enCarouselResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("carRes_fotoLink"); degerList.Add(resim.FotoLink);
-            prmList.Add("carRes_videoLink"); degerList.Add(resim.VideoLink);
+            dict.Add("carRes_fotoLink"); degerList.Add(resim.FotoLink);
+            dict.Add("carRes_videoLink"); degerList.Add(resim.VideoLink);
 
             dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
         }
 
         public void ResimSiraGuncelle(enCarouselResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("carRes_sira"); degerList.Add(resim.Sira);
+            dict.Add("carRes_sira"); degerList.Add(resim.Sira);
 
             dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
         }
 
         public void ResimBaslikGuncelle(enCarouselResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("carRes_baslik"); degerList.Add(resim.Baslik);
+            dict.Add("carRes_baslik"); degerList.Add(resim.Baslik);
 
             dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
         }
 
         public void NavUrlGuncelle(enCarouselResim resim)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("carRes_navUrl"); degerList.Add(resim.NavUrl);
+            dict.Add("carRes_navUrl"); degerList.Add(resim.NavUrl);
 
             dalManager.MakeAnDbUpdate(prmList, "CarouselResimleri", "carRes_id", resim.Id, degerList);
         }
@@ -235,7 +235,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM CarouselResimleri 
                         WHERE carRes_car_id = @sayfaId AND carRes_sira < @sira ORDER BY carRes_sira DESC");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@sayfaId", gResim.CarouselId);
             adp.SelectCommand.Parameters.AddWithValue("@sira", gResim.Sira);
@@ -270,7 +270,7 @@ namespace DAL
             sb.Append(@"SELECT TOP 1 * FROM CarouselResimleri 
                         WHERE carRes_car_id = @id AND carRes_sira > @sira ORDER BY carRes_sira ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", gResim.CarouselId);
 
@@ -307,7 +307,7 @@ namespace DAL
                         WHERE carRes_car_id = @sayfaId 
                         ORDER BY carRes_sira DESC");
 
-            OleDbCommand cmd = new OleDbCommand(sb.ToString(), dalManager.Connection());
+            OleDbCommand cmd = new OleDbCommand(sb.ToString(), FxMySqlHelper.Connection());
 
             cmd.Parameters.AddWithValue("@sayfaId", sayfaId);
 

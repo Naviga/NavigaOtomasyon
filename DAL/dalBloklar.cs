@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Common;
 using Entity;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace DAL
@@ -19,7 +19,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Bloklar " + whereStr + " ORDER BY blok_adi ");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             if (statu != null)
             {
@@ -70,7 +70,7 @@ namespace DAL
 
             sb.Append(@"SELECT * FROM Bloklar WHERE blok_id = @id");
 
-            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@id", blokId);
 
@@ -113,7 +113,7 @@ namespace DAL
         //            sb.Append(@"SELECT TOP 1 * FROM Bloklar 
         //                        WHERE blok_sira < @sira ORDER BY blok_sira DESC");
 
-        //            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
         //            adp.SelectCommand.Parameters.AddWithValue("@sira", blok.Sira);
 
@@ -158,7 +158,7 @@ namespace DAL
 
         //            sb.Append(@"SELECT TOP 1 * FROM Bloklar WHERE blok_sira > @sira ORDER BY blok_sira");
 
-        //            OleDbDataAdapter adp = new OleDbDataAdapter(sb.ToString(), dalManager.Connection());
+        //            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
         //            adp.SelectCommand.Parameters.AddWithValue("@sira", blok.Sira);
 
@@ -199,17 +199,17 @@ namespace DAL
 
         public void YeniBlokEkle(enBlok blok)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("blok_adi"); degerList.Add(blok.Adi);
-            prmList.Add("blok_statu"); degerList.Add(blok.Statu);
-            prmList.Add("blok_icerik"); degerList.Add(blok.Icerik);
-            prmList.Add("blok_baslik"); degerList.Add(blok.BaslikKullanimi);
-            prmList.Add("blok_sayfa_id"); degerList.Add(blok.SayfaId);
-            prmList.Add("blok_aciklama"); degerList.Add(blok.Aciklama);
+            dict.Add("blok_adi"); degerList.Add(blok.Adi);
+            dict.Add("blok_statu"); degerList.Add(blok.Statu);
+            dict.Add("blok_icerik"); degerList.Add(blok.Icerik);
+            dict.Add("blok_baslik"); degerList.Add(blok.BaslikKullanimi);
+            dict.Add("blok_sayfa_id"); degerList.Add(blok.SayfaId);
+            dict.Add("blok_aciklama"); degerList.Add(blok.Aciklama);
             
-            prmList.Add("blok_car_id"); degerList.Add(blok.CarouselId);
+            dict.Add("blok_car_id"); degerList.Add(blok.CarouselId);
 
             dalManager.MakeAnDbInsert(prmList, "Bloklar", degerList, "");
         }
@@ -221,16 +221,16 @@ namespace DAL
 
         public void BlokGuncelle(enBlok blok)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("blok_adi"); degerList.Add(blok.Adi);
-            prmList.Add("blok_icerik"); degerList.Add(blok.Icerik);
-            prmList.Add("blok_baslik"); degerList.Add(blok.BaslikKullanimi);
-            prmList.Add("blok_sayfa_id"); degerList.Add(blok.SayfaId);
-            prmList.Add("blok_aciklama"); degerList.Add(blok.Aciklama);
+            dict.Add("blok_adi"); degerList.Add(blok.Adi);
+            dict.Add("blok_icerik"); degerList.Add(blok.Icerik);
+            dict.Add("blok_baslik"); degerList.Add(blok.BaslikKullanimi);
+            dict.Add("blok_sayfa_id"); degerList.Add(blok.SayfaId);
+            dict.Add("blok_aciklama"); degerList.Add(blok.Aciklama);
             
-            prmList.Add("blok_car_id"); degerList.Add(blok.CarouselId);
+            dict.Add("blok_car_id"); degerList.Add(blok.CarouselId);
 
 
             dalManager.MakeAnDbUpdate(prmList, "Bloklar", "blok_id", blok.Id, degerList);
@@ -238,10 +238,10 @@ namespace DAL
 
         public void BlokStatuGuncelle(enBlok blok)
         {
-            List<string> prmList = new List<string>();
+            Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            prmList.Add("blok_statu"); degerList.Add(blok.Statu);
+            dict.Add("blok_statu"); degerList.Add(blok.Statu);
 
             dalManager.MakeAnDbUpdate(prmList, "Bloklar", "blok_id", blok.Id, degerList);
         } 

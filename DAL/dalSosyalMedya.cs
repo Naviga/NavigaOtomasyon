@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using Entity;
-using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace DAL
 {
