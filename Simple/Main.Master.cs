@@ -35,10 +35,10 @@ namespace Ws
 
                     string ddClass = altSayfalar.Count > 0 && page.AcilirMenu ? " class='has-dropdown'" : "";
 
-                    if (SessionManager.Admin != null)
-                    {
-                        ddClass = " class='has-dropdown' ";
-                    }
+                    //if (SessionManager.Admin != null)
+                    //{
+                    //    ddClass = " class='has-dropdown' ";
+                    //}
 
                     if (i != 0)
                     {
@@ -56,22 +56,22 @@ namespace Ws
                     {
                         AltSayfalariYaz(sb, altSayfalar);
                     }
-                    else if (SessionManager.Admin != null)
-                    {
+                    //else if (SessionManager.Admin != null)
+                    //{
 
-                        sb.Append("<ul class='dropdown'>");
-                        sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + page.Id + "' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
-                        sb.Append("</ul>");
-                    }
+                    //    sb.Append("<ul class='dropdown'>");
+                    //    sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + page.Id + "' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
+                    //    sb.Append("</ul>");
+                    //}
 
                     sb.Append("</li>");
                 }
             }
 
-            if (SessionManager.Admin != null)
-            {
-                sb.Append("<li><a href='#!' class='button small' onclick='OpenNewNavItem(this)' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
-            }
+            //if (SessionManager.Admin != null)
+            //{
+            //    sb.Append("<li><a href='#!' class='button small' onclick='OpenNewNavItem(this)' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
+            //}
 
             sb.Append("</ul>");
 
@@ -95,10 +95,10 @@ namespace Ws
 
                     string ddClass = altSayfalar.Count > 0 && page.AcilirMenu ? " class='has-dropdown'" : "";
 
-                    if (SessionManager.Admin != null)
-                    {
-                        ddClass = " class='has-dropdown' ";
-                    }
+                    //if (SessionManager.Admin != null)
+                    //{
+                    //    ddClass = " class='has-dropdown' ";
+                    //}
 
                     if (i != 0)
                     {
@@ -116,22 +116,22 @@ namespace Ws
                     {
                         AltSayfalariYaz(sb, altSayfalar);
                     }
-                    else if (SessionManager.Admin != null)
-                    {
+                    //else if (SessionManager.Admin != null)
+                    //{
 
-                        sb.Append("<ul class='dropdown'>");
-                        sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + page.Id + "' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
-                        sb.Append("</ul>");
-                    }
+                    //    sb.Append("<ul class='dropdown'>");
+                    //    sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + page.Id + "' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
+                    //    sb.Append("</ul>");
+                    //}
 
                     sb.Append("</li>");
                 }
             }
 
-            if (SessionManager.Admin != null)
-            {
-                sb.Append("<li><a href='#!' class='button small' onclick='OpenNewNavItem(this)' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
-            }
+            //if (SessionManager.Admin != null)
+            //{
+            //    sb.Append("<li><a href='#!' class='button small' onclick='OpenNewNavItem(this)' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
+            //}
 
             sb.Append("</ul>");
 
@@ -155,10 +155,10 @@ namespace Ws
 
                     string ddClass = altSayfalar.Count > 0 && page.AcilirMenu ? " class='has-dropdown'" : "";
 
-                    if (SessionManager.Admin != null)
-                    {
-                        ddClass = " class='has-dropdown' ";
-                    }
+                    //if (SessionManager.Admin != null)
+                    //{
+                    //    ddClass = " class='has-dropdown' ";
+                    //}
 
                     if (i != 0)
                     {
@@ -176,22 +176,22 @@ namespace Ws
                     {
                         AltSayfalariYaz(sb, altSayfalar);
                     }
-                    else if (SessionManager.Admin != null)
-                    {
+                    //else if (SessionManager.Admin != null)
+                    //{
 
-                        sb.Append("<ul class='dropdown'>");
-                        sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + page.Id + "' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
-                        sb.Append("</ul>");
-                    }
+                    //    sb.Append("<ul class='dropdown'>");
+                    //    sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + page.Id + "' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
+                    //    sb.Append("</ul>");
+                    //}
 
                     sb.Append("</li>");
                 }
             }
 
-            if (SessionManager.Admin != null)
-            {
-                sb.Append("<li><a href='#!' class='button small' onclick='OpenNewNavItem(this)' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
-            }
+            //if (SessionManager.Admin != null)
+            //{
+            //    sb.Append("<li><a href='#!' class='button small' onclick='OpenNewNavItem(this)' title='" + bllDiziler.DiziGetir("Main.AdminMenu.NewPage.Tooltip") + "'><span class='fa fa-plus-circle'></span>&nbsp; " + bllDiziler.DiziGetir("Main.AdminMenu.NewPage") + "</a></li>");
+            //}
 
             sb.Append("</ul>");
 
@@ -213,10 +213,10 @@ namespace Ws
 
                 string ddClass = altSayfalar2.Count > 0 && altSayfa.AcilirMenu ? " class='has-dropdown'" : "";
 
-                if (SessionManager.Admin != null)
-                {
-                    ddClass = " class='has-dropdown' ";
-                }
+                //if (SessionManager.Admin != null)
+                //{
+                //    ddClass = " class='has-dropdown' ";
+                //}
 
                 sb.Append("<li" + ddClass + "><a title='" + altSayfa.Title + "' href='" + altSayfa.Url + "' " + (altSayfa.Url.Contains("http://www.") ? "target='_blank'" : "") + ">" + altSayfa.Adi + "</a>");
 
@@ -229,22 +229,22 @@ namespace Ws
                 {
                     AltSayfalariYaz(sb, altSayfalar2);
                 }
-                else if (SessionManager.Admin != null)
-                {
-                    sb.Append("<ul class='dropdown'>");
-                    sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + altSayfa.Id + "' title='Yeni başlık ekle'><span class='fa fa-plus-circle'></span>&nbsp; Başlık Ekle</a></li>");
-                    sb.Append("</ul>");
-                }
+                //else if (SessionManager.Admin != null)
+                //{
+                //    sb.Append("<ul class='dropdown'>");
+                //    sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + altSayfa.Id + "' title='Yeni başlık ekle'><span class='fa fa-plus-circle'></span>&nbsp; Başlık Ekle</a></li>");
+                //    sb.Append("</ul>");
+                //}
 
                 sb.Append("</li>");
 
                 i++;
             }
 
-            if (SessionManager.Admin != null)
-            {
-                sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + altSayfalar[0].Parent + "' title='Yeni başlık ekle'><span class='fa fa-plus-circle'></span>&nbsp; Başlık Ekle</a></li>");
-            }
+            //if (SessionManager.Admin != null)
+            //{
+            //    sb.Append("<li><a href='#!' class='button tiny' onclick='OpenNewNavItem(this)' parentId='" + altSayfalar[0].Parent + "' title='Yeni başlık ekle'><span class='fa fa-plus-circle'></span>&nbsp; Başlık Ekle</a></li>");
+            //}
 
             sb.Append("</ul>");
         }

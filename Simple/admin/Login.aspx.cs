@@ -39,7 +39,7 @@ namespace Ws.admin
             {
                 SessionManager.Admin = adm;
 
-                Response.Redirect("/");
+                Response.Redirect("~/admin/");
             }
             else
             {

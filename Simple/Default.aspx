@@ -5,28 +5,52 @@
 <%@ Import Namespace="Entity" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="/scripts/AjaxMethods.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
-        function initialize() {
-            var myLatlng = new google.maps.LatLng(39.915551, 32.858543);
-            var mapOptions = {
-                zoom: 16,
-                center: myLatlng
-            }
-            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var map;
+        var markerMap = {};
+        var windowMap = {};
 
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: 'Naviga Otomasyon'
+        function initialize() {
+            var req = AjaxPost("/services/general.asmx/MapGetir");
+
+            req.success(function (JSON) {
+
+                var data = $.parseJSON(JSON.d);
+
+                var centerLatlng = new google.maps.LatLng(data.Latitude, data.Longitude);
+
+                var mapOptions = {
+                    center: centerLatlng,
+                    zoom: 16,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                var infoContent = " <ul class='vcard'>" +
+                                            "<li class='street-address'>" + data.Metin + "</li>";
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: infoContent
+                });
+
+                var myLatlng = new google.maps.LatLng(data.Latitude, data.Longitude);
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'title'
+                });
             });
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
 
-    </script>
 
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -139,40 +163,13 @@
         </div>
 
         <% } %>
-
-        <%--<div class="small-16 medium-8 large-8 columns">
-            <div class="row">
-                <div class="small-7 medium-7 large-7 columns">
-                    <a class="th [radius]" href="#">
-                        <img src="carousel/c1.jpg" />
-                    </a>
-                </div>
-                <div class="small-9 medium-9 large-9 columns">
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
-            </div>
-        </div>
-        <div class="small-16 medium-8 large-8 columns">
-            <div class="row">
-                <div class="small-7 medium-7 large-7 columns">
-                    <a class="th [radius]" href="#">
-                        <img src="carousel/c2.jpg" />
-                    </a>
-                </div>
-                <div class="small-9 medium-9 large-9 columns">
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
-            </div>
-        </div>--%>
     </div>
     <% if (urunler.Count > 2)
        {%>
     <hr class="fancy-line" />
     <div class="row">
 
-        <%for (int i = 2; i < 4; i++)
+        <%--<%for (int i = 2; i < 4; i++)
           {%>
 
         <div class="small-16 medium-8 large-8 columns">
@@ -189,34 +186,7 @@
             </div>
         </div>
 
-        <% } %>
-
-        <%--<div class="small-16 medium-8 large-8 columns">
-            <div class="row">
-                <div class="small-7 medium-7 large-7 columns">
-                    <a class="th [radius]" href="#">
-                        <img src="carousel/c1.jpg" class="th round border-secondary-blue-darker" />
-                    </a>
-                </div>
-                <div class="small-9 medium-9 large-9 columns">
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
-            </div>
-        </div>
-        <div class="small-16 medium-8 large-8 columns">
-            <div class="row">
-                <div class="small-7 medium-7 large-7 columns">
-                    <a class="th [radius]" href="#">
-                        <img src="carousel/c2.jpg" class="th round border-secondary-blue-darker" />
-                    </a>
-                </div>
-                <div class="small-9 medium-9 large-9 columns">
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
-            </div>
-        </div>--%>
+        <% } %>--%>
     </div>
     <%} %>
     <hr class="fancy-line" />
@@ -274,4 +244,5 @@
     <div id="map-canvas" class="width-100"></div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="maincntScript" runat="server">
+    
 </asp:Content>

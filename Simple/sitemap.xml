@@ -7,6 +7,12 @@
     <loc>http://localhost/suruculere-genel-bakis</loc>
   </url>
   <url>
+    <loc>http://localhost/urunler/danfoss-surucu-cozumleri</loc>
+  </url>
+  <url>
+    <loc>http://localhost/urunler/danfoss-surucu-cozumleri/danfoss-vlt-micro</loc>
+  </url>
+  <url>
     <loc>http://localhost/standart-web-sayfasi</loc>
   </url>
   <url>

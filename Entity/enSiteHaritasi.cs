@@ -44,5 +44,6 @@ namespace Entity
         public bool SolAltMenu { get; set; }
         public bool SagAltMenu { get; set; }
         public bool UrunMu { get; set; }
+        public bool HaberMi { get; set; }
     }
 }
