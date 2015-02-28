@@ -13,23 +13,24 @@ namespace Ws.usc
     {
         public int SayfaId { get; set; }
         public string SayfaYolu { get; set; }
+        public string SayfaAdi { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                UrunResimleriGetir();
+                //UrunResimleriGetir();
             }
         }
 
         private void UrunResimleriGetir()
         {
-            List<enIcerikResim> resimler = bllIcerikResimleri.ResimleriGetir(Session["ürünler_sayfaId"].xToIntDefault(), true);
-            rptFotoBig.DataSource = resimler;
-            //rptFotoThumb.DataSource = resimler;
+        //    List<enIcerikResim> resimler = bllIcerikResimleri.ResimleriGetir(SayfaId, true);
+        //    rptFotoBig.DataSource = resimler;
+        //    //rptFotoThumb.DataSource = resimler;
 
-            rptFotoBig.DataBind();
-            //rptFotoThumb.DataBind();
+        //    rptFotoBig.DataBind();
+        //    //rptFotoThumb.DataBind();
         }
     }
 }

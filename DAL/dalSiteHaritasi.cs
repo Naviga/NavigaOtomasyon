@@ -283,7 +283,7 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu ORDER BY site_sira");
+            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parentId AND site_statu = @statu AND site_urunMu=false ORDER BY site_sira");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
@@ -1586,13 +1586,11 @@ namespace DAL
             return sayfalar;
         }
 
-        public List<enIcerikResim> UrunleriGetir(int parentId)
+        public List<enSiteHaritasi> UrunleriGetir(int parentId)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(@"select ir.* from siteharitasi s1 inner join siteharitasi s2 on 
-                        s1.site_id=s2.site_parent
-                        inner join icerikresimleri ir on s2.site_id=ir.icrkRes_site_id
-                        where s1.site_id=@parent_id and s2.site_urunMu=true and ir.icrkRes_anaResim=true");
+            sb.Append(@"select s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk from siteharitasi s inner join icerikresimleri i on s.site_id=i.icrkRes_site_id
+                        where site_parent=@parent_id and s.site_urunMu=true and i.icrkRes_anaResim=true");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
             adp.SelectCommand.Parameters.AddWithValue("@parent_id", parentId);
@@ -1600,25 +1598,49 @@ namespace DAL
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            List<enIcerikResim> urunler = new List<enIcerikResim>();
+            List<enSiteHaritasi> urunler = new List<enSiteHaritasi>();
 
             foreach (DataRow rw in dt.Rows)
             {
-                enIcerikResim urun = new enIcerikResim();
+                enSiteHaritasi sayfa = new enSiteHaritasi();
 
-                urun.Aciklama = rw["icrkRes_aciklama"].ToString();
-                urun.Buyuk = rw["icrkRes_buyuk"].ToString();
-                urun.SayfaId = rw["icrkRes_site_id"].xToIntDefault();
-                urun.Id = rw["icrkRes_id"].xToIntDefault();
-                urun.KayitTarihi = rw["icrkRes_kayitTar"].xToDateTimeDefault();
-                urun.Kucuk = rw["icrkRes_kucuk"].ToString();
-                urun.Orta = rw["icrkRes_orta"].ToString();
-                urun.Sira = rw["icrkRes_sira"].xToIntDefault();
-                urun.Statu = rw["icrkRes_statu"].xToBooleanDefault();
-                urun.Baslik = rw["icrkRes_baslik"].ToString();
-                urun.AnaResim = rw["icrkRes_anaResim"].xToBooleanDefault();
+                sayfa.Adi = rw["site_adi"].ToString();
+                sayfa.DefaultSayfa = rw["site_default"].xToBooleanDefault();
+                sayfa.Description = rw["site_description"].ToString();
+                sayfa.Icerik = rw["site_icerik"].ToString();
+                sayfa.Id = rw["site_id"].xToIntDefault();
+                sayfa.Keywords = rw["site_keywords"].ToString();
+                sayfa.Parent = rw["site_parent"].xToIntDefault();
+                sayfa.Statu = rw["site_statu"].xToBooleanDefault();
+                sayfa.Title = rw["site_title"].ToString();
+                sayfa.Url = rw["site_url"].ToString();
+                sayfa.Url = UrlOlustur(sayfa).ToLowerInvariant();
+                sayfa.Sira = rw["site_sira"].xToIntDefault();
+                sayfa.AcilirMenu = rw["site_acilirMenu"].xToBooleanDefault();
+                sayfa.FizikselUrl = rw["site_fizikselUrl"].ToString();
+                sayfa.Dinamik = rw["site_dinamik"].xToBooleanDefault();
+                sayfa.FotoBaslik = rw["site_fotoBaslik"].ToString();
+                sayfa.VideoBaslik = rw["site_videoBaslik"].ToString();
+                sayfa.FotoGaleriMi = rw["site_fotoGaleri"].xToBooleanDefault();
+                sayfa.FaceComments = rw["site_faceComments"].xToBooleanDefault();
+                sayfa.Custom = rw["site_custom"].xToBooleanDefault();
+                sayfa.PaylasimAlani = rw["site_paylasimAlani"].xToBooleanDefault();
+                sayfa.BaslikAlani = rw["site_baslikAlani"].xToBooleanDefault();
+                sayfa.AnaSayfa = rw["site_baslangic"].xToBooleanDefault();
+                sayfa.SayfaYolu = rw["site_sayfaYolu"].xToBooleanDefault();
+                sayfa.Menu = rw["site_menu"].xToBooleanDefault();
+                sayfa.YanMenu = rw["site_yanMenu"].xToBooleanDefault();
+                sayfa.Footer = rw["site_footer"].xToBooleanDefault();
+                sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
+                sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
+                sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Resim = rw["site_resim"].ToString();
+                sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
+                sayfa.FotoOrta = rw["icrkRes_orta"].ToString();
+                sayfa.FotoKucuk = rw["icrkRes_kucuk"].ToString();
 
-                urunler.Add(urun);
+                urunler.Add(sayfa);
             }
 
             return urunler;

@@ -44,5 +44,8 @@ namespace Entity
         public bool SolAltMenu { get; set; }
         public bool SagAltMenu { get; set; }
         public bool UrunMu { get; set; }
+        public string FotoBuyuk { get; set; }
+        public string FotoOrta { get; set; }
+        public string FotoKucuk { get; set; }
     }
 }

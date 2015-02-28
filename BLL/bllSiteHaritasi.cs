@@ -350,7 +350,7 @@ namespace BLL
             return new dalSiteHaritasi().SagAltMenuGetir();
         }
 
-        public static List<enIcerikResim> UrunleriGetir(int parentId)
+        public static List<enSiteHaritasi> UrunleriGetir(int parentId)
         {
             return new dalSiteHaritasi().UrunleriGetir(parentId);
         }
