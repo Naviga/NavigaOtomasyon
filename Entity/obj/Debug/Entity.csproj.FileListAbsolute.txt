@@ -18,3 +18,5 @@ C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\Entity.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\FxHelpers.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\MySql.Data.dll

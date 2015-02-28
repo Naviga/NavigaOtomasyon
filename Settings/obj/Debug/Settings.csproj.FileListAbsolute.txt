@@ -50,3 +50,5 @@ C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Debug\DAL.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\obj\Debug\Settings.csprojResolveAssemblyReference.cache
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\obj\Debug\Settings.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\obj\Debug\Settings.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Debug\FxHelpers.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Debug\MySql.Data.dll
