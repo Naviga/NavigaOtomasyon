@@ -69,4 +69,10 @@
   <url>
     <loc>http://localhost/asd</loc>
   </url>
+  <url>
+    <loc>http://localhost/yeni-bir-sayfa</loc>
+  </url>
+  <url>
+    <loc>http://localhost/yeni-haber</loc>
+  </url>
 </urlset>

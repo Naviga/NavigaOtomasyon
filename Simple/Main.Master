@@ -22,28 +22,27 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="dvLoader">
-            <div id="loader">
-                <img src="/img/loader.GIF" width="64px" />
-            </div>
-        </div>
-        <div id="wrapper">
-            <div id="content">
-                <nav class="top-bar" data-topbar role="navigation">
-                    <ul class="title-area">
-                        <li class="name">
-                            <h1 class="hide-for-small-down"><a href="" class="bg-color-primary-blue"><span class="fa fa-home"></span></a></h1>
-                            <h1 class="show-for-small-down"><a href="">
-                                <img src="/img/logoH45.png" style="height: 40px" /></a></h1>
-                        </li>
-                        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-                    </ul>
 
-                    <section class="top-bar-section">
-                        <span class="slogan left hide-for-medium-down">&nbsp;&nbsp;<span class="fa fa-quote-left"></span>&nbsp;&nbsp;Yol Gösteriyoruz...&nbsp;&nbsp;<span class="fa fa-quote-right"></span>&nbsp;&nbsp;</span>
-                        <%--<ul class="left">
+    <div id="dvLoader">
+        <div id="loader">
+            <img src="/img/loader.GIF" width="64px" />
+        </div>
+    </div>
+    <div id="wrapper">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1 class="hide-for-small-down"><a href="" class="bg-color-primary-blue"><span class="fa fa-home"></span></a></h1>
+                    <h1 class="show-for-small-down"><a href="">
+                        <img src="/img/logoH45.png" style="height: 40px" /></a></h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <span class="slogan left hide-for-medium-down">&nbsp;&nbsp;<span class="fa fa-quote-left"></span>&nbsp;&nbsp;Yol Gösteriyoruz...&nbsp;&nbsp;<span class="fa fa-quote-right"></span>&nbsp;&nbsp;</span>
+                <%--<ul class="left">
                             <!--<li class="divider"></li>
                             <li><a href=""><span class="fa fa-home color-primary-blue"></span></a></li>-->
                             <li class="divider"></li>
@@ -60,9 +59,9 @@
                             <li><a href="#">İletişim</a></li>
                             <li class="divider"></li>
                         </ul>--%>
-                        <%= GetNavigation() %>
-                        <!-- Right Nav Section -->
-                        <%--<ul class="right">
+                <%= GetNavigation() %>
+                <!-- Right Nav Section -->
+                <%--<ul class="right">
                             <li class="has-form">
                                 <div class="row collapse">
                                     <div class="large-12 small-13 columns">
@@ -74,7 +73,7 @@
                                 </div>
                             </li>
                         </ul>--%>
-                        <!--<ul id="ulSocialButtonGroup" class="button-group right hide-for-medium-down">
+                <!--<ul id="ulSocialButtonGroup" class="button-group right hide-for-medium-down">
                             <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
                                     <img src="img/facebook.png" class="circle" width="32px" /></a></li>
                             <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
@@ -84,7 +83,7 @@
                             <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
                                     <img src="img/youtube.png" class="circle" width="32px" /></a></li>
                         </ul>-->
-                        <%--<ul class="right">
+                <%--<ul class="right">
                             <li class="has-dropdown">
                                 <a href="#">Türkçe</a>
                                 <ul class="dropdown">
@@ -93,284 +92,299 @@
                             </li>
                         </ul>--%>
 
+                <!-- Left Nav Section -->
+
+            </section>
+        </nav>
+        <div class="row collapse width-100 bg-color-light-gray">
+            <div class="medium-7 large-7 columns">
+                <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <img src="/img/danfoss.png" style="height: 65px" /></li>
+                        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+
+                    <section class="top-bar-section blue-bar">
                         <!-- Left Nav Section -->
-
-                    </section>
-                </nav>
-                <div class="row collapse width-100 bg-color-light-gray">
-                    <div class="medium-7 large-7 columns">
-                        <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
-                            <ul class="title-area">
-                                <li class="name">
-                                    <img src="/img/danfoss.png" style="height: 65px" /></li>
-                                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-                            </ul>
-
-                            <section class="top-bar-section blue-bar">
-                                <!-- Left Nav Section -->
-                                <%--<ul class="right">
+                        <%--<ul class="right">
                                     <li><a href="#"><span class="fa fa-cogs"></span>&nbsp;Sürücülere Genel Bakış</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#"><span class="fa fa-trash"></span>&nbsp;Ürünler</a></li>
                                     <li class="divider"></li>
                                 </ul>--%>
-                                <%= GetNavigationLeft() %>
-                            </section>
-                        </nav>
-                    </div>
-                    <div id="main-logo" class="medium-2 large-2 columns hide-for-small-down">
-                        <a href="./">
-                            <img src="/img/logo2.png" /></a>
-                    </div>
-                    <div class="medium-7 large-7 columns">
-                        <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
-                            <ul class="title-area">
-                                <li class="name"></li>
-                                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-                            </ul>
+                        <%= GetNavigationLeft() %>
+                    </section>
+                </nav>
+            </div>
+            <div id="main-logo" class="medium-2 large-2 columns hide-for-small-down">
+                <a href="./">
+                    <img src="/img/logo2.png" /></a>
+            </div>
+            <div class="medium-7 large-7 columns">
+                <nav class="top-bar blue-bar hide-for-small-down" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name"></li>
+                        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
 
-                            <section class="top-bar-section blue-bar">
-                                <!-- Left Nav Section -->
-                                <%--<ul class="left" style="margin-left: 0 !important;">
+                    <section class="top-bar-section blue-bar">
+                        <!-- Left Nav Section -->
+                        <%--<ul class="left" style="margin-left: 0 !important;">
                                     <li class="divider"></li>
                                     <li><a href="#"><span class="fa fa-building"></span>&nbsp;Teknik Destek</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#"><span class="fa fa-fire"></span>&nbsp;Enerji Çözümleri</a></li>
                                 </ul>--%>
-                                <%= GetNavigationRight() %>
-                            </section>
-                        </nav>
-                    </div>
-                </div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
+                        <%= GetNavigationRight() %>
+                    </section>
+                </nav>
             </div>
-            <div id="footer">
-                <div class="row">
-                    <div class="large-4 columns">
-                        <h3 class=" color-primary-blue"><span class="fa fa-map-marker"></span>&nbsp;Adres</h3>
-                        <p>
-                            Kızılırmak Caddesi No:2
-                        <br />
-                            06640 Bakanlıklar / Ankara, Türkiye
-                        </p>
+        </div>
 
-                        <span class="fa fa-2x fa-share-alt-square circle color-primary-blue"></span>&nbsp;
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <div id="footer">
+            <div class="row">
+                <div class="large-4 columns">
+                    <h3 class=" color-primary-blue"><span class="fa fa-map-marker"></span>&nbsp;Adres</h3>
+                    <p>
+                        Kızılırmak Caddesi No:2
+                        <br />
+                        06640 Bakanlıklar / Ankara, Türkiye
+                    </p>
+
+                    <span class="fa fa-2x fa-share-alt-square circle color-primary-blue"></span>&nbsp;
                     <span class="fa fa-2x fa-facebook-square circle color-secondary-gray"></span>&nbsp;
                     <span class="fa fa-2x fa-twitter-square circle color-secondary-gray"></span>&nbsp;
                     <span class="fa fa-2x fa-linkedin-square circle color-secondary-gray"></span>&nbsp;
                     <span class="fa fa-2x fa-youtube-square circle color-secondary-gray"></span>&nbsp;
-                    </div>
-                    <div class="large-4 columns hide-for-small-down">
-                        <h3 class="color-primary-blue"><span class="fa fa-users"></span>&nbsp;LOREM IPSUM</h3>
-                        <ul class="no-bullet">
-                            <li>List item with a much</li>
-                            <li>List item</li>
-                            <li>List item with a much</li>
-                            <li>List item</li>
-                        </ul>
-                    </div>
-                    <div class="large-4 columns hide-for-small-down">
-                        <h3 class="color-primary-blue"><span class="fa fa-code-fork"></span>&nbsp;LOREM IPSUM</h3>
-                        <ul class="no-bullet">
-                            <li>List item with a much</li>
-                            <li>List item</li>
-                            <li>List item with a much</li>
-                            <li>List item</li>
-                        </ul>
-                    </div>
-                    <div class="large-4 columns hide-for-small-down">
-                        <h3 class="color-primary-blue"><span class="fa fa-cloud"></span>&nbsp;LOREM IPSUM</h3>
-                        <ul class="no-bullet">
-                            <li>List item with a much</li>
-                            <li>List item</li>
-                            <li>List item with a much</li>
-                            <li>List item</li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="row width-100">
-                    <div class="large-16 text-center">
-                        <p>
-                            <small><%= BLL.bllDiziler.DiziGetir("Main.Bottom.Text.Copyright") %></small>
-                        </p>
-                    </div>
+                <div class="large-4 columns hide-for-small-down">
+                    <h3 class="color-primary-blue"><span class="fa fa-users"></span>&nbsp;LOREM IPSUM</h3>
+                    <ul class="no-bullet">
+                        <li>List item with a much</li>
+                        <li>List item</li>
+                        <li>List item with a much</li>
+                        <li>List item</li>
+                    </ul>
+                </div>
+                <div class="large-4 columns hide-for-small-down">
+                    <h3 class="color-primary-blue"><span class="fa fa-code-fork"></span>&nbsp;LOREM IPSUM</h3>
+                    <ul class="no-bullet">
+                        <li>List item with a much</li>
+                        <li>List item</li>
+                        <li>List item with a much</li>
+                        <li>List item</li>
+                    </ul>
+                </div>
+                <div class="large-4 columns hide-for-small-down">
+                    <h3 class="color-primary-blue"><span class="fa fa-cloud"></span>&nbsp;LOREM IPSUM</h3>
+                    <ul class="no-bullet">
+                        <li>List item with a much</li>
+                        <li>List item</li>
+                        <li>List item with a much</li>
+                        <li>List item</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row width-100">
+                <div class="large-16 text-center">
+                    <p>
+                        <small><%= BLL.bllDiziler.DiziGetir("Main.Bottom.Text.Copyright") %></small>
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
+    <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
 
-        <script src="/admin/foundation/js/vendor/jquery.js"></script>
-        <script src="/admin/foundation/js/foundation.min.js"></script>
-        <script src="/owl-carousel/owl.carousel.js"></script>
-        <script src="/js/jquery.backstretch.min.js"></script>
-        <script src="/js/jquery.center.js"></script>
-        <script src="/js/general.js"></script>
-        <script src="/exposure_slider/jquery.exposure.js"></script>
-        <script src="/exposure_slider/texts_tr.js"></script>
+    <script src="/admin/foundation/js/vendor/jquery.js"></script>
+    <script src="/admin/foundation/js/foundation.min.js"></script>
+    <script src="/owl-carousel/owl.carousel.js"></script>
+    <script src="/js/jquery.backstretch.min.js"></script>
+    <script src="/js/jquery.center.js"></script>
+    <script src="/js/general.js"></script>
+    <script src="/exposure_slider/jquery.exposure.js"></script>
+    <script src="/exposure_slider/texts_tr.js"></script>
 
-        <script>
-            $(document).foundation();
+    <script>
+        $(document).foundation();
 
-            $(document).ready(function () {
+        $(document).ready(function () {
 
-                $.backstretch("img/bg2.jpg");
+            $.backstretch("/img/bg2.jpg");
 
-                $("#main-slider").owlCarousel({
-                    navigation: false, // Show next and prev buttons
-                    slideSpeed: 300,
-                    paginationSpeed: 400,
-                    singleItem: true,
-                    autoPlay: true
-                    // "singleItem:true" is a shortcut for:
-                    // items : 1, 
-                    // itemsDesktop : false,
-                    // itemsDesktopSmall : false,
-                    // itemsTablet: false,
-                    // itemsMobile : false
+            $("#main-slider").owlCarousel({
+                navigation: false, // Show next and prev buttons
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true
+                // "singleItem:true" is a shortcut for:
+                // items : 1, 
+                // itemsDesktop : false,
+                // itemsDesktopSmall : false,
+                // itemsTablet: false,
+                // itemsMobile : false
 
-                });
-                $("#main-news-text-carousel").owlCarousel({
-                    autoPlay: false, //Set AutoPlay to 3 seconds
+            });
+            $("#main-news-text-carousel").owlCarousel({
+                autoPlay: false, //Set AutoPlay to 3 seconds
 
-                    items: 2,
-                    itemsDesktop: [1280, 1],
-                    itemsDesktopSmall: [979, 1],
-                    autoHeight: false
+                items: 2,
+                itemsDesktop: [1280, 1],
+                itemsDesktopSmall: [979, 1],
+                autoHeight: false
 
-                });
+            });
 
-                $("#main-news-image-carousel").owlCarousel({
-                    autoPlay: false, //Set AutoPlay to 3 seconds
+            $("#main-news-image-carousel").owlCarousel({
+                autoPlay: false, //Set AutoPlay to 3 seconds
 
-                    items: 4,
-                    itemsDesktop: [1280, 3],
-                    itemsDesktopSmall: [979, 2],
-                    autoHeight: false
+                items: 4,
+                itemsDesktop: [1280, 3],
+                itemsDesktopSmall: [979, 2],
+                autoHeight: false
 
-                });
+            });
 
-                $("#main-brands-carousel").owlCarousel({
-                    autoPlay: true, //Set AutoPlay to 3 seconds
+            $("#main-brands-carousel").owlCarousel({
+                autoPlay: true, //Set AutoPlay to 3 seconds
 
-                    items: 5,
-                    itemsDesktop: [1199, 5],
-                    itemsDesktopSmall: [979, 5],
-                    autoHeight: false
+                items: 5,
+                itemsDesktop: [1199, 5],
+                itemsDesktopSmall: [979, 5],
+                autoHeight: false
 
-                });
+            });
 
-                //$(function () {
-                //    var gallery = $('#images');
-                //    gallery.exposure({
-                //        controlsTarget: '#controls',
-                //        controls: { prevNext: true, pageNumbers: true, firstLast: false },
-                //        visiblePages: 2,
-                //        slideshowControlsTarget: '#slideshow',
-                //        onThumb: function (thumb) {
-                //            var li = thumb.parents('li');
-                //            var fadeTo = li.hasClass($.exposure.activeThumbClass) ? 1 : 0.3;
+            //$(function () {
+            //    var gallery = $('#images');
+            //    gallery.exposure({
+            //        controlsTarget: '#controls',
+            //        controls: { prevNext: true, pageNumbers: true, firstLast: false },
+            //        visiblePages: 2,
+            //        slideshowControlsTarget: '#slideshow',
+            //        onThumb: function (thumb) {
+            //            var li = thumb.parents('li');
+            //            var fadeTo = li.hasClass($.exposure.activeThumbClass) ? 1 : 0.3;
 
-                //            thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
+            //            thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
 
-                //            thumb.hover(function () {
-                //                thumb.fadeTo('fast', 1);
-                //            }, function () {
-                //                li.not('.' + $.exposure.activeThumbClass).children('img').fadeTo('fast', 0.3);
-                //            });
-                //        },
-                //        onImage: function (image, imageData, thumb) {
-                //            // Fade out the previous image.
-                //            image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
-                //                $(this).remove();
-                //            });
+            //            thumb.hover(function () {
+            //                thumb.fadeTo('fast', 1);
+            //            }, function () {
+            //                li.not('.' + $.exposure.activeThumbClass).children('img').fadeTo('fast', 0.3);
+            //            });
+            //        },
+            //        onImage: function (image, imageData, thumb) {
+            //            // Fade out the previous image.
+            //            image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
+            //                $(this).remove();
+            //            });
 
-                //            // Fade in the current image.
-                //            image.hide().stop().fadeIn(1000);
+            //            // Fade in the current image.
+            //            image.hide().stop().fadeIn(1000);
 
-                //            // Fade in selected thumbnail (and fade out others).
-                //            if (gallery.showThumbs && thumb && thumb.length) {
-                //                thumb.parents('li').siblings().children('img.' + $.exposure.selectedImageClass).stop().fadeTo(200, 0.3, function () { $(this).removeClass($.exposure.selectedImageClass); });
-                //                thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
-                //            }
-                //        },
-                //        onPageChanged: function () {
-                //            // Fade in thumbnails on current page.
-                //            gallery.find('li.' + $.exposure.currentThumbClass).hide().stop().fadeIn('fast');
-                //        }
-                //    });
-                //});
+            //            // Fade in selected thumbnail (and fade out others).
+            //            if (gallery.showThumbs && thumb && thumb.length) {
+            //                thumb.parents('li').siblings().children('img.' + $.exposure.selectedImageClass).stop().fadeTo(200, 0.3, function () { $(this).removeClass($.exposure.selectedImageClass); });
+            //                thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
+            //            }
+            //        },
+            //        onPageChanged: function () {
+            //            // Fade in thumbnails on current page.
+            //            gallery.find('li.' + $.exposure.currentThumbClass).hide().stop().fadeIn('fast');
+            //        }
+            //    });
+            //});
 
-                $(function () {
-                    var gallery = $('#images');
-                    gallery.exposure({
-                        carouselControls: true,
-                        imageControls: true,
-                        pageSize: 5,
-                        slideshowControlsTarget: '#slideshow',
-                        onThumb: function (thumb) {
-                            var li = thumb.parents('li');
-                            var fadeTo = li.hasClass($.exposure.activeLinkClass) ? 1 : 0.3;
+            $(function () {
+                var gallery = $('#images');
+                gallery.exposure({
+                    carouselControls: true,
+                    imageControls: true,
+                    pageSize: 5,
+                    slideshowControlsTarget: '#slideshow',
+                    onThumb: function (thumb) {
+                        var li = thumb.parents('li');
+                        var fadeTo = li.hasClass($.exposure.activeLinkClass) ? 1 : 0.3;
 
-                            thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
+                        thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
 
-                            thumb.hover(function () {
-                                thumb.fadeTo('fast', 1);
-                            }, function () {
-                                li.not('.' + $.exposure.activeLinkClass).children('img').fadeTo('fast', 0.3);
-                            });
-                        },
-                        onImage: function (image, imageData, thumb) {
-                            // Fade out the previous image.
-                            image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
-                                $(this).remove();
-                            });
+                        thumb.hover(function () {
+                            thumb.fadeTo('fast', 1);
+                        }, function () {
+                            li.not('.' + $.exposure.activeLinkClass).children('img').fadeTo('fast', 0.3);
+                        });
+                    },
+                    onImage: function (image, imageData, thumb) {
+                        // Fade out the previous image.
+                        image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
+                            $(this).remove();
+                        });
 
-                            // Fade in the current image.
-                            image.hide().stop().fadeIn(1000);
+                        // Fade in the current image.
+                        image.hide().stop().fadeIn(1000);
 
-                            if (gallery.showThumbs && thumb && thumb.length) {
-                                thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
-                            }
-                        },
-                        onCarousel: function (firstImage, lastImage) {
-                            $('.' + $.exposure.thumbsClass + ' li').hide().children('img.' + $.exposure.selectedImageClass).stop().css('opacity', 0.3).removeClass($.exposure.selectedImageClass);
-                        },
-                        onSlideshowPlayed: function () {
-                            $('.' + $.exposure.pauseSlideshowClass).css('display', 'inline');
+                        if (gallery.showThumbs && thumb && thumb.length) {
+                            thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
                         }
-                    });
-
-                    $('#left a').click(function () {
-                        gallery.nextImage();
-                    });
-
-                    $('#right a').click(function () {
-                        gallery.prevImage();
-                    });
+                    },
+                    onCarousel: function (firstImage, lastImage) {
+                        $('.' + $.exposure.thumbsClass + ' li').hide().children('img.' + $.exposure.selectedImageClass).stop().css('opacity', 0.3).removeClass($.exposure.selectedImageClass);
+                    },
+                    onSlideshowPlayed: function () {
+                        $('.' + $.exposure.pauseSlideshowClass).css('display', 'inline');
+                    }
                 });
 
+                $('#left a').click(function () {
+                    gallery.nextImage();
+                });
+
+                $('#right a').click(function () {
+                    gallery.prevImage();
+                });
             });
 
-            jQuery(window).load(function () {
-                $("#dvLoader img").animate({
-                    opacity: 0
-                }, 2000, function () {
+        });
 
-                });
-                $("#dvLoader").animate({
-                    opacity: 0
-                }, 2000, function () {
-                    $("#dvLoader").hide('slow');
-                });
+        jQuery(window).load(function () {
+            $("#dvLoader img").animate({
+                opacity: 0
+            }, 1000, function () {
 
             });
+            $("#dvLoader").animate({
+                opacity: 0
+            }, 1000, function () {
+                $("#dvLoader").hide('slow');
+            });
 
-        </script>
-    </form>
+        });
+
+        window.onbeforeunload = function () {
+            $("#dvLoader").show();
+            $("#dvLoader").animate({
+                opacity: 0.7
+            }, 100, function () {
+
+            });
+            $("#dvLoader img").animate({
+                opacity: 1
+            }, 400, function () {
+
+            });
+            
+        };
+
+    </script>
     <asp:ContentPlaceHolder ID="maincntScript" runat="server">
     </asp:ContentPlaceHolder>
     <asp:Literal ID="ltrAnalytics" runat="server" />

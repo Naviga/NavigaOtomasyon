@@ -27,13 +27,13 @@
 <% if (sayfa.BaslikAlani)
    {%>
 <div class="page-header row">
-    <div class="large-12 column">
-        <h1 id='hPageTitle<%= sayfa.Id %>' <%= SessionManager.Admin!= null ? "class='editable-simple sayfaBasliklar' op='page-title' contenteditable='true'":"" %>>
+    <div class="large-16 column">
+        <h1 id='hPageTitle<%= sayfa.Id %>'>
             <%= sayfa.Adi %>
         </h1>
 
     </div>
-    <hr class="fancy-line" />
+
 </div>
 <%} %>
 
@@ -42,22 +42,19 @@
 <% if (sayfa.SayfaYolu || sayfa.PaylasimAlani)
    {%>
 
-<% if (!sayfa.UrunMu)
-   {%>
 
 <div class="page-breadcrumbs-share row">
     <% if (sayfa.SayfaYolu)
        {%>
-    <div class="page-breadcrumbs large-9 column">
+    <div class="page-breadcrumbs large-12 column">
         <asp:Literal ID="lblSiteMap" runat="server" />
     </div>
     <%} %>
     <% if (sayfa.PaylasimAlani)
        {%>
-    <div id="dvShare" class="page-share large-3 column"></div>
+    <div id="dvShare" class="page-share large-4 column"></div>
     <%} %>
 </div>
-<%} %>
 
 <% } %>
 <%---------------------------------ALT SAYFALAR--%>
@@ -71,10 +68,7 @@
     <% if ((sayfa.SayfaMenu && altSayfalar.Count > 0))
        { %>
 
-    <% if (!sayfa.UrunMu)
-       {%>
-
-    <div class="large-2 column">
+    <div class="large-4 column">
         <ul class="side-nav">
             <% int? parent = null;
                foreach (enSiteHaritasi altSayfa in altSayfalar)
@@ -85,21 +79,18 @@
             <li <%= altSayfa.Url == sayfa.DisplayUrl ? " class='active' " : "" %>><a href='<%= altSayfa.Url %>'><%= altSayfa.Adi %></a></li>
 
             <% } %>
-
-
         </ul>
     </div>
-    <div class="large-10 column">
-
+    <div class="large-12 column">
         <%}
        else
        {%>
-        <div class="large-12 column">
-            <%} %>
+        <div class="large-16 column">
+            <%}%>
 
             <%---------------------------------CAROUSEL--%>
 
-            <% if (sayfa.CarouselId != null || SessionManager.Admin != null)
+            <% if (sayfa.CarouselId != null)
                {%>
             <div class="page-main-picture row">
 
@@ -110,20 +101,36 @@
             <%} %>
 
             <div class="page-content row">
-                <div id='dvPageContent<%= sayfa.Id %>' class='large-12 column <%= SessionManager.Admin!= null ? " editable-full' op='page-content' contenteditable='true'":"'" %>'>
+                <div id='dvPageContent<%= sayfa.Id %>' class='large-16 column'>
                     <%= sayfa.Icerik %>
                 </div>
+                <%if (tumUrunler.Count != 0)
+                  {%>
+                <div class="large-16 columns">
+                    <div class="row">
+                        <% int i = 0; foreach (enSiteHaritasi urun in tumUrunler)
+                           {%>
+
+                        <div class="medium-4 columns">
+                            <a class="fancybox" rel="group" href='<%= urun.Url %>'>
+                                <img src="<%= urun.FotoOrta %>" alt="" /></a>
+                        </div>
+
+
+                        <% i++;
+                           } %>
+                    </div>
+                </div>
+                <%} %>
             </div>
-
-
-            <% if (resimler.Count > 0 || SessionManager.Admin != null)
+            <% if (resimler.Count > 0)
                {%>
             <div class="page-pictures row">
 
                 <div class="large-12 column">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
                        {%>
-                    <h3 id='hPagePictureTitle<%= sayfa.Id %>' <%= SessionManager.Admin!= null ? "class='editable-simple' op='page-pictures-title' contenteditable='true'":"" %>><%= sayfa.FotoBaslik %></h3>
+                    <h3 id='hPagePictureTitle<%= sayfa.Id %>'><%= sayfa.FotoBaslik %></h3>
                     <%} %>
 
                     <div class="row">
@@ -146,38 +153,4 @@
             <%} %>
         </div>
     </div>
-
-    <% } %>
-
-    <%if (tumUrunler.Count != 0)
-      {%>
-
-    <div class="large-10 columns">
-        <div class="large-10 columns">
-            <div class="page-pictures row">
-
-                <div class="large-10 columns">
-                    <% if (sayfa.FotoBaslik.xBosMu() == false)
-                       {%>
-                    <h3 id='h1' <%= SessionManager.Admin!= null ? "class='editable-simple' op='page-pictures-title' contenteditable='true'":"" %>><%= sayfa.FotoBaslik %></h3>
-                    <%} %>
-
-                    <div class="row">
-                        <% int i = 0; foreach (enSiteHaritasi urun in tumUrunler)
-                           {%>
-
-                        <div class="medium-4 columns">
-                            <a class="fancybox" rel="group" href='<%= urun.Url %>'>
-                                <img src="<%= urun.FotoOrta %>" alt="" /></a>
-                        </div>
-
-
-                        <% i++;
-                           } %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%} %>
 </div>

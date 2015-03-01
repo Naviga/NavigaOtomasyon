@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-   <%-- <link href="/exposure_slider/demo4.css" rel="stylesheet" />
+    <%-- <link href="/exposure_slider/demo4.css" rel="stylesheet" />
     <%--<link href="exposure_slider/demo1.css" rel="stylesheet" />--%>
     <%--<link href="foundation/css/normalize.css" rel="stylesheet" />
     <link href="foundation/css/foundation.css" rel="stylesheet" />
@@ -37,29 +37,32 @@
 
     <%enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());%>
 
-    <% if (sayfa.UrunMu)
-       {
-           uscUrunSayfa.SayfaId = sayfa.Id;
-           uscUrunSayfa.SayfaAdi = sayfa.Adi;
-    %>
+    <div id="dvPageWrapper" class="bg-color-light-gray">
 
-    <uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />
+        <% if (sayfa.UrunMu)
+           {
+               uscUrunSayfa.SayfaId = sayfa.Id;
+               uscUrunSayfa.SayfaAdi = sayfa.Adi;
+        %>
 
-    <%--<uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />--%>
+        <uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />
 
-    <% }%>
+        <%--<uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />--%>
 
-    <%else
-       {
-           uscStandartSayfa.SayfaId = sayfa.Id;   %>
+        <% }%>
 
-    <script>
-        var sayfaId = '<%= sayfa.Id %>'; 
-    </script>
+        <%else
+           {
+               uscStandartSayfa.SayfaId = sayfa.Id;   %>
 
-    <uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa" />
+        <script>
+            var sayfaId = '<%= sayfa.Id %>'; 
+        </script>
 
-    <% } %>
+        <uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa" />
+
+        <% } %>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="maincntScript" runat="server">
 

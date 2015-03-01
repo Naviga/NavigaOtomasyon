@@ -6,14 +6,39 @@
 <% enSiteHaritasi sayfa = SayfaId == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(SayfaYolu) : bllSiteHaritasi.SayfaGetir(SayfaId); %>
 <% List<enIcerikResim> resimler = bllIcerikResimleri.ResimleriGetir(SayfaId, true); %>
 
-<div class="row" style="margin-top: 25px;">
-    <div class="small-16 columns text-left">
-        <h2 class="inset color-dark-gray"><span class="fa fa-list"></span><% Response.Write(SayfaAdi.ToString()); %>
-        </h2>
+<% if (!IsPostBack) SiteMapOlustur(sayfa); %>
+
+<% if (sayfa.BaslikAlani)
+   {%>
+<div class="page-header row">
+    <div class="large-16 column">
+        <h1 id='hPageTitle<%= sayfa.Id %>'>
+            <%= sayfa.Adi %>
+        </h1>
+
     </div>
+
 </div>
-<hr class="fancy-line" />
-<div class="row width-100">
+<%} %>
+<% if (sayfa.SayfaYolu || sayfa.PaylasimAlani)
+   {%>
+
+
+<div class="page-breadcrumbs-share row">
+    <% if (sayfa.SayfaYolu)
+       {%>
+    <div class="page-breadcrumbs large-12 column">
+        <asp:Literal ID="lblSiteMap" runat="server" />
+    </div>
+    <%} %>
+    <% if (sayfa.PaylasimAlani)
+       {%>
+    <div id="dvShare" class="page-share large-4 column"></div>
+    <%} %>
+</div>
+
+<% } %>
+<div class="row">
     <div class="large-8 columns">
 
         <div id="main">
