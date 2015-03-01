@@ -274,6 +274,33 @@ namespace Ws.admin {
         protected global::System.Web.UI.WebControls.CheckBox chkUrunMu;
         
         /// <summary>
+        /// chkHaberMi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkHaberMi;
+        
+        /// <summary>
+        /// chkSolAtlMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkSolAtlMenu;
+        
+        /// <summary>
+        /// chkSagAtlMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkSagAtlMenu;
+        
+        /// <summary>
         /// rpvIcerik control.
         /// </summary>
         /// <remarks>

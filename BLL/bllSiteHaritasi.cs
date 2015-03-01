@@ -354,5 +354,15 @@ namespace BLL
         {
             return new dalSiteHaritasi().UrunleriGetir(parentId);
         }
+
+        public static List<enSiteHaritasi> HaberleriGetir()
+        {
+            return new dalSiteHaritasi().HaberleriGetir();
+        }
+
+        public static enSiteHaritasi HaberGetir(int sayfaId)
+        {
+            return new dalSiteHaritasi().HaberGetir(sayfaId);
+        }
     }
 }
