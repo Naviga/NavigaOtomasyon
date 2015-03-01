@@ -509,6 +509,24 @@
                                                         <asp:CheckBox ID="chkUrunMu" runat="server" />
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td class="formBaslik">Haber Mi?</td>
+                                                    <td>
+                                                        <asp:CheckBox ID="chkHaberMi" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="formBaslik">Sol Alt Menü</td>
+                                                    <td>
+                                                        <asp:CheckBox ID="chkSolAtlMenu" runat="server" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="formBaslik">Sağ Alt Menü</td>
+                                                    <td>
+                                                        <asp:CheckBox ID="chkSagAtlMenu" runat="server" />
+                                                    </td>
+                                                </tr>
                                                 <%--<tr>
                                                     <td class="formBaslik">Fotoğraf Galerisi
                                                     </td>

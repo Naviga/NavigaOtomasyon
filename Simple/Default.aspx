@@ -54,6 +54,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <% List<enSiteHaritasi> haberler = bllSiteHaritasi.HaberleriGetir(); %>
+
     <div id="main-slider" class="owl-carousel owl-theme">
         <div class="item">
             <img src="slayt/2.jpg" />
@@ -73,30 +75,16 @@
     <div id="main-news" class="row width-100">
         <div id="main-news-text" class="small-16 medium-7 large-7 columns bg-color-light-gray">
             <div id="main-news-text-carousel" class="owl-carousel owl-theme">
+                <%for (int i = 0; i < haberler.Count; i++)
+                  {%>
+
                 <div class="item">
-                    <a href="#!" class="left th">
-                        <img src="carousel/c1.jpg" /></a>
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...
+                    <a href="<%=haberler.ElementAt(i).Url %>" class="left th">
+                        <img style="width:150px;" src="<%=haberler.ElementAt(i).FotoOrta %>" /></a>
+                    <h2><%=haberler.ElementAt(i).Adi %></h2>
+                    <%=haberler.ElementAt(i).Icerik.xToRemoveHTMLTags().xLeft(50) %>...
                 </div>
-                <div class="item">
-                    <a href="#!" class="left th">
-                        <img src="carousel/c2.jpg" /></a>
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
-                <div class="item">
-                    <a href="#!" class="left th">
-                        <img src="carousel/c1.jpg" /></a>
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
-                <div class="item">
-                    <a href="#!" class="left th">
-                        <img src="carousel/c2.jpg" /></a>
-                    <h2>LOREM IPSUM</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </div>
+                <%} %>
             </div>
         </div>
         <div id="main-news-seperator" class="medium-3 large-2 columns hide-for-small-down"></div>

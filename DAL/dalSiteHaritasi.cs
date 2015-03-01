@@ -549,6 +549,9 @@ namespace DAL
             dict.Add("site_kayitTar", DateTime.Now.Date);
             dict.Add("site_list", site.List);
             dict.Add("site_urunMu", site.UrunMu);
+            dict.Add("site_haberMi", site.HaberMi);
+            dict.Add("site_sag_altMenu",site.SagAltMenu);
+            dict.Add("site_sol_altMenu", site.SolAltMenu);
 
             site.Id = FxMySqlHelper.Insert("SiteHaritasi", dict, true);
         }
@@ -1646,6 +1649,133 @@ namespace DAL
             }
 
             return urunler;
+        }
+
+        public List<enSiteHaritasi> HaberleriGetir()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk FROM navigadb.siteharitasi s inner join 
+                        icerikresimleri i on s.site_id=i.icrkRes_site_id
+                        where site_haberMi=@haber and site_statu=true");
+
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(),FxMySqlHelper.Connection());
+
+            adp.SelectCommand.Parameters.AddWithValue("@haber", true);
+
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            List<enSiteHaritasi> haberler = new List<enSiteHaritasi>();
+
+            foreach (DataRow rw in dt.Rows)
+            {
+                enSiteHaritasi sayfa = new enSiteHaritasi();
+
+                sayfa.Adi = rw["site_adi"].ToString();
+                sayfa.DefaultSayfa = rw["site_default"].xToBooleanDefault();
+                sayfa.Description = rw["site_description"].ToString();
+                sayfa.Icerik = rw["site_icerik"].ToString();
+                sayfa.Id = rw["site_id"].xToIntDefault();
+                sayfa.Keywords = rw["site_keywords"].ToString();
+                sayfa.Parent = rw["site_parent"].xToIntDefault();
+                sayfa.Statu = rw["site_statu"].xToBooleanDefault();
+                sayfa.Title = rw["site_title"].ToString();
+                sayfa.Url = rw["site_url"].ToString();
+                sayfa.Url = UrlOlustur(sayfa).ToLowerInvariant();
+                sayfa.Sira = rw["site_sira"].xToIntDefault();
+                sayfa.AcilirMenu = rw["site_acilirMenu"].xToBooleanDefault();
+                sayfa.FizikselUrl = rw["site_fizikselUrl"].ToString();
+                sayfa.Dinamik = rw["site_dinamik"].xToBooleanDefault();
+                sayfa.FotoBaslik = rw["site_fotoBaslik"].ToString();
+                sayfa.VideoBaslik = rw["site_videoBaslik"].ToString();
+                sayfa.FotoGaleriMi = rw["site_fotoGaleri"].xToBooleanDefault();
+                sayfa.FaceComments = rw["site_faceComments"].xToBooleanDefault();
+                sayfa.Custom = rw["site_custom"].xToBooleanDefault();
+                sayfa.PaylasimAlani = rw["site_paylasimAlani"].xToBooleanDefault();
+                sayfa.BaslikAlani = rw["site_baslikAlani"].xToBooleanDefault();
+                sayfa.AnaSayfa = rw["site_baslangic"].xToBooleanDefault();
+                sayfa.SayfaYolu = rw["site_sayfaYolu"].xToBooleanDefault();
+                sayfa.Menu = rw["site_menu"].xToBooleanDefault();
+                sayfa.YanMenu = rw["site_yanMenu"].xToBooleanDefault();
+                sayfa.Footer = rw["site_footer"].xToBooleanDefault();
+                sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
+                sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
+                sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Resim = rw["site_resim"].ToString();
+                sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.HaberMi = rw["site_haberMi"].xToBooleanDefault();
+                sayfa.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
+                sayfa.FotoOrta = rw["icrkRes_orta"].ToString();
+                sayfa.FotoKucuk = rw["icrkRes_kucuk"].ToString();
+
+                haberler.Add(sayfa);
+            }
+
+            return haberler;
+        }
+
+        public enSiteHaritasi HaberGetir(int sayfaId)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk FROM navigadb.siteharitasi s inner join 
+                        icerikresimleri i on s.site_id=i.icrkRes_site_id
+                        where site_haberMi=@haber and site_id=@sayfaId and site_statu=true");
+
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
+
+            adp.SelectCommand.Parameters.AddWithValue("@haber", true);
+            adp.SelectCommand.Parameters.AddWithValue("@sayfaId", sayfaId);
+
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            enSiteHaritasi haber = new enSiteHaritasi();
+
+            foreach (DataRow rw in dt.Rows)
+            {
+
+                haber.Adi = rw["site_adi"].ToString();
+                haber.DefaultSayfa = rw["site_default"].xToBooleanDefault();
+                haber.Description = rw["site_description"].ToString();
+                haber.Icerik = rw["site_icerik"].ToString();
+                haber.Id = rw["site_id"].xToIntDefault();
+                haber.Keywords = rw["site_keywords"].ToString();
+                haber.Parent = rw["site_parent"].xToIntDefault();
+                haber.Statu = rw["site_statu"].xToBooleanDefault();
+                haber.Title = rw["site_title"].ToString();
+                haber.Url = rw["site_url"].ToString();
+                haber.Url = UrlOlustur(haber).ToLowerInvariant();
+                haber.Sira = rw["site_sira"].xToIntDefault();
+                haber.AcilirMenu = rw["site_acilirMenu"].xToBooleanDefault();
+                haber.FizikselUrl = rw["site_fizikselUrl"].ToString();
+                haber.Dinamik = rw["site_dinamik"].xToBooleanDefault();
+                haber.FotoBaslik = rw["site_fotoBaslik"].ToString();
+                haber.VideoBaslik = rw["site_videoBaslik"].ToString();
+                haber.FotoGaleriMi = rw["site_fotoGaleri"].xToBooleanDefault();
+                haber.FaceComments = rw["site_faceComments"].xToBooleanDefault();
+                haber.Custom = rw["site_custom"].xToBooleanDefault();
+                haber.PaylasimAlani = rw["site_paylasimAlani"].xToBooleanDefault();
+                haber.BaslikAlani = rw["site_baslikAlani"].xToBooleanDefault();
+                haber.AnaSayfa = rw["site_baslangic"].xToBooleanDefault();
+                haber.SayfaYolu = rw["site_sayfaYolu"].xToBooleanDefault();
+                haber.Menu = rw["site_menu"].xToBooleanDefault();
+                haber.YanMenu = rw["site_yanMenu"].xToBooleanDefault();
+                haber.Footer = rw["site_footer"].xToBooleanDefault();
+                haber.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
+                haber.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
+                haber.List = rw["site_list"].xToBooleanDefault();
+                haber.Resim = rw["site_resim"].ToString();
+                haber.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                haber.HaberMi = rw["site_haberMi"].xToBooleanDefault();
+                haber.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
+                haber.FotoOrta = rw["icrkRes_orta"].ToString();
+                haber.FotoKucuk = rw["icrkRes_kucuk"].ToString();
+            }
+
+            return haber;
+
         }
     }
 }

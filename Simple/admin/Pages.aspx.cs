@@ -181,6 +181,10 @@ namespace Ws.admin
                 chkPaylasimAlani.Checked = sayfa.PaylasimAlani;
                 chkSayfaYolu.Checked = sayfa.SayfaYolu;
                 chkSayfaMenu.Checked = sayfa.SayfaMenu;
+                chkUrunMu.Checked = sayfa.UrunMu;
+                chkHaberMi.Checked = sayfa.HaberMi;
+                chkSagAtlMenu.Checked = sayfa.SagAltMenu;
+                chkSolAtlMenu.Checked = sayfa.SolAltMenu;
 
                 hdnDefaultSayfa.Value = sayfa.DefaultSayfa.ToString();
                 hdnFizikselUrl.Value = sayfa.FizikselUrl;
@@ -237,6 +241,10 @@ namespace Ws.admin
             sayfa.SayfaYolu = chkSayfaYolu.Checked;
             sayfa.SayfaMenu = chkSayfaMenu.Checked;
             sayfa.UrunMu = chkUrunMu.Checked;
+            sayfa.HaberMi = chkHaberMi.Checked;
+            sayfa.SagAltMenu = chkSagAtlMenu.Checked;
+            sayfa.SolAltMenu = chkSolAtlMenu.Checked;
+
 
             if (VwID == null) //yeni sayfa
             {
