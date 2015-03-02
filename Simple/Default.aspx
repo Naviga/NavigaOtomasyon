@@ -58,10 +58,10 @@
 
     <div id="main-slider" class="owl-carousel owl-theme">
         <div class="item">
-            <img src="slayt/2.jpg" />
+            <img src="/slayt/2.jpg" />
         </div>
         <div class="item">
-            <img src="slayt/1.jpg" />
+            <img src="/slayt/1.jpg" />
         </div>
     </div>
 
