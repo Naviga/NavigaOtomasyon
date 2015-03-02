@@ -82,3 +82,16 @@ C:\Users\PRO2000\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\DAL.pdb
 C:\Users\PRO2000\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\Entity.pdb
 C:\Users\PRO2000\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.dll
 C:\Users\PRO2000\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\BLL.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\BLL.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\Common.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\DAL.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\Entity.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\FxHelpers.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\MySql.Data.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\Common.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\DAL.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\Entity.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.pdb

@@ -90,27 +90,27 @@
         <div id="main-news-seperator" class="medium-3 large-2 columns hide-for-small-down"></div>
         <div id="main-news-image" class="small-16 medium-6 large-7 columns bg-color-dark-gray">
             <div id="main-news-image-carousel" class="owl-carousel owl-theme">
-                <div class="item">
+                <div class="item text-center">
                     <a href="carousel/c1.jpg" class="left th">
                         <img src="carousel/c1.jpg" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!" class="left th">
                         <img src="carousel/c2.jpg" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!" class="left th">
                         <img src="carousel/c1.jpg" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!" class="left th">
                         <img src="carousel/c2.jpg" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!" class="left th">
                         <img src="carousel/c1.jpg" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!" class="left th">
                         <img src="carousel/c2.jpg" /></a>
                 </div>
@@ -189,36 +189,30 @@
         <div class="large-16">
             <div id="main-brands-carousel" class="owl-carousel owl-theme">
 
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!">
                         <img src="img/cDenizKuvvetleri.png" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!">
                         <img src="img/cHavaKuvvetleri.png" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!">
                         <img src="img/cKaraKuvvetleri.png" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!">
                         <img src="img/cMgk.png" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!">
                         <img src="img/cMilliSavunma.png" /></a>
                 </div>
-                <div class="item">
+                <div class="item text-center">
                     <a href="#!">
                         <img src="img/cTai.png" /></a>
                 </div>
-                <!-- <div class="item">
-
-                            <a href="#!" class="center">Tamamı&nbsp;<span class="fa fa-angle-double-right"></span>
-                            </a>
-
-                        </div>-->
             </div>
         </div>
     </div>

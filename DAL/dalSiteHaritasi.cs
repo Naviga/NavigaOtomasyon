@@ -1594,11 +1594,14 @@ namespace DAL
         public List<enSiteHaritasi> UrunleriGetir(int parentId)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(@"select s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk from siteharitasi s inner join icerikresimleri i on s.site_id=i.icrkRes_site_id
-                        where site_parent=@parent_id and s.site_urunMu=true and i.icrkRes_anaResim=true");
+            sb.Append(@"select s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk from siteharitasi s 
+                        inner join icerikresimleri i on s.site_id=i.icrkRes_site_id
+                        where site_parent=@parent_id and s.site_urunMu = @urunMu ");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
+
             adp.SelectCommand.Parameters.AddWithValue("@parent_id", parentId);
+            adp.SelectCommand.Parameters.AddWithValue("@urunMu", true);
 
             DataTable dt = new DataTable();
             adp.Fill(dt);

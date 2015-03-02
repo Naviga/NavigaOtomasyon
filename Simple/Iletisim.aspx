@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPages/tek.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="Iletisim.aspx.cs" Inherits="Ws.Iletisim" %>
 
 <%@ Import Namespace="BLL" %>
@@ -7,8 +7,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <style>
-        #map-canvas
-        {
+        #map-canvas {
             width: 100%;
             height: 300px;
         }
@@ -16,10 +15,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <uc1:uscIletisimSayfasi runat="server" ID="uscIletisimSayfasi" SayfaYolu="~/Iletisim.aspx" />
+    <div id="dvPageWrapper" class="bg-color-light-gray">
+        <uc1:uscIletisimSayfasi runat="server" ID="uscIletisimSayfasi" SayfaYolu="~/Iletisim.aspx" />
+    </div>
 </asp:Content>
-<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="cntScript">
+<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="maincntScript">
     <script>
         var map;
         var markerMap = {};

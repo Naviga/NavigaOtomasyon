@@ -8,36 +8,12 @@
 <%@ Register Src="~/usc/uscUrunSayfa.ascx" TagPrefix="uc1" TagName="uscUrunSayfa" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    <%-- <link href="/exposure_slider/demo4.css" rel="stylesheet" />
-    <%--<link href="exposure_slider/demo1.css" rel="stylesheet" />--%>
-    <%--<link href="foundation/css/normalize.css" rel="stylesheet" />
-    <link href="foundation/css/foundation.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-    <link href="css/naviga.css" rel="stylesheet" />--%>
-    <%-- <link href="owl-carousel/owl.carousel.css" rel="stylesheet" />
-    <link href="owl-carousel/owl.theme.css" rel="stylesheet" />--%>
-    <%--<link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-    <script src="foundation/js/vendor/modernizr.js"></script>
-    <link href="owl-carousel/carouselSync.css" rel="stylesheet" />
-
-    <script src="/fancybox/lib/jquery-1.10.1.min.js"></script>
-    <link href="/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-    <script src="/fancybox/source/jquery.fancybox.pack.js"></script>--%>
-
-    <%-- <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());
-
-       uscStandartSayfa.SayfaId = sayfa.Id;%>--%>
-
-    <%-- <script>
-        var sayfaId = '<%= sayfa.Id %>'; 
-    </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <%enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());%>
-
     <div id="dvPageWrapper" class="bg-color-light-gray">
+
 
         <% if (sayfa.UrunMu)
            {
@@ -46,8 +22,6 @@
         %>
 
         <uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />
-
-        <%--<uc1:uscStandartSayfa runat="server" ID="uscStandartSayfa1" />--%>
 
         <% }%>
 

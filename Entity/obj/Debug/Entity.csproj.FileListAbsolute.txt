@@ -19,3 +19,9 @@ C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\FxHelpers.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\MySql.Data.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\Entity.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\Entity.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\FxHelpers.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\bin\Debug\MySql.Data.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\obj\Debug\Entity.pdb

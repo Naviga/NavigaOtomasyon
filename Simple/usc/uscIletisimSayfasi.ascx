@@ -25,8 +25,8 @@
 <% if (sayfa.BaslikAlani)
    {%>
 <div class="page-header row">
-    <div class="large-12 column">
-        <h1 id='hPageTitle<%= sayfa.Id %>' <%= SessionManager.Admin!= null ? "class='editable-simple' op='page-title' contenteditable='true'":"" %>>
+    <div class="large-16 column">
+        <h1 id='hPageTitle<%= sayfa.Id %>'>
             <%= sayfa.Adi %>
         </h1>
     </div>
@@ -40,13 +40,13 @@
 <div class="page-breadcrumbs-share row">
     <% if (sayfa.SayfaYolu)
        {%>
-    <div class="page-breadcrumbs large-9 column">
+    <div class="page-breadcrumbs large-12 column">
         <asp:Literal ID="lblSiteMap" runat="server" />
     </div>
     <%} %>
     <% if (sayfa.PaylasimAlani)
        {%>
-    <div id="dvShare" class="page-share large-3 column"></div>
+    <div id="dvShare" class="page-share large-4 column"></div>
     <%} %>
 </div>
 <%} %>
@@ -58,7 +58,7 @@
     <% if (sayfa.SayfaMenu && altSayfalar.Count > 0)
        {%>
 
-    <div class="large-2 column">
+    <div class="large-4 column">
         <ul class="side-nav">
             <% int? parent = null;
                foreach (enSiteHaritasi altSayfa in altSayfalar)
@@ -69,34 +69,22 @@
             <li <%= altSayfa.Url == sayfa.DisplayUrl ? " class='active' " : "" %>><a href='<%= altSayfa.Url %>'><%= altSayfa.Adi %></a></li>
 
             <% } %>
-
-            <% if (SessionManager.Admin != null)
-               { %>
-            <li><a href='#!' class='button tiny expand' onclick='OpenNewNavItem(this)' parentid='<%= parent %>' title='<%= bllDiziler.DiziGetir("Main.AdminMenu.NewPage.ToolTip")%>'><span class='fa fa-plus-circle'></span>&nbsp;<%= bllDiziler.DiziGetir("Main.AdminMenu.NewPage")%></a></li>
-            <% } %>
         </ul>
     </div>
-    <div class="large-10 column">
+    <div class="large-12 column">
 
         <%}
        else
        {%>
-        <div class="large-12 column">
+        <div class="large-16 column">
             <%} %>
 
             <%---------------------------------CAROUSEL--%>
 
-            <% if (bllGenelAyarlar.GenelAyarGetir(enEnumaration.enmGenelAyarlar.GmapKullanimi).Icerik.xToBooleanDefault() || SessionManager.Admin != null)
+            <% if (bllGenelAyarlar.GenelAyarGetir(enEnumaration.enmGenelAyarlar.GmapKullanimi).Icerik.xToBooleanDefault())
                {%>
             <div class="page-map row">
-                <% if (SessionManager.Admin != null)
-                   {%>
-                <div class='dvSettings'>
-                    <a class="iframe has-tip" href="/admin/Ayarlar.aspx?iframe&i=2" title="Haritayı düzenle" data-tooltip aria-haspopup="true">
-                        <img src="/css/img/settings.png" width="32px" /></a>
-                </div>
-                <%} %>
-                <div class="large-12 column">
+                <div class="large-16 column">
                     <div id="map-canvas">
                     </div>
                 </div>
@@ -106,31 +94,24 @@
             <div class="page-content row">
                 <% if (contactForm)
                    {%>
-                <div id="dvContactForm" class="large-7 column">
+                <div id="dvContactForm" class="large-9 column">
                     <uc1:uscIletisimFormu runat="server" ID="uscIletisimFormu" />
                 </div>
                 <%} %>
-                <div id='dvPageContent<%= sayfa.Id %>' class='<%= contactForm ? "large-5":"large-12" %> column <%= SessionManager.Admin!= null ? " editable-full' op='page-content' contenteditable='true'":"'" %>'>
+                <div id='dvPageContent<%= sayfa.Id %>' class='<%= contactForm ? "large-7":"large-16" %> column '>
                     <%= sayfa.Icerik %>
                 </div>
 
             </div>
 
-            <% if (resimler.Count > 0 || SessionManager.Admin != null)
+            <% if (resimler.Count > 0)
                {%>
             <div class="page-pictures row">
-                <% if (SessionManager.Admin != null)
-                   {%>
-                <div class='dvSettings'>
-                    <a class="iframe has-tip" href="/admin/UploadPagePictureGallery.aspx?iframe&id=<%= sayfa.Id %>" title="Resim galerisini yönetin" data-tooltip aria-haspopup="true">
-                        <img src="/css/img/settings.png" width="32px" /></a>
-                </div>
-                <%} %>
 
-                <div class="large-12 column">
+                <div class="large-16 column">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
                        {%>
-                    <h3 id='hPagePictureTitle<%= sayfa.Id %>' <%= SessionManager.Admin!= null ? "class='editable-simple' op='page-pictures-title' contenteditable='true'":"" %>><%= sayfa.FotoBaslik %></h3>
+                    <h3 id='hPagePictureTitle<%= sayfa.Id %>'><%= sayfa.FotoBaslik %></h3>
                     <%} %>
 
                     <div class="row">

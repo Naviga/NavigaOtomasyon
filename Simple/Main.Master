@@ -143,10 +143,8 @@
                 </nav>
             </div>
         </div>
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
         <div id="footer">
             <div class="row">
                 <div class="large-4 columns">
@@ -198,6 +196,7 @@
                     </p>
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
 
@@ -211,11 +210,17 @@
     <script src="/js/general.js"></script>
     <script src="/exposure_slider/jquery.exposure.js"></script>
     <script src="/exposure_slider/texts_tr.js"></script>
-
+    <link href="/jShare/jquery.share.css" rel="stylesheet" />
+    <script src="/jShare/jquery.share.js"></script>
     <script>
         $(document).foundation();
 
         $(document).ready(function () {
+
+            $('#dvShare').share({
+                networks: ['facebook', 'twitter', 'googleplus', 'tumblr', 'linkedin', 'pinterest', 'email'],
+                theme: 'square'
+            });
 
             $.backstretch("/img/bg2.jpg");
 
@@ -381,7 +386,7 @@
             }, 400, function () {
 
             });
-            
+
         };
 
     </script>

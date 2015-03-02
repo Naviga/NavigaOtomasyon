@@ -36,3 +36,14 @@ C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\Entity.pdb
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\DAL\obj\Debug\DAL.dll
 C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\DAL\obj\Debug\DAL.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\DAL.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\DAL.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\Common.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\Entity.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\FxHelpers.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\MySql.Data.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\Common.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Debug\Entity.pdb
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\obj\Debug\DAL.dll
+C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\obj\Debug\DAL.pdb

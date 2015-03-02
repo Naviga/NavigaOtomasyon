@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost/sssg</loc>
+    <loc>http://localhost/hakkimizda</loc>
   </url>
   <url>
     <loc>http://localhost/suruculere-genel-bakis</loc>
@@ -25,6 +25,12 @@
     <loc>http://localhost/enerji-cozumleri</loc>
   </url>
   <url>
+    <loc>http://localhost/urunler/danfoss-surucu-cozumleri/danfoss-vlt-2800</loc>
+  </url>
+  <url>
+    <loc>http://localhost/urunler/danfoss-soft-starterler</loc>
+  </url>
+  <url>
     <loc>http://localhost/iletisim</loc>
   </url>
   <url>
@@ -37,34 +43,10 @@
     <loc>http://localhost/standart-web-sayfasi/alt-sayfa/alt-sayfa-2</loc>
   </url>
   <url>
-    <loc>http://localhost/test</loc>
-  </url>
-  <url>
-    <loc>http://localhost/test/test-1</loc>
-  </url>
-  <url>
-    <loc>http://localhost/test/test-2</loc>
-  </url>
-  <url>
-    <loc>http://localhost/test/test-3</loc>
-  </url>
-  <url>
-    <loc>http://localhost/test/test-4</loc>
-  </url>
-  <url>
-    <loc>http://localhost/test/test-5</loc>
-  </url>
-  <url>
-    <loc>http://localhost/dfgfds</loc>
-  </url>
-  <url>
     <loc>http://localhost/standart-web-sayfasi/sdfdsfgdsfg</loc>
   </url>
   <url>
     <loc>http://localhost/teleskop</loc>
-  </url>
-  <url>
-    <loc>http://localhost/deneme</loc>
   </url>
   <url>
     <loc>http://localhost/asd</loc>

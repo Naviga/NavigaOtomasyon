@@ -152,9 +152,9 @@ button, .button {
     margin: 0 auto;
     background-color: #efefef;
     padding-top: 2em;
-    min-height: 100%;
+    min-height: 600px;
     position: relative;
-    padding-bottom: 210px;
+    padding-bottom: 260px;
     box-shadow: 0 0 6px 1px rgba(44, 44, 44, 0.5);
 }
 

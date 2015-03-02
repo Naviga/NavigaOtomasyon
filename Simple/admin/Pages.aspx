@@ -479,28 +479,28 @@
                                                     <td class="formBaslik">Sayfa İçi Menü
                                                     </td>
                                                     <td>
-                                                        <asp:CheckBox ID="chkSayfaMenu" runat="server" />
+                                                        <asp:CheckBox ID="chkSayfaMenu" runat="server" Checked="true" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="formBaslik">Başlık Alanı
                                                     </td>
                                                     <td>
-                                                        <asp:CheckBox ID="chkBaslikAlani" runat="server" />
+                                                        <asp:CheckBox ID="chkBaslikAlani" runat="server" Checked="true" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="formBaslik">Sayfa Yolu/Adresi (Path)
                                                     </td>
                                                     <td>
-                                                        <asp:CheckBox ID="chkSayfaYolu" runat="server" />
+                                                        <asp:CheckBox ID="chkSayfaYolu" runat="server" Checked="true" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="formBaslik">Paylaş Alanı
                                                     </td>
                                                     <td>
-                                                        <asp:CheckBox ID="chkPaylasimAlani" runat="server" />
+                                                        <asp:CheckBox ID="chkPaylasimAlani" runat="server" Checked="true" />
                                                     </td>
                                                 </tr>
                                                 <tr>
