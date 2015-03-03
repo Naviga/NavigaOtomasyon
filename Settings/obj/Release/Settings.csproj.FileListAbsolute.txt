@@ -111,3 +111,4 @@ C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\DAL.pdb
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.csprojResolveAssemblyReference.cache
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Settings\obj\Release\Settings.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Settings\bin\Release\MySql.Data.dll

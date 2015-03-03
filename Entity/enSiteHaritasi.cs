@@ -48,5 +48,6 @@ namespace Entity
         public string FotoBuyuk { get; set; }
         public string FotoOrta { get; set; }
         public string FotoKucuk { get; set; }
+        public bool Vitrin { get; set; }
     }
 }

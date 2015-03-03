@@ -63,3 +63,4 @@ C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\Entity.pdb
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Common\obj\Release\Common.csprojResolveAssemblyReference.cache
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Common\obj\Release\Common.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Common\obj\Release\Common.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Common\bin\Release\MySql.Data.dll

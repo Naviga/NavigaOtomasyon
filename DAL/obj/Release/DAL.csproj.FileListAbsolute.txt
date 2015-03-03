@@ -79,3 +79,4 @@ C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\bin\Release\Entity.pdb
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\obj\Release\DAL.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\DAL\obj\Release\DAL.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\DAL\bin\Release\MySql.Data.dll

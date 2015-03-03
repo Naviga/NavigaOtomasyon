@@ -364,5 +364,10 @@ namespace BLL
         {
             return new dalSiteHaritasi().HaberGetir(sayfaId);
         }
+
+        public static void VitrinGoster(int sayfaId,bool vitrin)
+        {
+            new dalSiteHaritasi().VitrindeGoster(sayfaId, vitrin);
+        }
     }
 }

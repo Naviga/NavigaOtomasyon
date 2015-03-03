@@ -183,18 +183,18 @@
     <script type="text/javascript">
         function RadioCheck(rb) {
             var gv = document.getElementById("<%=rgrvResimler.ClientID%>");
-                    var rbs = gv.getElementsByTagName("input");
+            var rbs = gv.getElementsByTagName("input");
 
-                    var row = rb.parentNode.parentNode;
-                    for (var i = 0; i < rbs.length; i++) {
-                        if (rbs[i].type == "radio") {
-                            if (rbs[i].checked && rbs[i] != rb) {
-                                rbs[i].checked = false;
-                                break;
-                            }
-                        }
+            var row = rb.parentNode.parentNode;
+            for (var i = 0; i < rbs.length; i++) {
+                if (rbs[i].type == "radio") {
+                    if (rbs[i].checked && rbs[i] != rb) {
+                        rbs[i].checked = false;
+                        break;
                     }
                 }
+            }
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -267,7 +267,7 @@
 
     <telerik:RadMultiPage runat="server" ID="rmpGenel" SelectedIndex="0">
         <telerik:RadPageView runat="server" ID="rpvListe">
-            <telerik:RadTreeList ID="trlSiteHaritasi" runat="server" DataKeyNames="Id" ClientDataKeyNames="Url" ParentDataKeyNames="Parent"
+            <telerik:RadTreeList ID="trlSiteHaritasi" OnItemDataBound="trlSiteHaritasi_ItemDataBound" runat="server" DataKeyNames="Id" ClientDataKeyNames="Url" ParentDataKeyNames="Parent"
                 AllowSorting="true" AllowPaging="true" PageSize="20" OnNeedDataSource="trlSiteHaritasi_NeedDataSource" AutoGenerateColumns="false" Skin="MetroTouch" ClientSettings-Selecting-AllowItemSelection="true" ClientSettings-Selecting-AllowToggleSelection="True">
                 <Columns>
                     <telerik:TreeListBoundColumn DataField="Adi" HeaderText="Adı" SortExpression="Adi" HeaderStyle-Width="25%"></telerik:TreeListBoundColumn>
@@ -329,6 +329,15 @@
                                 CommandArgument='<%# Eval("Id") %>'>
                                                 <%# Eval("Statu").xToBooleanDefault() == false ? "<img src='/admin/css/img/bos.png' title='Sayfayı yayına almak için tıklayın.' width='24px' height='24px' />" : "<img src='/admin/css/img/dolu.png' title='Sayfayı yayından kaldırmak için tıklayın.' width='24px' height='24px'  />"%>
                             </asp:LinkButton>
+                        </ItemTemplate>
+                    </telerik:TreeListTemplateColumn>
+                    <telerik:TreeListTemplateColumn HeaderText="Vitrin" HeaderStyle-Width="5%" ItemStyle-HorizontalAlign="Center" HeaderTooltip="Sayfanın yayın durumu" AllowSorting="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lnkVitrin" runat="server" OnClick="lnkVitrin_Click"
+                                CommandArgument='<%# Eval("Id") %>'>
+                                                <%# Eval("Vitrin").xToBooleanDefault() == false ? "<img src='/admin/css/img/bos.png' title='Ürünü vitrinde göstermek için tıklayın.' width='24px' height='24px' />" : "<img src='/admin/css/img/dolu.png' title='Ürünü vitrinden kaldırmak için tıklayın.' width='24px' height='24px'  />"%>
+                            </asp:LinkButton>
+                            <asp:HiddenField ID="hdnUrunMu" Value='<%#Eval("UrunMu").xToBooleanDefault() %>' runat="server" />
                         </ItemTemplate>
                     </telerik:TreeListTemplateColumn>
                     <telerik:TreeListTemplateColumn HeaderText="Düzenle" HeaderStyle-Width="5%" ItemStyle-HorizontalAlign="Center">
@@ -671,7 +680,7 @@
                                             </telerik:GridTemplateColumn>
                                             <telerik:GridTemplateColumn HeaderText="Ana Resim Seç">
                                                 <ItemTemplate>
-                                                    <asp:RadioButton ID="rbAnaresim" runat="server" style="text-decoration:inherit;" onclick = "RadioCheck(this);" AutoPostBack="true" OnCheckedChanged="rbAnaresim_CheckedChanged" />
+                                                    <asp:RadioButton ID="rbAnaresim" runat="server" Style="text-decoration: inherit;" onclick="RadioCheck(this);" AutoPostBack="true" OnCheckedChanged="rbAnaresim_CheckedChanged" />
                                                     <asp:HiddenField ID="hfResimId" runat="server"
                                                         Value='<%#Eval("Id")%>' />
                                                     <asp:HiddenField ID="hfAnaResim" runat="server"

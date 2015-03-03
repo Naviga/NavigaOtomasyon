@@ -41,3 +41,5 @@ C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\bin\Release\MySql.Data.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.csprojResolveAssemblyReference.cache
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Entity\obj\Release\Entity.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Release\FxHelpers.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Entity\bin\Release\MySql.Data.dll

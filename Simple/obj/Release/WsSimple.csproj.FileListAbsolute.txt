@@ -136,3 +136,9 @@ C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Simple\obj\Release\Interop.ADOX.d
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Simple\obj\Release\WsSimple.csproj.ResolveComReference.cache
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Simple\obj\Release\Ws.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\Simple\obj\Release\Ws.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\AjaxControlToolkit.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\FxHelpers.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\HtmlAgilityPack.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\SanitizerProviders.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\MySql.Data.dll
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\Simple\bin\Telerik.Web.UI.xml

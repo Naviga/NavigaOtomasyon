@@ -1155,9 +1155,9 @@ namespace Ws.admin
         protected void rbAnaresim_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rb = sender as RadioButton;
-            GridItem item=(GridItem)rb.NamingContainer;
+            GridItem item = (GridItem)rb.NamingContainer;
 
-            HiddenField seciliResim=(HiddenField)item.Cells[5].FindControl("hfResimId");
+            HiddenField seciliResim = (HiddenField)item.Cells[5].FindControl("hfResimId");
 
             enIcerikResim anaResim = bllIcerikResimleri.AnaResimGetir(VwID);
             anaResim.AnaResim = false;
@@ -1199,5 +1199,45 @@ namespace Ws.admin
                 }
             }
         }
+
+        protected void lnkVitrin_Click(object sender, EventArgs e)
+        {
+            LinkButton lnk = sender as LinkButton;
+
+            int sayfaId = lnk.CommandArgument.xToIntDefault();
+            enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(sayfaId);
+
+            if (sayfa.Vitrin)
+            {
+                bllSiteHaritasi.VitrinGoster(sayfaId, false);
+                ListeYenile();
+            }
+
+            else
+            {
+                bllSiteHaritasi.VitrinGoster(sayfaId, true);
+                ListeYenile();
+            }
+        }
+
+        protected void trlSiteHaritasi_ItemDataBound(object sender, TreeListItemDataBoundEventArgs e)
+        {
+            bool urunMu=false;
+
+            if (e.Item is TreeListDataItem)
+            {
+                TreeListDataItem item = e.Item as TreeListDataItem;
+                urunMu = (item.FindControl("hdnUrunMu") as HiddenField).Value.xToBooleanDefault();
+            }
+
+            if (urunMu==false)
+            {
+                TreeListDataItem item = e.Item as TreeListDataItem;
+
+                LinkButton lnkVitrin = (item.FindControl("lnkVitrin") as LinkButton);
+                lnkVitrin.Visible = false;
+            }
+        }
+
     }
 }

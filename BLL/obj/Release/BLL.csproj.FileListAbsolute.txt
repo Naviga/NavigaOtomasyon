@@ -95,3 +95,4 @@ C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\Entity.pdb
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.dll
 C:\Users\Hadi\Documents\GitHub\NavigaOtomasyon\BLL\obj\Release\BLL.pdb
+C:\Users\Yusuf\Documents\GitHub\NavigaOtomasyon\BLL\bin\Release\MySql.Data.dll

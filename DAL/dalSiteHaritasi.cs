@@ -99,6 +99,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -156,6 +157,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -217,6 +219,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -274,6 +277,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -334,6 +338,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.Resim = rw["site_resim"].ToString();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -396,6 +401,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.Resim = rw["site_resim"].ToString();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -455,6 +461,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -515,6 +522,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.CarouselId = rw["site_car_id"].xToInt();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
             return sayfa;
@@ -674,6 +682,7 @@ namespace DAL
                 sayfa.Url = UrlOlustur(sayfa).ToLowerInvariant();
                 sayfa.Sira = rw["site_sira"].xToIntDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
             return sayfa;
@@ -720,6 +729,7 @@ namespace DAL
                 sayfa.Url = UrlOlustur(sayfa).ToLowerInvariant();
                 sayfa.Sira = rw["site_sira"].xToIntDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
             return sayfa;
@@ -873,6 +883,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.CarouselId = rw["site_car_id"].xToInt();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
             return sayfa;
@@ -932,6 +943,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.CarouselId = rw["site_car_id"].xToInt();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
             return sayfa;
@@ -1013,6 +1025,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1126,6 +1139,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1190,6 +1204,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1253,6 +1268,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1317,6 +1333,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1380,6 +1397,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1444,6 +1462,7 @@ namespace DAL
                 sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1524,6 +1543,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1584,6 +1604,7 @@ namespace DAL
                 sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 sayfalar.Add(sayfa);
             }
@@ -1647,6 +1668,7 @@ namespace DAL
                 sayfa.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
                 sayfa.FotoOrta = rw["icrkRes_orta"].ToString();
                 sayfa.FotoKucuk = rw["icrkRes_kucuk"].ToString();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 urunler.Add(sayfa);
             }
@@ -1711,6 +1733,7 @@ namespace DAL
                 sayfa.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
                 sayfa.FotoOrta = rw["icrkRes_orta"].ToString();
                 sayfa.FotoKucuk = rw["icrkRes_kucuk"].ToString();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
 
                 haberler.Add(sayfa);
             }
@@ -1775,10 +1798,21 @@ namespace DAL
                 haber.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
                 haber.FotoOrta = rw["icrkRes_orta"].ToString();
                 haber.FotoKucuk = rw["icrkRes_kucuk"].ToString();
+                haber.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
             return haber;
 
+        }
+
+        public void VitrindeGoster(int sayfaId,bool vitrin)
+        {
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            List<object> degerList = new List<object>();
+
+            dict.Add("site_vitrin", vitrin);
+
+            FxMySqlHelper.Update("siteharitasi", dict, "site_id", sayfaId);
         }
     }
 }
