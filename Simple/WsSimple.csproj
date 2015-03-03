@@ -1142,12 +1142,15 @@
     <Content Include="sitemap.xml" />
     <Content Include="slayt\1.jpg" />
     <Content Include="slayt\2.jpg" />
+    <Content Include="TeknikDestek.aspx" />
     <Content Include="todo.txt" />
     <Content Include="usc\uscAdminUstMenu.ascx" />
+    <Content Include="usc\uscHarita.ascx" />
     <Content Include="usc\uscIletisimFormu.ascx" />
     <Content Include="usc\uscIletisimSayfasi.ascx" />
     <Content Include="usc\uscPozisyonBlok.ascx" />
     <Content Include="usc\uscStandartSayfa.ascx" />
+    <Content Include="usc\uscTeknikDestekFormu.ascx" />
     <Content Include="usc\uscUrunSayfa.ascx" />
     <Content Include="usc\uscUyari.ascx" />
     <Content Include="uyari.html" />
@@ -1730,12 +1733,26 @@
     <Compile Include="SiteMap.aspx.designer.cs">
       <DependentUpon>SiteMap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeknikDestek.aspx.cs">
+      <DependentUpon>TeknikDestek.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeknikDestek.aspx.designer.cs">
+      <DependentUpon>TeknikDestek.aspx</DependentUpon>
+    </Compile>
     <Compile Include="usc\uscAdminUstMenu.ascx.cs">
       <DependentUpon>uscAdminUstMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="usc\uscAdminUstMenu.ascx.designer.cs">
       <DependentUpon>uscAdminUstMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usc\uscHarita.ascx.cs">
+      <DependentUpon>uscHarita.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usc\uscHarita.ascx.designer.cs">
+      <DependentUpon>uscHarita.ascx</DependentUpon>
     </Compile>
     <Compile Include="usc\uscIletisimFormu.ascx.cs">
       <DependentUpon>uscIletisimFormu.ascx</DependentUpon>
@@ -1764,6 +1781,13 @@
     </Compile>
     <Compile Include="usc\uscStandartSayfa.ascx.designer.cs">
       <DependentUpon>uscStandartSayfa.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usc\uscTeknikDestekFormu.ascx.cs">
+      <DependentUpon>uscTeknikDestekFormu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usc\uscTeknikDestekFormu.ascx.designer.cs">
+      <DependentUpon>uscTeknikDestekFormu.ascx</DependentUpon>
     </Compile>
     <Compile Include="usc\uscUrunSayfa.ascx.cs">
       <DependentUpon>uscUrunSayfa.ascx</DependentUpon>
