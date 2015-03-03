@@ -389,52 +389,5 @@ namespace DAL
             return resim;
         }
 
-        public List<enIcerikResim> Top4ResimGetir(bool? statu)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
-
-            if (statu != null)
-            {
-                sb.Append(@"SELECT r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_statu = @statu AND r.icrkRes_anaResim=true ORDER BY r.icrkRes_sira  LIMIT 4");
-
-                adp.SelectCommand.Parameters.AddWithValue("@statu", statu);
-            }
-            else
-            {
-                sb.Append(@"SELECT r.* FROM IcerikResimleri r Inner Join SiteHaritasi s on r.icrkRes_site_id=s.site_id where s.site_urunMu=true AND r.icrkRes_anaResim=true ORDER BY r.icrkRes_sira  LIMIT 4");
-            }
-
-            adp.SelectCommand.CommandText = sb.ToString();
-
-            DataTable dt = new DataTable();
-
-            adp.Fill(dt);
-
-            List<enIcerikResim> resimler = new List<enIcerikResim>();
-
-            foreach (DataRow rw in dt.Rows)
-            {
-                enIcerikResim resim = new enIcerikResim();
-
-                resim.Aciklama = rw["icrkRes_aciklama"].ToString();
-                resim.Buyuk = rw["icrkRes_buyuk"].ToString();
-                resim.SayfaId = rw["icrkRes_site_id"].xToIntDefault();
-                resim.Id = rw["icrkRes_id"].xToIntDefault();
-                resim.KayitTarihi = rw["icrkRes_kayitTar"].xToDateTimeDefault();
-                resim.Kucuk = rw["icrkRes_kucuk"].ToString();
-                resim.Orta = rw["icrkRes_orta"].ToString();
-                resim.Sira = rw["icrkRes_sira"].xToIntDefault();
-                resim.Statu = rw["icrkRes_statu"].xToBooleanDefault();
-                resim.Baslik = rw["icrkRes_baslik"].ToString();
-                resim.AnaResim = rw["icrkRes_anaResim"].xToBooleanDefault();
-
-                resimler.Add(resim);
-            }
-
-            return resimler;
-
-        }
     }
 }

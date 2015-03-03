@@ -267,7 +267,7 @@
 
     <telerik:RadMultiPage runat="server" ID="rmpGenel" SelectedIndex="0">
         <telerik:RadPageView runat="server" ID="rpvListe">
-            <telerik:RadTreeList ID="trlSiteHaritasi" OnPreRender="trlSiteHaritasi_PreRender" OnItemDataBound="trlSiteHaritasi_ItemDataBound" runat="server" DataKeyNames="Id" ClientDataKeyNames="Url" ParentDataKeyNames="Parent"
+            <telerik:RadTreeList ID="trlSiteHaritasi" OnItemDataBound="trlSiteHaritasi_ItemDataBound" runat="server" DataKeyNames="Id" ClientDataKeyNames="Url" ParentDataKeyNames="Parent"
                 AllowSorting="true" AllowPaging="true" PageSize="20" OnNeedDataSource="trlSiteHaritasi_NeedDataSource" AutoGenerateColumns="false" Skin="MetroTouch" ClientSettings-Selecting-AllowItemSelection="true" ClientSettings-Selecting-AllowToggleSelection="True">
                 <Columns>
                     <telerik:TreeListBoundColumn DataField="Adi" HeaderText="Adı" SortExpression="Adi" HeaderStyle-Width="25%"></telerik:TreeListBoundColumn>
@@ -337,7 +337,7 @@
                                 CommandArgument='<%# Eval("Id") %>'>
                                                 <%# Eval("Vitrin").xToBooleanDefault() == false ? "<img src='/admin/css/img/bos.png' title='Ürünü vitrinde göstermek için tıklayın.' width='24px' height='24px' />" : "<img src='/admin/css/img/dolu.png' title='Ürünü vitrinden kaldırmak için tıklayın.' width='24px' height='24px'  />"%>
                             </asp:LinkButton>
-                            <asp:HiddenField ID="hdnUrunMu" Value='<%#Eval("UrunMu").xToBooleanDefault() %>' runat="server" />
+                            <asp:HiddenField ID="hdnUrunMu" Value='<%#Eval("UrunMu") %>' runat="server" />
                         </ItemTemplate>
                     </telerik:TreeListTemplateColumn>
                     <telerik:TreeListTemplateColumn HeaderText="Düzenle" HeaderStyle-Width="5%" ItemStyle-HorizontalAlign="Center">

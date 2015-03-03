@@ -1814,5 +1814,75 @@ namespace DAL
 
             FxMySqlHelper.Update("siteharitasi", dict, "site_id", sayfaId);
         }
+
+        public List<enSiteHaritasi> VitrinGetir()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk FROM navigadb.siteharitasi s inner join 
+                        icerikresimleri i on s.site_id=i.icrkRes_site_id
+                        where site_urunMu=@urun and site_statu=@statu and site_vitrin=@vitrin");
+
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
+
+            adp.SelectCommand.Parameters.AddWithValue("@urun", true);
+            adp.SelectCommand.Parameters.AddWithValue("@statu", true);
+            adp.SelectCommand.Parameters.AddWithValue("@vitrin", true);
+
+            DataTable dt = new DataTable();
+
+            adp.Fill(dt);
+
+            List<enSiteHaritasi> resimler = new List<enSiteHaritasi>();
+
+            foreach (DataRow rw in dt.Rows)
+            {
+                enSiteHaritasi sayfa = new enSiteHaritasi();
+
+                sayfa.Adi = rw["site_adi"].ToString();
+                sayfa.DefaultSayfa = rw["site_default"].xToBooleanDefault();
+                sayfa.Description = rw["site_description"].ToString();
+                sayfa.Icerik = rw["site_icerik"].ToString();
+                sayfa.Id = rw["site_id"].xToIntDefault();
+                sayfa.Keywords = rw["site_keywords"].ToString();
+                sayfa.Parent = rw["site_parent"].xToIntDefault();
+                sayfa.Statu = rw["site_statu"].xToBooleanDefault();
+                sayfa.Title = rw["site_title"].ToString();
+                sayfa.Url = rw["site_url"].ToString();
+                sayfa.Url = UrlOlustur(sayfa).ToLowerInvariant();
+                sayfa.Sira = rw["site_sira"].xToIntDefault();
+                sayfa.AcilirMenu = rw["site_acilirMenu"].xToBooleanDefault();
+                sayfa.FizikselUrl = rw["site_fizikselUrl"].ToString();
+                sayfa.Dinamik = rw["site_dinamik"].xToBooleanDefault();
+                sayfa.FotoBaslik = rw["site_fotoBaslik"].ToString();
+                sayfa.VideoBaslik = rw["site_videoBaslik"].ToString();
+                sayfa.FotoGaleriMi = rw["site_fotoGaleri"].xToBooleanDefault();
+                sayfa.FaceComments = rw["site_faceComments"].xToBooleanDefault();
+                sayfa.Custom = rw["site_custom"].xToBooleanDefault();
+                sayfa.PaylasimAlani = rw["site_paylasimAlani"].xToBooleanDefault();
+                sayfa.BaslikAlani = rw["site_baslikAlani"].xToBooleanDefault();
+                sayfa.AnaSayfa = rw["site_baslangic"].xToBooleanDefault();
+                sayfa.SayfaYolu = rw["site_sayfaYolu"].xToBooleanDefault();
+                sayfa.Menu = rw["site_menu"].xToBooleanDefault();
+                sayfa.YanMenu = rw["site_yanMenu"].xToBooleanDefault();
+                sayfa.Footer = rw["site_footer"].xToBooleanDefault();
+                sayfa.SayfaMenu = rw["site_sayfaMenu"].xToBooleanDefault();
+                sayfa.KayitTarihi = rw["site_kayitTar"].xToDateTimeDefault();
+                sayfa.List = rw["site_list"].xToBooleanDefault();
+                sayfa.Resim = rw["site_resim"].ToString();
+                sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.HaberMi = rw["site_haberMi"].xToBooleanDefault();
+                sayfa.FotoBuyuk = rw["icrkRes_buyuk"].ToString();
+                sayfa.FotoOrta = rw["icrkRes_orta"].ToString();
+                sayfa.FotoKucuk = rw["icrkRes_kucuk"].ToString();
+                sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
+
+                resimler.Add(sayfa);
+
+            }
+
+            return resimler;
+
+        }
     }
 }

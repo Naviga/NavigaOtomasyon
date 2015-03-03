@@ -369,5 +369,10 @@ namespace BLL
         {
             new dalSiteHaritasi().VitrindeGoster(sayfaId, vitrin);
         }
+
+        public static List<enSiteHaritasi> VitrinGetir()
+        {
+            return new dalSiteHaritasi().VitrinGetir();
+        }
     }
 }

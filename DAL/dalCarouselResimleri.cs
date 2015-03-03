@@ -302,9 +302,9 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT TOP 1 carRes_sira FROM CarouselResimleri 
+            sb.Append(@"SELECT carRes_sira FROM CarouselResimleri 
                         WHERE carRes_car_id = @sayfaId 
-                        ORDER BY carRes_sira DESC");
+                        ORDER BY carRes_sira DESC LIMIT 1");
 
             MySqlCommand cmd = new MySqlCommand(sb.ToString(), FxMySqlHelper.Connection());
 

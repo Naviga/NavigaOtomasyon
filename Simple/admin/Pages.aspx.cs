@@ -1227,24 +1227,15 @@ namespace Ws.admin
             if (e.Item is TreeListDataItem)
             {
                 TreeListDataItem item = e.Item as TreeListDataItem;
-                //urunMu = (item.FindControl("hdnUrunMu") as HiddenField).Value.xToBooleanDefault();
                 urunMu = (item["unVitrin"].FindControl("hdnUrunMu") as HiddenField).Value.xToBooleanDefault();
 
                 if (urunMu == false)
                 {
-                    //TreeListDataItem item = e.Item as TreeListDataItem;
                     LinkButton lnkVitrin = (item["unVitrin"].FindControl("lnkVitrin") as LinkButton);
                     lnkVitrin.Visible = false;
                 }
             }
 
-            //if (urunMu == false)
-            //{
-            //    TreeListDataItem item = e.Item as TreeListDataItem;
-            //    LinkButton lnkVitrin = (item["unVitrin"].FindControl("lnkVitrin") as LinkButton);
-            //    lnkVitrin.Visible = false;
-            //}
         }
-
     }
 }

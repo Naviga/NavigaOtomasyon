@@ -3,13 +3,14 @@
 <%@ Import Namespace="BLL" %>
 <%@ Import Namespace="Common" %>
 <%@ Import Namespace="Entity" %>
-<%@ Register Src="~/usc/uscHarita.ascx" TagPrefix="uc1" TagName="uscHarita" %>
 
+<%@ Register Src="~/usc/uscHarita.ascx" TagPrefix="uc1" TagName="uscHarita" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetirFiziksel("~/Default.aspx"); %>
     <% List<enSiteHaritasi> haberler = bllSiteHaritasi.HaberleriGetir(); %>
 
     <div id="defaultContentWrapper">
@@ -88,52 +89,76 @@
 
         <div class="row">
 
-            <% List<enIcerikResim> urunler = bllIcerikResimleri.Top4ResimGetir(null); %>
+            <% List<enSiteHaritasi> urunler = bllSiteHaritasi.VitrinGetir(); %>
+
+            <% if (urunler.Count > 1)
+               {%>
 
             <%for (int i = 0; i < 2; i++)
               {%>
 
-            <%--<div class="small-16 medium-8 large-8 columns">
-            <div class="row">
-                <div class="small-7 medium-7 large-7 columns">
-                    <a class="th [radius]" href="#">
-                        <img src="<%=urunler.ElementAt(i).Orta %>" />
-                    </a>
-                </div>
-                <div class="small-9 medium-9 large-9 columns">
-                    <h2><%=urunler.ElementAt(i).Baslik %></h2>
-                    <%=urunler.ElementAt(i).Aciklama %>
+            <div class="small-16 medium-8 large-8 columns">
+                <div class="row">
+                    <div class="small-7 medium-7 large-7 columns">
+                        <a class="th [radius]" href="<%=urunler.ElementAt(i).Url %>">
+                            <img src="<%=urunler.ElementAt(i).FotoOrta %>" />
+                        </a>
+                    </div>
+                    <div class="small-9 medium-9 large-9 columns">
+                        <h2><%=urunler.ElementAt(i).Adi %></h2>
+                        <%=urunler.ElementAt(i).Description %>
+                    </div>
                 </div>
             </div>
-        </div>--%>
+
+            <%} %>
 
             <% } %>
+
+            <% else if (urunler.Count == 1)
+               {%>
+
+            <div class="small-16 medium-8 large-8 columns">
+                <div class="row">
+                    <div class="small-7 medium-7 large-7 columns">
+                        <a class="th [radius]" href="<%=urunler.ElementAt(0).Url %>">
+                            <img src="<%=urunler.ElementAt(0).FotoOrta %>" />
+                        </a>
+                    </div>
+                    <div class="small-9 medium-9 large-9 columns">
+                        <h2><%=urunler.ElementAt(0).Adi %></h2>
+                        <%=urunler.ElementAt(0).Description %>
+                    </div>
+                </div>
+            </div>
+
+            <%  } %>
         </div>
         <% if (urunler.Count > 2)
            {%>
         <hr class="fancy-line" />
         <div class="row">
 
-            <%--<%for (int i = 2; i < 4; i++)
-          {%>
+            <%for (int i = 2; i < 4; i++)
+              {%>
 
-        <%--<div class="small-16 medium-8 large-8 columns">
-            <div class="row">
-                <div class="small-7 medium-7 large-7 columns">
-                    <a class="th [radius]" href="#">
-                        <img src="<%=urunler.ElementAt(i).Orta %>" />
-                    </a>
-                </div>
-                <div class="small-9 medium-9 large-9 columns">
-                    <h2><%=urunler.ElementAt(i).Baslik %></h2>
-                    <%=urunler.ElementAt(i).Aciklama %>
+            <div class="small-16 medium-8 large-8 columns">
+                <div class="row">
+                    <div class="small-7 medium-7 large-7 columns">
+                        <a class="th [radius]" href="<%=urunler.ElementAt(i).Url %>">
+                            <img src="<%=urunler.ElementAt(i).FotoOrta %>" />
+                        </a>
+                    </div>
+                    <div class="small-9 medium-9 large-9 columns">
+                        <h2><%=urunler.ElementAt(i).Adi %></h2>
+                        <%=urunler.ElementAt(i).Description %>
+                    </div>
                 </div>
             </div>
-        </div>--%>
 
             <% } %>
         </div>
-
+        <%} %>
         <hr class="fancy-line" />
         <div class="row">
             <div class="large-9 large-centered column text-center">
@@ -142,9 +167,13 @@
         </div>
         <hr class="fancy-line" />
 
+        <% if (true)
+           {%>
+
         <div class="row">
             <div class="large-16">
-                <div id="main-brands-carousel" class="owl-carousel owl-theme">
+
+                <%--<div id="main-brands-carousel" class="owl-carousel owl-theme">
 
                     <div class="item text-center">
                         <a href="#!">
@@ -170,9 +199,14 @@
                         <a href="#!">
                             <img src="img/cTai.png" /></a>
                     </div>
-                </div>
+                </div>--%>
+
+                <%= CarouselOlustur(sayfa.CarouselId) %>
+
             </div>
         </div>
+
+        <% } %>
         <hr class="fancy-line" />
         <div class="row">
             <div class="large-9 large-centered column text-center">
