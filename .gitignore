@@ -13,3 +13,5 @@ Simple/bin/Ws.pdb
 *.pdb
 *.suo
 *.csproj
+*.pdb
+*.dll
