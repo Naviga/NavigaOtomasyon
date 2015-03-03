@@ -3,6 +3,8 @@
 <%@ Import Namespace="Common" %>
 <%@ Import Namespace="Entity" %>
 <%@ Register Src="~/usc/uscIletisimFormu.ascx" TagPrefix="uc1" TagName="uscIletisimFormu" %>
+<%@ Register Src="~/usc/uscHarita.ascx" TagPrefix="uc1" TagName="uscHarita" %>
+
 
 
 <% enSiteHaritasi sayfa = SayfaId == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(SayfaYolu) : bllSiteHaritasi.SayfaGetir(SayfaId); %>
@@ -85,8 +87,7 @@
                {%>
             <div class="page-map row">
                 <div class="large-16 column">
-                    <div id="map-canvas">
-                    </div>
+                    <uc1:uscHarita runat="server" id="uscHarita" />
                 </div>
             </div>
             <%} %>

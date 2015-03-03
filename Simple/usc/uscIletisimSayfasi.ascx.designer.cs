@@ -22,6 +22,15 @@ namespace Ws.usc {
         protected global::System.Web.UI.WebControls.Literal lblSiteMap;
         
         /// <summary>
+        /// uscHarita control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ws.usc.uscHarita uscHarita;
+        
+        /// <summary>
         /// uscIletisimFormu control.
         /// </summary>
         /// <remarks>
