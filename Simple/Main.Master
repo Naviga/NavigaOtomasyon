@@ -144,23 +144,13 @@
                 </nav>
             </div>
         </div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
         <div id="footer">
             <div class="row">
                 <div class="large-4 columns">
-                    <h3 class=" color-primary-blue"><span class="fa fa-map-marker"></span>&nbsp;Adres</h3>
-                    <p>
-                        Kızılırmak Caddesi No:2
-                        <br />
-                        06640 Bakanlıklar / Ankara, Türkiye
-                    </p>
-
-                    <span class="fa fa-2x fa-share-alt-square circle color-primary-blue"></span>&nbsp;
-                    <span class="fa fa-2x fa-facebook-square circle color-secondary-gray"></span>&nbsp;
-                    <span class="fa fa-2x fa-twitter-square circle color-secondary-gray"></span>&nbsp;
-                    <span class="fa fa-2x fa-linkedin-square circle color-secondary-gray"></span>&nbsp;
-                    <span class="fa fa-2x fa-youtube-square circle color-secondary-gray"></span>&nbsp;
+                    <h3 class=" color-primary-blue"><%= BLL.bllDiziler.DiziGetir("Main.Bottom.Title.Address") %></h3>
+                    <%= BLL.bllDiziler.DiziGetir("Main.Bottom.Text.Address") %>
                 </div>
                 <div class="large-4 columns hide-for-small-down">
                     <h3 class="color-primary-blue"><span class="fa fa-users"></span>&nbsp;LOREM IPSUM</h3>
@@ -203,7 +193,7 @@
 
     <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
 
-    
+
     <script src="/admin/foundation/js/foundation.min.js"></script>
     <script src="/owl-carousel/owl.carousel.js"></script>
     <script src="/js/jquery.backstretch.min.js"></script>

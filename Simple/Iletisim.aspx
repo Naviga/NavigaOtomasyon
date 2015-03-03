@@ -6,12 +6,7 @@
 <%@ Register Src="/usc/uscIletisimSayfasi.ascx" TagPrefix="uc1" TagName="uscIletisimSayfasi" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <style>
-        #map-canvas {
-            width: 100%;
-            height: 300px;
-        }
-    </style>
+   
     
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

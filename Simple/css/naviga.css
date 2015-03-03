@@ -147,6 +147,10 @@ button, .button {
     color: #2c2c2c !important;
 }
 
+#defaultContentWrapper {
+    padding-bottom: 260px;
+}
+
 #dvPageWrapper {
     max-width: 75.5em;
     margin: 0 auto;
@@ -157,6 +161,8 @@ button, .button {
     padding-bottom: 260px;
     box-shadow: 0 0 6px 1px rgba(44, 44, 44, 0.5);
 }
+
+
 
 .page-header {
     background-color: #dc010d;

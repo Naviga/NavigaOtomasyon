@@ -1,8 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uscHarita.ascx.cs" Inherits="Ws.usc.uscHarita" %>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+ <style>
+        #map-canvas {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+
 <div class="clear"></div>
-<div id="map-canvas">
+<div id="map-canvas" class="width-100">
 </div>
 <div class="clear"></div>
 <script>
