@@ -1144,6 +1144,7 @@
     <Content Include="slayt\2.jpg" />
     <Content Include="todo.txt" />
     <Content Include="usc\uscAdminUstMenu.ascx" />
+    <Content Include="usc\uscHarita.ascx" />
     <Content Include="usc\uscIletisimFormu.ascx" />
     <Content Include="usc\uscIletisimSayfasi.ascx" />
     <Content Include="usc\uscPozisyonBlok.ascx" />
@@ -1736,6 +1737,13 @@
     </Compile>
     <Compile Include="usc\uscAdminUstMenu.ascx.designer.cs">
       <DependentUpon>uscAdminUstMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usc\uscHarita.ascx.cs">
+      <DependentUpon>uscHarita.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usc\uscHarita.ascx.designer.cs">
+      <DependentUpon>uscHarita.ascx</DependentUpon>
     </Compile>
     <Compile Include="usc\uscIletisimFormu.ascx.cs">
       <DependentUpon>uscIletisimFormu.ascx</DependentUpon>
