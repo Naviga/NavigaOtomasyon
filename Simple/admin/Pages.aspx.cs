@@ -154,7 +154,7 @@ namespace Ws.admin
                 rtsGenel.SelectedIndex = 1;
                 rmpGenel.SelectedIndex = 1;
                 rtsGenel.Tabs[1].Text = "Düzenle";
-                //btnNewPageClear.Visible = true;
+                btnNewPageClear.Visible = true;
 
                 if (Request.Url.AbsoluteUri.Contains("?iframe"))
                 {
@@ -196,6 +196,17 @@ namespace Ws.admin
 
                     node.Selected = true;
                     node.ExpandParentNodes();
+                }
+
+                if (sayfa.CarouselId != null && sayfa.CarouselId != 0)
+                {
+                    enCarousel cars = bllCarousel.Getir(sayfa.CarouselId.Value);
+
+                    ltrCarousel.Text = "<a href='Carousel.aspx?iframe&id=" + sayfa.Id + "' class='iframe'>" + cars.Adi + "</a>";
+                }
+                else
+                {
+                    ltrCarousel.Text = "<a href='Carousel.aspx?iframe&id=" + sayfa.Id + "' class='iframe'>Seç</a>";
                 }
 
                 //if (sayfa.DefaultSayfa)

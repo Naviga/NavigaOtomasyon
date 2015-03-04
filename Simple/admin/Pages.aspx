@@ -467,7 +467,23 @@
                                                 </tr>
 
                                             </table>
+                                            <telerik:RadCodeBlock ID="RadCodeBlock2" runat="server">
+                                                <% if (VwID != null)
+                                                   {%>
+                                                <table>
+                                                    <tr>
+                                                        <td>Carousel / Slider</td>
+                                                        <td>
+                                                            <asp:Literal ID="ltrCarousel" runat="server">
+                                                            
+                                                            </asp:Literal>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <%} %>
+                                            </telerik:RadCodeBlock>
                                         </td>
+
                                         <td valign="top">
                                             <table>
                                                 <%--<tr>

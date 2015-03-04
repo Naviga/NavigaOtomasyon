@@ -30,7 +30,7 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    
+
 </head>
 <body>
 
@@ -147,7 +147,7 @@
             $(".iframe").colorbox({
                 iframe: true, width: "80%", height: "80%", next: "İleri", previous: "Geri", close: "Kapat",
                 onClosed: function () {
-                    //location.href = location.href;
+                    location.href = location.href;
                 }
             });
 

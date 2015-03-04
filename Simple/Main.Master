@@ -19,6 +19,10 @@
     <link href="/exposure_slider/demo4.css" rel="stylesheet" />
     <script src="/admin/foundation/js/vendor/jquery.js"></script>
     <script src="/scripts/AjaxMethods.js"></script>
+    <link href="/colorbox/colorbox.css" rel="stylesheet" />
+    <script src="/colorbox/jquery.colorbox-min.js"></script>
+    <script src="/js/autolink-min.js"></script>
+    <script src="/owl-carousel/owl.carousel.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -33,8 +37,8 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h1 class="hide-for-small-down"><a href="" class="bg-color-primary-blue"><span class="fa fa-home"></span></a></h1>
-                    <h1 class="show-for-small-down"><a href="">
+                    <h1 class="hide-for-small-down"><a href="/" class="bg-color-primary-blue"><span class="fa fa-home"></span></a></h1>
+                    <h1 class="show-for-small-down"><a href="/">
                         <img src="/img/logoH45.png" style="height: 40px" /></a></h1>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -43,58 +47,9 @@
 
             <section class="top-bar-section">
                 <span class="slogan left hide-for-medium-down">&nbsp;&nbsp;<span class="fa fa-quote-left"></span>&nbsp;&nbsp;Yol Gösteriyoruz...&nbsp;&nbsp;<span class="fa fa-quote-right"></span>&nbsp;&nbsp;</span>
-                <%--<ul class="left">
-                            <!--<li class="divider"></li>
-                            <li><a href=""><span class="fa fa-home color-primary-blue"></span></a></li>-->
-                            <li class="divider"></li>
-                            <li><a href="#">Hakkımızda</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Sektörler</a></li>
-                            <!--<li class="divider"></li>
-                            <li><a href="#">Çözümler</a></li>-->
-                            <li class="divider"></li>
-                            <li><a href="#">Referanslar</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Kariyer</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">İletişim</a></li>
-                            <li class="divider"></li>
-                        </ul>--%>
+
                 <%= GetNavigation() %>
-                <!-- Right Nav Section -->
-                <%--<ul class="right">
-                            <li class="has-form">
-                                <div class="row collapse">
-                                    <div class="large-12 small-13 columns">
-                                        <input type="text" placeholder="Arama">
-                                    </div>
-                                    <div class="large-4 small-3 columns">
-                                        <a href="#" class="button expand"><span class="fa fa-search">&nbsp;</span></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>--%>
-                <!--<ul id="ulSocialButtonGroup" class="button-group right hide-for-medium-down">
-                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
-                                    <img src="img/facebook.png" class="circle" width="32px" /></a></li>
-                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
-                                    <img src="img/twitter2.png" class="circle" width="32px" /></a></li>
-                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
-                                    <img src="img/linkedin.png" class="circle" width="32px" /></a></li>
-                            <li><a href="#" class="th [radius] circle reset-padding reset-line-height">
-                                    <img src="img/youtube.png" class="circle" width="32px" /></a></li>
-                        </ul>-->
-                <%--<ul class="right">
-                            <li class="has-dropdown">
-                                <a href="#">Türkçe</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </li>
-                        </ul>--%>
-
-                <!-- Left Nav Section -->
-
+                
             </section>
         </nav>
         <div class="row collapse width-100 bg-color-light-gray">
@@ -195,7 +150,7 @@
 
 
     <script src="/admin/foundation/js/foundation.min.js"></script>
-    <script src="/owl-carousel/owl.carousel.js"></script>
+    
     <script src="/js/jquery.backstretch.min.js"></script>
     <script src="/js/jquery.center.js"></script>
     <script src="/js/general.js"></script>
@@ -208,6 +163,20 @@
 
         $(document).ready(function () {
 
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%", next: "İleri", previous: "Geri", close: "Kapat",
+                onClosed: function () {
+                    location.href = location.href;
+                }
+            });
+
+            $(".picture-gallery").colorbox({
+                rel: 'picture-gallery', width: "80%", height: "80%", scalePhotos: true, current: "Resim {current} / {total}", next: "İleri", previous: "Geri", close: "Kapat",
+                onComplete: function () {
+                    $("#cboxTitle").html($("#cboxTitle").html().autoLink({ target: "_blank" }));
+                }
+            });
+
             $('#dvShare').share({
                 networks: ['facebook', 'twitter', 'googleplus', 'tumblr', 'linkedin', 'pinterest', 'email'],
                 theme: 'square'
@@ -215,20 +184,6 @@
 
             $.backstretch("/img/bg2.jpg");
 
-            $("#main-slider").owlCarousel({
-                navigation: false, // Show next and prev buttons
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                singleItem: true,
-                autoPlay: true
-                // "singleItem:true" is a shortcut for:
-                // items : 1, 
-                // itemsDesktop : false,
-                // itemsDesktopSmall : false,
-                // itemsTablet: false,
-                // itemsMobile : false
-
-            });
             $("#main-news-text-carousel").owlCarousel({
                 autoPlay: false, //Set AutoPlay to 3 seconds
 

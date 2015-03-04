@@ -14,13 +14,11 @@
     <% List<enSiteHaritasi> haberler = bllSiteHaritasi.HaberleriGetir(); %>
 
     <div id="defaultContentWrapper">
-        <div id="main-slider" class="owl-carousel owl-theme">
-            <div class="item">
-                <img src="/slayt/2.jpg" />
-            </div>
-            <div class="item">
-                <img src="/slayt/1.jpg" />
-            </div>
+        <div id="main-slider">
+            <% if (sayfa.CarouselId != null)
+               {%>
+            <%= CarouselOlustur(sayfa.CarouselId) %>
+            <%} %>
         </div>
 
         <div class="row width-100">
@@ -167,47 +165,7 @@
         </div>
         <hr class="fancy-line" />
 
-        <% if (true)
-           {%>
 
-        <div class="row">
-            <div class="large-16">
-
-                <%--<div id="main-brands-carousel" class="owl-carousel owl-theme">
-
-                    <div class="item text-center">
-                        <a href="#!">
-                            <img src="img/cDenizKuvvetleri.png" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!">
-                            <img src="img/cHavaKuvvetleri.png" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!">
-                            <img src="img/cKaraKuvvetleri.png" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!">
-                            <img src="img/cMgk.png" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!">
-                            <img src="img/cMilliSavunma.png" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!">
-                            <img src="img/cTai.png" /></a>
-                    </div>
-                </div>--%>
-
-                <%= CarouselOlustur(sayfa.CarouselId) %>
-
-            </div>
-        </div>
-
-        <% } %>
-        <hr class="fancy-line" />
         <div class="row">
             <div class="large-9 large-centered column text-center">
                 <h1 class="inset color-dark-gray"><span class="fa fa-map-marker"></span>&nbsp;<%= bllDiziler.DiziGetir("Home.Title.Map") %></h1>

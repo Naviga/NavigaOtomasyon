@@ -94,7 +94,7 @@
                {%>
             <div class="page-main-picture row">
 
-                <div class="large-12 column">
+                <div class="large-16 column">
                     <%= CarouselOlustur(sayfa.CarouselId) %>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                {%>
             <div class="page-pictures row">
 
-                <div class="large-12 column">
+                <div class="large-16 column">
                     <% if (sayfa.FotoBaslik.xBosMu() == false)
                        {%>
                     <h3 id='hPagePictureTitle<%= sayfa.Id %>'><%= sayfa.FotoBaslik %></h3>
