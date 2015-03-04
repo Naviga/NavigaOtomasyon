@@ -315,14 +315,14 @@
                             </asp:LinkButton>
                         </ItemTemplate>
                     </telerik:TreeListTemplateColumn>--%>
-                    <%--<telerik:TreeListTemplateColumn HeaderText="F.G." HeaderStyle-Width="5%" ItemStyle-HorizontalAlign="Center" HeaderTooltip="Footer (sayfa altı) menü görünürlüğü" AllowSorting="False">
+                    <telerik:TreeListTemplateColumn HeaderText="F.G." HeaderStyle-Width="5%" ItemStyle-HorizontalAlign="Center" HeaderTooltip="Footer (sayfa altı) menü görünürlüğü" AllowSorting="False">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkFooterGorunurluk" runat="server" OnClick="lnkFooterGorunurluk_OnClick"
                                 CommandArgument='<%# Eval("Id") %>'>
                                                 <%# Eval("Footer").xToBooleanDefault() == false ? "<img src='/admin/css/img/bos.png' title='Sayfayı footer (sayfa altı) menüde görünür yapmak için tıklayın.' width='24px' height='24px' />" : "<img src='/admin/css/img/dolu.png' title='Sayfayı footer (sayfa altı) menüde görünmez yapmak için tıklayın.' width='24px' height='24px'  />"%>
                             </asp:LinkButton>
                         </ItemTemplate>
-                    </telerik:TreeListTemplateColumn>--%>
+                    </telerik:TreeListTemplateColumn>
                     <telerik:TreeListTemplateColumn HeaderText="Yayında" HeaderStyle-Width="5%" ItemStyle-HorizontalAlign="Center" HeaderTooltip="Sayfanın yayın durumu" AllowSorting="False">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkStatuDegistir" runat="server" OnClick="lnkStatuDegistir_Click"

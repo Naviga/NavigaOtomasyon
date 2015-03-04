@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uscStandartSayfa.ascx.cs" Inherits="Ws.usc.uscStandartSayfa" %>
 <%@ Import Namespace="BLL" %>
-<%@ Import Namespace="Common" %>
 <%@ Import Namespace="Entity" %>
 
 <% enSiteHaritasi sayfa = SayfaId == 0 ? bllSiteHaritasi.SayfaGetirFiziksel(SayfaYolu) : bllSiteHaritasi.SayfaGetir(SayfaId); %>

@@ -37,8 +37,8 @@
                     <div class="item">
                         <a href="<%=haberler.ElementAt(i).Url %>" class="left th">
                             <img style="width: 150px;" src="<%=haberler.ElementAt(i).FotoOrta %>" /></a>
-                        <h2><%=haberler.ElementAt(i).Adi %></h2>
-                        <%=haberler.ElementAt(i).Icerik.xToRemoveHTMLTags().xLeft(50) %>...
+                        <h2><a href='<%=haberler.ElementAt(i).Url%>'><%=haberler.ElementAt(i).Adi %></a></h2>
+                        <%=haberler.ElementAt(i).Icerik.xToRemoveHTMLTags().xLeft(100) %>...
                     </div>
                     <%} %>
                 </div>
@@ -89,65 +89,16 @@
 
             <% List<enSiteHaritasi> urunler = bllSiteHaritasi.VitrinGetir(); %>
 
-            <% if (urunler.Count > 1)
-               {%>
-
-            <%for (int i = 0; i < 2; i++)
+            <%for (int i = 0; i < urunler.Count; i++)
               {%>
-
-            <div class="small-16 medium-8 large-8 columns">
+            <div class="large-8 columns">
                 <div class="row">
-                    <div class="small-7 medium-7 large-7 columns">
+                    <div class="large-3 columns">
                         <a class="th [radius]" href="<%=urunler.ElementAt(i).Url %>">
-                            <img src="<%=urunler.ElementAt(i).FotoOrta %>" />
+                            <img src="<%=urunler.ElementAt(i).FotoBuyuk %>" />
                         </a>
                     </div>
-                    <div class="small-9 medium-9 large-9 columns">
-                        <h2><%=urunler.ElementAt(i).Adi %></h2>
-                        <%=urunler.ElementAt(i).Description %>
-                    </div>
-                </div>
-            </div>
-
-            <%} %>
-
-            <% } %>
-
-            <% else if (urunler.Count == 1)
-               {%>
-
-            <div class="small-16 medium-8 large-8 columns">
-                <div class="row">
-                    <div class="small-7 medium-7 large-7 columns">
-                        <a class="th [radius]" href="<%=urunler.ElementAt(0).Url %>">
-                            <img src="<%=urunler.ElementAt(0).FotoOrta %>" />
-                        </a>
-                    </div>
-                    <div class="small-9 medium-9 large-9 columns">
-                        <h2><%=urunler.ElementAt(0).Adi %></h2>
-                        <%=urunler.ElementAt(0).Description %>
-                    </div>
-                </div>
-            </div>
-
-            <%  } %>
-        </div>
-        <% if (urunler.Count > 2)
-           {%>
-        <hr class="fancy-line" />
-        <div class="row">
-
-            <%for (int i = 2; i < 4; i++)
-              {%>
-
-            <div class="small-16 medium-8 large-8 columns">
-                <div class="row">
-                    <div class="small-7 medium-7 large-7 columns">
-                        <a class="th [radius]" href="<%=urunler.ElementAt(i).Url %>">
-                            <img src="<%=urunler.ElementAt(i).FotoOrta %>" />
-                        </a>
-                    </div>
-                    <div class="small-9 medium-9 large-9 columns">
+                    <div class="large-13 columns">
                         <h2><%=urunler.ElementAt(i).Adi %></h2>
                         <%=urunler.ElementAt(i).Description %>
                     </div>
@@ -156,16 +107,13 @@
 
             <% } %>
         </div>
-        <%} %>
-        <hr class="fancy-line" />
+        <%--<hr class="fancy-line" />
         <div class="row">
             <div class="large-9 large-centered column text-center">
                 <h2><span class="fa fa-quote-left"></span>&nbsp;&nbsp;<%= bllDiziler.DiziGetir("Home.Slogan.Text") %>&nbsp;&nbsp;<span class="fa fa-quote-right"></span></h2>
             </div>
-        </div>
+        </div>--%>
         <hr class="fancy-line" />
-
-
         <div class="row">
             <div class="large-9 large-centered column text-center">
                 <h1 class="inset color-dark-gray"><span class="fa fa-map-marker"></span>&nbsp;<%= bllDiziler.DiziGetir("Home.Title.Map") %></h1>

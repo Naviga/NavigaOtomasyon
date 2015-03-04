@@ -22,6 +22,15 @@ namespace Ws {
         protected global::Ws.usc.uscUrunSayfa uscUrunSayfa;
         
         /// <summary>
+        /// uscHaberSayfa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ws.usc.uscHaberSayfa uscHaberSayfa;
+        
+        /// <summary>
         /// uscStandartSayfa control.
         /// </summary>
         /// <remarks>

@@ -27,19 +27,31 @@ html, body
     left: 0;
     background: #222;
     border-top: #333;
-    
     color: #efefef;
     padding: 20px;
 }
 
-#footer p {
-    font-size: .8rem;
-    letter-spacing: .1em;
-}
+    #footer a
+    {
+        color: #efefef !important;
+    }
 
-#footer li {
-    font-size: .8rem;
-}
+    #footer h3 a
+    {
+        color: #dc010d !important;
+        text-decoration: none !important;
+    }
+
+    #footer p
+    {
+        font-size: .8rem;
+        letter-spacing: .1em;
+    }
+
+    #footer li
+    {
+        font-size: .8rem;
+    }
 
 hr.fancy-line
 {
@@ -147,6 +159,12 @@ hr.fancy-line
     height: auto;
 }
 
+    #main-news h2 a
+    {
+        color: #dc010d !important;
+    }
+
+
 #main-news-text
 {
     height: 194px;
@@ -235,13 +253,12 @@ h1
     letter-spacing: .2em;
 }
 
-.sayfaBasliklar {
-
+.sayfaBasliklar
+{
     font-size: 3.4rem;
     font-weight: 300;
     letter-spacing: .2em;
-    margin-top:35px;
-
+    margin-top: 35px;
 }
 
 .inset
@@ -311,6 +328,7 @@ h1
     height: 200px;
     margin-bottom: -40px;
 }
+
 @media only screen and (max-width: 55em)
 {
     .top-bar-section ul li > a
@@ -318,3 +336,29 @@ h1
         font-size: .7rem !important;
     }
 }
+
+.Thumb p
+{
+    font-size: 75%;
+    margin-top: -0.3em;
+}
+
+.imgThumb
+{
+    background-position: left center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 0;
+    margin-top: 1em;
+}
+
+    .imgThumb a
+    {
+        display: block;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }

@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Ws.Main" %>
 
+<%@ Import Namespace="BLL" %>
+<%@ Import Namespace="Entity" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -49,7 +52,6 @@
                 <span class="slogan left hide-for-medium-down">&nbsp;&nbsp;<span class="fa fa-quote-left"></span>&nbsp;&nbsp;Yol Gösteriyoruz...&nbsp;&nbsp;<span class="fa fa-quote-right"></span>&nbsp;&nbsp;</span>
 
                 <%= GetNavigation() %>
-                
             </section>
         </nav>
         <div class="row collapse width-100 bg-color-light-gray">
@@ -102,21 +104,33 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <div id="footer">
+            <% List<enSiteHaritasi> fUstSayfalar = bllSiteHaritasi.FooterUstSayfalariGetirList(true); 
+            %>
             <div class="row">
                 <div class="large-4 columns">
                     <h3 class=" color-primary-blue"><%= BLL.bllDiziler.DiziGetir("Main.Bottom.Title.Address") %></h3>
                     <%= BLL.bllDiziler.DiziGetir("Main.Bottom.Text.Address") %>
                 </div>
+                <% foreach (enSiteHaritasi sayfa in fUstSayfalar)
+                   {%>
                 <div class="large-4 columns hide-for-small-down">
-                    <h3 class="color-primary-blue"><span class="fa fa-users"></span>&nbsp;LOREM IPSUM</h3>
+                    <h3 class="color-primary-blue"><a class="color-primary-blue" href='<%= sayfa.Url %>'><%= sayfa.Adi %></a></h3>
+
+                    <% List<enSiteHaritasi> fAltSayfalar = bllSiteHaritasi.FooterAltSayfalariGetirList(sayfa.Id, true); %>
+
                     <ul class="no-bullet">
-                        <li>List item with a much</li>
-                        <li>List item</li>
-                        <li>List item with a much</li>
-                        <li>List item</li>
+
+                        <% foreach (enSiteHaritasi altSayfa in fAltSayfalar)
+                           {%>
+
+                        <li><a href='<%= altSayfa.Url %>'><%= altSayfa.Adi %></a></li>
+
+                        <%} %>
                     </ul>
                 </div>
-                <div class="large-4 columns hide-for-small-down">
+                <% } %>
+
+                <%--<div class="large-4 columns hide-for-small-down">
                     <h3 class="color-primary-blue"><span class="fa fa-code-fork"></span>&nbsp;LOREM IPSUM</h3>
                     <ul class="no-bullet">
                         <li>List item with a much</li>
@@ -133,7 +147,7 @@
                         <li>List item with a much</li>
                         <li>List item</li>
                     </ul>
-                </div>
+                </div>--%>
             </div>
             <div class="row width-100">
                 <div class="large-16 text-center">
@@ -146,11 +160,8 @@
         </div>
     </div>
 
-    <%--<script src="exposure_slider/jquery-1.10.2.min.js"></script>--%>
-
-
     <script src="/admin/foundation/js/foundation.min.js"></script>
-    
+
     <script src="/js/jquery.backstretch.min.js"></script>
     <script src="/js/jquery.center.js"></script>
     <script src="/js/general.js"></script>
@@ -160,6 +171,8 @@
     <script src="/jShare/jquery.share.js"></script>
     <script>
         $(document).foundation();
+
+        $(".imgThumb").css("height", $(".imgThumb").width() / 1.5);
 
         $(document).ready(function () {
 
@@ -214,95 +227,6 @@
 
             });
 
-            //$(function () {
-            //    var gallery = $('#images');
-            //    gallery.exposure({
-            //        controlsTarget: '#controls',
-            //        controls: { prevNext: true, pageNumbers: true, firstLast: false },
-            //        visiblePages: 2,
-            //        slideshowControlsTarget: '#slideshow',
-            //        onThumb: function (thumb) {
-            //            var li = thumb.parents('li');
-            //            var fadeTo = li.hasClass($.exposure.activeThumbClass) ? 1 : 0.3;
-
-            //            thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
-
-            //            thumb.hover(function () {
-            //                thumb.fadeTo('fast', 1);
-            //            }, function () {
-            //                li.not('.' + $.exposure.activeThumbClass).children('img').fadeTo('fast', 0.3);
-            //            });
-            //        },
-            //        onImage: function (image, imageData, thumb) {
-            //            // Fade out the previous image.
-            //            image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
-            //                $(this).remove();
-            //            });
-
-            //            // Fade in the current image.
-            //            image.hide().stop().fadeIn(1000);
-
-            //            // Fade in selected thumbnail (and fade out others).
-            //            if (gallery.showThumbs && thumb && thumb.length) {
-            //                thumb.parents('li').siblings().children('img.' + $.exposure.selectedImageClass).stop().fadeTo(200, 0.3, function () { $(this).removeClass($.exposure.selectedImageClass); });
-            //                thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
-            //            }
-            //        },
-            //        onPageChanged: function () {
-            //            // Fade in thumbnails on current page.
-            //            gallery.find('li.' + $.exposure.currentThumbClass).hide().stop().fadeIn('fast');
-            //        }
-            //    });
-            //});
-
-            $(function () {
-                var gallery = $('#images');
-                gallery.exposure({
-                    carouselControls: true,
-                    imageControls: true,
-                    pageSize: 5,
-                    slideshowControlsTarget: '#slideshow',
-                    onThumb: function (thumb) {
-                        var li = thumb.parents('li');
-                        var fadeTo = li.hasClass($.exposure.activeLinkClass) ? 1 : 0.3;
-
-                        thumb.css({ display: 'none', opacity: fadeTo }).stop().fadeIn(200);
-
-                        thumb.hover(function () {
-                            thumb.fadeTo('fast', 1);
-                        }, function () {
-                            li.not('.' + $.exposure.activeLinkClass).children('img').fadeTo('fast', 0.3);
-                        });
-                    },
-                    onImage: function (image, imageData, thumb) {
-                        // Fade out the previous image.
-                        image.siblings('.' + $.exposure.lastImageClass).stop().fadeOut(500, function () {
-                            $(this).remove();
-                        });
-
-                        // Fade in the current image.
-                        image.hide().stop().fadeIn(1000);
-
-                        if (gallery.showThumbs && thumb && thumb.length) {
-                            thumb.fadeTo('fast', 1).addClass($.exposure.selectedImageClass);
-                        }
-                    },
-                    onCarousel: function (firstImage, lastImage) {
-                        $('.' + $.exposure.thumbsClass + ' li').hide().children('img.' + $.exposure.selectedImageClass).stop().css('opacity', 0.3).removeClass($.exposure.selectedImageClass);
-                    },
-                    onSlideshowPlayed: function () {
-                        $('.' + $.exposure.pauseSlideshowClass).css('display', 'inline');
-                    }
-                });
-
-                $('#left a').click(function () {
-                    gallery.nextImage();
-                });
-
-                $('#right a').click(function () {
-                    gallery.prevImage();
-                });
-            });
 
         });
 

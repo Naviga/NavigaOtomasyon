@@ -6,12 +6,15 @@
 <%@ Import Namespace="Entity" %>
 <%@ Register Src="/usc/uscStandartSayfa.ascx" TagPrefix="uc1" TagName="uscStandartSayfa" %>
 <%@ Register Src="~/usc/uscUrunSayfa.ascx" TagPrefix="uc1" TagName="uscUrunSayfa" %>
+<%@ Register Src="~/usc/uscHaberSayfa.ascx" TagPrefix="uc1" TagName="uscHaberSayfa" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <%enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetir(RouteData.Values["Id"].xToIntDefault());%>
+
     <div id="dvPageWrapper" class="bg-color-light-gray">
 
 
@@ -23,7 +26,13 @@
 
         <uc1:uscUrunSayfa runat="server" ID="uscUrunSayfa" />
 
-        <% }%>
+        <% }
+           else if (sayfa.HaberMi)
+           {
+               uscHaberSayfa.SayfaId = sayfa.Id;
+        %>
+        <uc1:uscHaberSayfa runat="server" ID="uscHaberSayfa" />
+        <%} %>
 
         <%else
            {
@@ -40,25 +49,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="maincntScript" runat="server">
 
-    <%--<script type="text/javascript">
-        $(document).ready(function () {
-
-            $(".fancybox").fancybox({
-                openEffect: 'none',
-                closeEffect: 'none'
-            });
-
-        });
-    </script>--%>
-
-    <script>
+<%--    <script>
 
         $(document).ready(function () {
-
-            //$(".fancybox").fancybox({
-            //    openEffect: 'none',
-            //    closeEffect: 'none'
-            //});
 
             var sync1 = $("#sync1");
             var sync2 = $("#sync2");
@@ -133,6 +126,6 @@
             }
 
         });
-    </script>
+    </script>--%>
 
 </asp:Content>

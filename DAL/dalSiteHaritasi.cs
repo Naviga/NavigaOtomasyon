@@ -522,6 +522,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.CarouselId = rw["site_car_id"].xToInt();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.HaberMi = rw["site_haberMi"].xToBooleanDefault();
                 sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
@@ -883,6 +884,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.CarouselId = rw["site_car_id"].xToInt();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.HaberMi = rw["site_haberMi"].xToBooleanDefault();
                 sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
@@ -943,6 +945,7 @@ namespace DAL
                 sayfa.List = rw["site_list"].xToBooleanDefault();
                 sayfa.CarouselId = rw["site_car_id"].xToInt();
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
+                sayfa.HaberMi = rw["site_haberMi"].xToBooleanDefault();
                 sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
             }
 
@@ -1280,12 +1283,14 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parent AND site_footer = @footer " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
+            //AND site_footer = @footer
+
+            sb.Append("SELECT * FROM SiteHaritasi WHERE site_parent = @parent " + (statu != null ? " AND site_statu = @statu " : "") + " ORDER BY site_sira");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@parent", parentId);
-            adp.SelectCommand.Parameters.AddWithValue("@footer", true);
+            //adp.SelectCommand.Parameters.AddWithValue("@footer", true);
 
             if (statu != null)
             {
