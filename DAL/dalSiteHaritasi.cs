@@ -558,7 +558,7 @@ namespace DAL
             dict.Add("site_list", site.List);
             dict.Add("site_urunMu", site.UrunMu);
             dict.Add("site_haberMi", site.HaberMi);
-            dict.Add("site_sag_altMenu",site.SagAltMenu);
+            dict.Add("site_sag_altMenu", site.SagAltMenu);
             dict.Add("site_sol_altMenu", site.SolAltMenu);
 
             site.Id = FxMySqlHelper.Insert("SiteHaritasi", dict, true);
@@ -1483,9 +1483,15 @@ namespace DAL
         public void CarouselSec(int sayfaId, int carouseId, bool carouselSec)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
-            dict.Add("site_car_id", carouselSec ? carouseId : 0);
+            if (carouselSec)
+            {
+                dict.Add("site_car_id", carouseId);
+            }
+            else
+            {
+                dict.Add("site_car_id", null);
+            }
 
             FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", sayfaId);
         }
@@ -1683,7 +1689,7 @@ namespace DAL
                         icerikresimleri i on s.site_id=i.icrkRes_site_id
                         where site_haberMi=@haber and site_statu=true");
 
-            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(),FxMySqlHelper.Connection());
+            MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
             adp.SelectCommand.Parameters.AddWithValue("@haber", true);
 
@@ -1805,7 +1811,7 @@ namespace DAL
 
         }
 
-        public void VitrindeGoster(int sayfaId,bool vitrin)
+        public void VitrindeGoster(int sayfaId, bool vitrin)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
