@@ -44,7 +44,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
@@ -1287,8 +1288,6 @@
     <Content Include="yukleme\resim\3x.jpg" />
     <Content Include="yukleme\resim\7632796322_c390760a1b.jpg" />
     <Content Include="yukleme\resim\CarouselResim\309aa8f5-9ddf-4f43-98d7-02579c177be9.jpg" />
-    <Content Include="yukleme\resim\CarouselResim\3b5137dc-75db-41bb-98b7-f469861b6e8f.jpg" />
-    <Content Include="yukleme\resim\CarouselResim\3eceded0-1948-41ef-8889-e88479fce11d.jpg" />
     <Content Include="yukleme\resim\CarouselResim\55ee5b14-9b0c-44d8-a308-b24ce554ecd3.jpg" />
     <Content Include="yukleme\resim\CarouselResim\5a1761d7-06c1-4d7f-87f0-4841eb6bc32b.jpg" />
     <Content Include="yukleme\resim\CarouselResim\814e1db0-af8c-440b-b8f3-08f3a0dd0286.jpg" />
@@ -1296,9 +1295,7 @@
     <Content Include="yukleme\resim\CarouselResim\b9bcfb7b-cbfd-43d2-8da8-c793a2b53fa0.jpg" />
     <Content Include="yukleme\resim\CarouselResim\ba444d0f-c094-42ba-ad46-af5dd0c84480.jpg" />
     <Content Include="yukleme\resim\CarouselResim\bb1e060c-0cc0-4901-8400-8bb3d6f7db3b.jpg" />
-    <Content Include="yukleme\resim\CarouselResim\c2c8466a-9ae3-4008-a439-c3468f2d2c5b.jpg" />
     <Content Include="yukleme\resim\CarouselResim\ec35f1ea-994a-4747-8bab-d69044746d7a.jpg" />
-    <Content Include="yukleme\resim\CarouselResim\fac5899b-b0ac-4121-8138-71e42ec9f039.jpg" />
     <Content Include="yukleme\resim\cases_separator.png" />
     <Content Include="yukleme\resim\cases_separator_reverse.png" />
     <Content Include="yukleme\resim\facebook_icon_48.png" />
