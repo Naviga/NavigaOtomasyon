@@ -99,7 +99,7 @@
                         </a>
                     </div>
                     <div class="large-13 columns">
-                        <h2><%=urunler.ElementAt(i).Adi %></h2>
+                        <h2><a href='<%=urunler.ElementAt(i).Url %>'><%=urunler.ElementAt(i).Adi %></a></h2>
                         <%=urunler.ElementAt(i).Description %>
                     </div>
                 </div>

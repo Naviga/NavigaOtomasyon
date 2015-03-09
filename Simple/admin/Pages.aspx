@@ -580,8 +580,8 @@
                                     </Content>
                                     <ImageManager DeletePaths="~/yukleme/resim" MaxUploadFileSize="100000000" UploadPaths="~/yukleme/resim"
                                         ViewPaths="~/yukleme/resim" />
-                                    <DocumentManager DeletePaths="~/yukleme/" MaxUploadFileSize="100000000" UploadPaths="~/yukleme/"
-                                        ViewPaths="~/yukleme/" SearchPatterns="*.jpg,*.doc,*.docx,*.txt,*.png" />
+                                    <DocumentManager DeletePaths="~/yukleme/" MaxUploadFileSize="100000000" UploadPaths="~/yukleme/dokuman"
+                                        ViewPaths="~/yukleme/" SearchPatterns="*.jpg,*.doc,*.docx,*.txt,*.png,*.pdf" />
                                     <FlashManager DeletePaths="~/yukleme/flash" MaxUploadFileSize="100000000" UploadPaths="~/yukleme/flash"
                                         ViewPaths="~/yukleme/flash" />
                                     <MediaManager DeletePaths="~/yukleme/media" EnableAsyncUpload="True" UploadPaths="~/yukleme/media" ViewPaths="~/yukleme/media" MaxUploadFileSize="100000000" />

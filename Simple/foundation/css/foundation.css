@@ -5856,14 +5856,14 @@ td
 /* Default Link Styles */
 a
 {
-    color: #007ec2;
+    color: #dc010d;
     text-decoration: none;
     line-height: inherit;
 }
 
     a:hover, a:focus
     {
-        color: #006ca7;
+        color: #b8000a;
     }
 
     a img

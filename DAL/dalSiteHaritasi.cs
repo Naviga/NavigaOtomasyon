@@ -524,6 +524,8 @@ namespace DAL
                 sayfa.UrunMu = rw["site_urunMu"].xToBooleanDefault();
                 sayfa.HaberMi = rw["site_haberMi"].xToBooleanDefault();
                 sayfa.Vitrin = rw["site_vitrin"].xToBooleanDefault();
+                sayfa.SolAltMenu = rw["site_sol_altMenu"].xToBooleanDefault();
+                sayfa.SagAltMenu = rw["site_sag_altMenu"].xToBooleanDefault();
             }
 
             return sayfa;
@@ -593,6 +595,10 @@ namespace DAL
             dict.Add("site_sayfaYolu", site.SayfaYolu);
             dict.Add("site_sayfaMenu", site.SayfaMenu);
             dict.Add("site_list", site.List);
+            dict.Add("site_urunMu", site.UrunMu);
+            dict.Add("site_haberMi", site.HaberMi);
+            dict.Add("site_sag_altMenu", site.SagAltMenu);
+            dict.Add("site_sol_altMenu", site.SolAltMenu);
 
             FxMySqlHelper.Update("SiteHaritasi", dict, "site_id", site.Id);
         }
@@ -1690,14 +1696,16 @@ namespace DAL
         public List<enSiteHaritasi> HaberleriGetir()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk FROM navigadb.siteharitasi s inner join 
-                        icerikresimleri i on s.site_id=i.icrkRes_site_id
-                        where site_haberMi=@haber and site_statu=true");
+            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk 
+                        FROM navigadb.siteharitasi s 
+                        inner join icerikresimleri i on s.site_id = i.icrkRes_site_id and i.icrkRes_anaResim = @anaResim
+                        where site_haberMi = @haber and site_statu = @statu");
 
             MySqlDataAdapter adp = new MySqlDataAdapter(sb.ToString(), FxMySqlHelper.Connection());
 
+            adp.SelectCommand.Parameters.AddWithValue("@anaResim", true);
             adp.SelectCommand.Parameters.AddWithValue("@haber", true);
-
+            adp.SelectCommand.Parameters.AddWithValue("@statu", true);
 
             DataTable dt = new DataTable();
             adp.Fill(dt);
