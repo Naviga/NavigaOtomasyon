@@ -12,6 +12,7 @@
 
     <% enSiteHaritasi sayfa = bllSiteHaritasi.SayfaGetirFiziksel("~/Default.aspx"); %>
     <% List<enSiteHaritasi> haberler = bllSiteHaritasi.HaberleriGetir(); %>
+    <% List<enIcerikResim> resimler = bllIcerikResimleri.ResimleriGetir(sayfa.Id, true); %>
 
     <div id="defaultContentWrapper">
         <div id="main-slider">
@@ -46,30 +47,13 @@
             <div id="main-news-seperator" class="medium-3 large-2 columns hide-for-small-down"></div>
             <div id="main-news-image" class="small-16 medium-6 large-7 columns bg-color-dark-gray">
                 <div id="main-news-image-carousel" class="owl-carousel owl-theme">
-                    <div class="item text-center">
-                        <a href="carousel/c1.jpg" class="left th">
-                            <img src="carousel/c1.jpg" /></a>
+                    <% foreach (enIcerikResim resim in resimler)
+                       {%>
+                    <div class="item">
+                        <a href="<%= resim.Buyuk %>" class="left th picture-gallery" title="<%= resim.Aciklama %>">
+                            <img src="<%= resim.Orta %>" alt="<%= resim.Aciklama %>" style="width: 150px;" /></a>
                     </div>
-                    <div class="item text-center">
-                        <a href="#!" class="left th">
-                            <img src="carousel/c2.jpg" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!" class="left th">
-                            <img src="carousel/c1.jpg" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!" class="left th">
-                            <img src="carousel/c2.jpg" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!" class="left th">
-                            <img src="carousel/c1.jpg" /></a>
-                    </div>
-                    <div class="item text-center">
-                        <a href="#!" class="left th">
-                            <img src="carousel/c2.jpg" /></a>
-                    </div>
+                    <%} %>
                 </div>
             </div>
         </div>
@@ -91,14 +75,14 @@
 
             <%for (int i = 0; i < urunler.Count; i++)
               {%>
-            <div class="large-8 columns">
+            <div class="large-4 columns <%= i == urunler.Count-1 ? " end" : "" %>">
                 <div class="row">
-                    <div class="large-3 columns">
-                        <a class="th [radius]" href="<%=urunler.ElementAt(i).Url %>">
-                            <img src="<%=urunler.ElementAt(i).FotoBuyuk %>" />
-                        </a>
+                    <div class="Thumb large-6 columns ">
+                        <div class="imgThumb th" style="background-image: url(<%= urunler.ElementAt(i).FotoBuyuk %>)">
+                            <a href="<%=urunler.ElementAt(i).Url %>"></a>
+                        </div>
                     </div>
-                    <div class="large-13 columns">
+                    <div class="large-10 columns">
                         <h2><a href='<%=urunler.ElementAt(i).Url %>'><%=urunler.ElementAt(i).Adi %></a></h2>
                         <%=urunler.ElementAt(i).Description %>
                     </div>

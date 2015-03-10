@@ -110,15 +110,13 @@
                         <% int i = 0; foreach (enSiteHaritasi urun in tumUrunler)
                            {%>
 
-                        <div class="large-2 columns <%= i == tumUrunler.Count-1 ? " end":"" %>">
-                            <a href='<%= urun.Url %>' class="th">
-                                <img src="<%= urun.FotoOrta %>" alt="" />
-                                
-                            </a>
-                            <br />
-                            <small><a href='<%= urun.Url %>'>
-                                <%= urun.Adi %></a></small>
+                        <div class="Thumb small-4 large-4 columns <%= i == tumUrunler.Count-1 ? " end" : "" %>">
+                            <div class="imgThumb th" style="background-image: url(<%= urun.FotoOrta %>)">
+                                <a href='<%= urun.Url %>' title='<%= urun.Description %>'></a>
+                            </div>
+                            <p><a href='<%= urun.Url %>' title='<%= urun.Description %>'><%= urun.Adi %></a></p>
                         </div>
+
 
 
                         <% i++;
@@ -157,4 +155,3 @@
             <%} %>
         </div>
     </div>
-

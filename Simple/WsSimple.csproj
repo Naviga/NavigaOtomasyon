@@ -1149,6 +1149,7 @@
     <Content Include="usc\uscHarita.ascx" />
     <Content Include="usc\uscIletisimFormu.ascx" />
     <Content Include="usc\uscIletisimSayfasi.ascx" />
+    <Content Include="usc\uscKurBilgileri.ascx" />
     <Content Include="usc\uscPozisyonBlok.ascx" />
     <Content Include="usc\uscStandartSayfa.ascx" />
     <Content Include="usc\uscTeknikDestekFormu.ascx" />
@@ -1599,6 +1600,13 @@
     </Compile>
     <Compile Include="usc\uscIletisimSayfasi.ascx.designer.cs">
       <DependentUpon>uscIletisimSayfasi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usc\uscKurBilgileri.ascx.cs">
+      <DependentUpon>uscKurBilgileri.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usc\uscKurBilgileri.ascx.designer.cs">
+      <DependentUpon>uscKurBilgileri.ascx</DependentUpon>
     </Compile>
     <Compile Include="usc\uscPozisyonBlok.ascx.cs">
       <DependentUpon>uscPozisyonBlok.ascx</DependentUpon>

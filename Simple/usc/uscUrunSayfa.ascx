@@ -29,7 +29,7 @@
 </div>
 
 <div class="row">
-    <div class="large-2 columns">
+    <div class="large-4 columns">
 
         <% for (int i = 0; i < resimler.Count; i++)
            {%>
@@ -41,7 +41,7 @@
 
         <%}%>
     </div>
-    <div class="large-14 columns">
+    <div class="large-12 columns">
 
         <p><%= sayfa.Icerik %></p>
 

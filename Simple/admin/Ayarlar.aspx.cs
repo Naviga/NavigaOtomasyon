@@ -530,6 +530,7 @@ namespace Ws.admin
             gmap.Latitude = txtLat.Text;
             gmap.Longitude = txtLong.Text;
             gmap.Metin = edtGmapMetin.Content;
+            gmap.Id = 1;
 
             bllGmap.GmapGuncelle(gmap);
 

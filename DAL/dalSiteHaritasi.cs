@@ -1827,7 +1827,6 @@ namespace DAL
         public void VitrindeGoster(int sayfaId, bool vitrin)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            List<object> degerList = new List<object>();
 
             dict.Add("site_vitrin", vitrin);
 
@@ -1838,7 +1837,8 @@ namespace DAL
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk FROM navigadb.siteharitasi s inner join 
+            sb.Append(@"SELECT s.*,i.icrkRes_kucuk,i.icrkRes_orta,i.icrkRes_buyuk 
+                        FROM navigadb.siteharitasi s inner join 
                         icerikresimleri i on s.site_id=i.icrkRes_site_id
                         where site_urunMu=@urun and site_statu=@statu and site_vitrin=@vitrin");
 

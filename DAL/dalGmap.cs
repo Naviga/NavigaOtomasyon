@@ -46,13 +46,13 @@ namespace DAL
             Dictionary<string, object> dict = new Dictionary<string, object>();
             List<object> degerList = new List<object>();
 
-            dict.Add("gmap_lat",gmap.Latitude); degerList.Add(gmap.Latitude);
+            dict.Add("gmap_lat", gmap.Latitude); degerList.Add(gmap.Latitude);
             dict.Add("gmap_long", gmap.Longitude); degerList.Add(gmap.Longitude);
             dict.Add("gmap_apiKey", gmap.APIKey); degerList.Add(gmap.APIKey);
             dict.Add("gmap_statu", gmap.Statu); degerList.Add(gmap.Statu);
             dict.Add("gmap_metin", gmap.Metin); degerList.Add(gmap.Metin);
 
-            FxMySqlHelper.Insert("GMap", dict);
+            FxMySqlHelper.Update("GMap", dict, "gmap_id", gmap.Id);
         }
     }
 }
